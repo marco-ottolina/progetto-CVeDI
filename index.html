@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="ita">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link href="./css/bootstrap-css/bootstrap.css" rel="stylesheet">
+    <script src="./js/bootstrap-js/bootstrap.bundle.js"></script>
+    <title> homepage </title>
+</head>
+
+<body>
+
+<!-- navbar -->
+<nav class="navbar hoverable mt-4 mx-3 sticky-top top-0">
+    <div class="container-fluid px-4 py-2  liquidGlass-wrapper">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <!-- <div class="liquidGlass-shine"></div> -->
+        <a class="navbar-brand liquidGlass-text" href="index.html">
+            <img alt="Logo" class="d-inline-block align-text-top" height="50" src="img/Logo.svg" width="50">
+        </a>
+        <div class="liquidGlass-text">
+            <button aria-controls="offcanvasFull" class="btn" data-bs-target="#offcanvasFull" data-bs-toggle="offcanvas"
+                    type="button">
+                Prenota <i class="bi bi-arrow-right"></i>
+            </button>
+            <button aria-controls="offcanvasFull" class="btn btn-empty" data-bs-target="#offcanvasFull" data-bs-toggle="offcanvas"
+                    type="button">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+    </div>
+</nav>
+
+<!-- Offcanvas Fullpage -->
+<div aria-labelledby="offcanvasFullLabel" class="offcanvas offcanvas-start" id="offcanvasFull" tabindex="-1">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasFullLabel">Menu</h5>
+        <button class="btn-close" data-bs-dismiss="offcanvas" type="button"></button>
+    </div>
+    <div class="offcanvas-body">
+        Contenuto dell’offcanvas fullpage
+    </div>
+</div>
+
+</body>
+
+</html>
