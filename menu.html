@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <!-- <link rel="icon" type="image/jpeg" href="/assets/images/others/logo.jpg"> -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- BOOTSTRAP CSS -->
+    <link href="./css/bootstrap-css/bootstrap.css" rel="stylesheet">
+    <!-- BOOTSTRAP JS BUNDLE -->
+    <script src="./js/bootstrap-js/bootstrap.js"></script>
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body id="body">
+    <div class="circle"></div>
+
+
+
+    <!-- navbar -->
+    <nav class="navbar hoverable mt-4 mx-3 sticky-top top-0">
+    <div class="container-fluid px-4 py-2 liquidGlass-wrapper">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-shine"></div>
+        <a class="navbar-brand liquidGlass-text" href="index.html">
+            <img src="img/Logo.svg" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+        </a>
+        <div class="liquidGlass-text">
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFull" aria-controls="offcanvasFull">
+                Prenota <i class="bi bi-arrow-right"></i>
+            </button>
+            <button class="btn btn-empty" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFull" aria-controls="offcanvasFull">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+    </div>
+    </nav>
+
+    <!-- Offcanvas Fullpage -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFull" aria-labelledby="offcanvasFullLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasFullLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        Contenuto dell’offcanvas fullpage
+    </div>
+    </div>
+
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="/img/video-prova.mp4" type="video/mp4">
+    </video>
+
+    <h1>Questo è un grandissimo header!</h1>
+
+    <p>Questo è un esempio di paragrafo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+    <!-- PATTERN PER IL FILTRO GLASS-LIQUID -->
+    <svg style="display: none">
+      <filter
+        id="glass-distortion"
+        x="0%"
+        y="0%"
+        width="100%"
+        height="100%"
+        filterUnits="objectBoundingBox"
+      >
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.01 0.01"
+          numOctaves="30"
+          seed="31"
+          result="turbulence"
+        />
+        <!-- Seeds: 14, 17,  -->
+
+        <feComponentTransfer in="turbulence" result="mapped">
+          <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+          <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+          <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+        </feComponentTransfer>
+
+        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+
+        <feSpecularLighting
+          in="softMap"
+          surfaceScale="2"
+          specularConstant="1"
+          specularExponent="100"
+          lighting-color="white"
+          result="specLight"
+        >
+          <fePointLight x="-200" y="-200" z="300" />
+        </feSpecularLighting>
+
+        <feComposite
+          in="specLight"
+          operator="arithmetic"
+          k1="0"
+          k2="1"
+          k3="1"
+          k4="0"
+          result="litImage"
+        />
+
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="softMap"
+          scale="30"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        />
+      </filter>
+    </svg>
+
+    <!-- scale è il valore che determina l'intensità della distorsione -->
+
+</body>
+</html>
