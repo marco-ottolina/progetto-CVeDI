@@ -1,0 +1,232 @@
+@font-face {
+  font-family: 'Kaftan';
+  src: url('./kaftan-trial.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* --- Blu palette --- */
+  --blu-100: #070713;
+  --blu-30: rgba(7, 7, 19, 0.3);
+  --blu-dark: #EAE9FB;
+
+  --blu2-100: #16153C;
+  --blu2-30: rgba(22, 21, 60, 0.3);
+  --blu2-dark: #7E7AE8;
+
+  --blu3-100: #3C38BD;
+  --blu3-30: rgba(60, 56, 189, 0.3);
+  --blu3-dark: #3C38BD;
+
+  --blu4-100: #7E7AE8;
+  --blu4-30: rgba(126, 122, 232, 0.3);
+  --blu4-dark: #16153C;
+
+  --blu5-100: #EAE9FB;
+  --blu5-30: rgba(234, 233, 251, 0.3);
+  --blu5-dark: #070713;
+
+  /* --- Rosa --- */
+  --rosa-100: #FF327A;
+  --rosa-30: rgba(255, 50, 122, 0.3);
+  --rosa-dark: #FF327A;
+
+  /* --- Arancione --- */
+  --arancione-100: #F66755;
+  --arancione-30: rgba(246, 103, 85, 0.3);
+  --arancione-dark: #F66755;
+}
+
+body{
+    background-color: var(--blu-100);
+    height: 300vh;
+    font-family: 'Manrope', sans-serif;
+    color: #fff;
+    font-size: 1.125rem;
+    line-height: 1.35rem;
+    background-color: var(--blu-100);
+}
+
+h1, h2, h3 {
+    font-family: 'Kaftan', sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+h2{
+    font-size: 2.5rem;
+}
+
+h3{
+    font-size: 2rem;
+}
+
+h4, h5, h6 {
+    font-weight: 700;
+    color: #fff;
+}
+
+h4{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--arancione-100);
+}
+
+h5{
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+}
+
+h6{
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.body-lead{
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    font-weight: 400;
+}
+
+.caption{
+    font-size: 0.875rem;
+    line-height: 1.05rem;
+    font-weight: 400;
+}
+
+.circle {
+  --circle-size: 50px;
+  background-image: radial-gradient(circle, cyan, transparent, transparent);
+  position: fixed;
+  height: var(--circle-size);
+  width: var(--circle-size);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
+  top: calc(var(--circle-size) / 2 * -1);
+  left: calc(var(--circle-size) / 2 * -1);
+  pointer-events: none;
+  transition: border, opacity 0.3s;
+}
+
+.hovered {
+  /* background-image: radial-gradient(circle, magenta, transparent, transparent); */
+  opacity: 0.3;
+}
+
+/* .not-hovered {
+  background-image: radial-gradient(circle, cyan, transparent, transparent); 
+  border: 10px solid rgba(255, 255, 255, 0.2);
+} */
+
+#prova{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+/* SISTEMARE - TOGLIERE COSE INUTILI */
+.glass{
+  background:rgba(255,255,255,.08);border:2px solid transparent;
+  backdrop-filter:url(#frosted);-webkit-backdrop-filter:url(#frosted);
+  display:grid;place-items:center;cursor:pointer;outline:0;
+}
+
+#offcanvasFull {
+  width: 100vw !important;
+  max-width: 100vw;
+  height: 100vh;
+}
+ .navbar {
+  z-index: 1100;
+ }
+ 
+.navbar > .container-fluid {
+  background-color: var(--blu5-30) !important;
+  border-radius: 100px;
+}
+
+.btn {
+  color: white;
+  background-color: var(--blu4-30) !important;
+  gap: 0.5rem !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 100px;
+  box-shadow: inset 0 2px 0.5px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+.btn-empty{
+  color: white;
+  background-color: transparent !important;
+}
+
+
+/* .liquid-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: url(#body);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  overflow: hidden;
+} */
+
+.navbar.liquid-glass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* background: rgba(255, 255, 255, 0.08); */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  /* backdrop-filter: blur(8px) saturate(1.2);
+  -webkit-backdrop-filter: blur(8px) saturate(1.2); */
+  z-index: 1000;
+}
+
+/* LIQUID GLASS STYLES */
+
+.liquidGlass-wrapper {
+  position: relative;
+  display: flex;
+  font-weight: 600;
+  overflow: hidden;
+
+  color: black;
+  cursor: pointer;
+
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+
+}
+
+.liquidGlass-effect {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+
+  backdrop-filter: blur(3px);
+  filter: url(#glass-distortion);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.liquidGlass-tint {
+  z-index: 1;
+  position: absolute;
+  inset: 0;
+}
+
+
+.liquidGlass-text {
+  z-index: 3;
+  color: white;
+}
+
+
+
