@@ -3,7 +3,7 @@
 ---------------------------------------------------- */
 @font-face {
   font-family: 'Kaftan';
-  src: url('./kaftan-trial.otf') format('opentype');
+  src: url('/vendor/fonts/kaftan-trial.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -12,43 +12,43 @@
    COLOR PALETTE
 ---------------------------------------------------- */
 :root {
-  /* --- Blu palette --- */
-  --blu-100: #070713;
-  --blu-30: rgba(7, 7, 19, 0.3);
-  --blu-dark: #EAE9FB;
+  /* --- Blues (main palette) --- */
+  --blue-100: #070713;
+  --blue-30: rgba(7, 7, 19, 0.3);
+  --blue-dark: #EAE9FB;
 
-  --blu2-100: #16153C;
-  --blu2-30: rgba(22, 21, 60, 0.3);
-  --blu2-dark: #7E7AE8;
+  --blue2-100: #16153C;
+  --blue2-30: rgba(22, 21, 60, 0.3);
+  --blue2-dark: #7E7AE8;
 
-  --blu3-100: #3C38BD;
-  --blu3-30: rgba(60, 56, 189, 0.3);
-  --blu3-dark: #3C38BD;
+  --blue3-100: #3C38BD;
+  --blue3-30: rgba(60, 56, 189, 0.3);
+  --blue3-dark: #3C38BD;
 
-  --blu4-100: #7E7AE8;
-  --blu4-30: rgba(126, 122, 232, 0.3);
-  --blu4-dark: #16153C;
+  --blue4-100: #7E7AE8;
+  --blue4-30: rgba(126, 122, 232, 0.3);
+  --blue4-dark: #16153C;
 
-  --blu5-100: #EAE9FB;
-  --blu5-30: rgba(234, 233, 251, 0.3);
-  --blu5-dark: #070713;
+  --blue5-100: #EAE9FB;
+  --blue5-30: rgba(234, 233, 251, 0.3);
+  --blue5-dark: #070713;
 
-  /* --- Rosa --- */
-  --rosa-100: #FF327A;
-  --rosa-30: rgba(255, 50, 122, 0.3);
-  --rosa-dark: #FF327A;
+  /* --- Pinks (highlights) --- */
+  --pink-100: #FF327A;
+  --pink-30: rgba(255, 50, 122, 0.3);
+  --pink-dark: #FF327A;
 
-  /* --- Arancione --- */
-  --arancione-100: #F66755;
-  --arancione-30: rgba(246, 103, 85, 0.3);
-  --arancione-dark: #F66755;
+  /* --- Oranges (highlights) --- */
+  --orange-100: #F66755;
+  --orange-30: rgba(246, 103, 85, 0.3);
+  --orange-dark: #F66755;
 }
 
 /* ----------------------------------------------------
    BASE STYLES
 ---------------------------------------------------- */
 body {
-  background-color: var(--blu-100);
+  background-color: var(--blue-100);
   font-family: 'Manrope', sans-serif;
   color: #fff;
   font-size: 1.125rem;
@@ -75,7 +75,7 @@ h4, h5, h6 {
 h4 {
   font-size: 1.5rem;
   line-height: 2rem;
-  color: var(--arancione-100);
+  color: var(--orange-100);
 }
 
 h5 {
@@ -156,7 +156,7 @@ h6 {
 ---------------------------------------------------- */
 .btn {
   color: white !important;
-  background-color: var(--blu4-30) !important;
+  background-color: var(--blue4-30) !important;
   gap: 0.5rem !important;
   padding: 1rem 1.5rem !important;
   border-radius: 100px;
@@ -171,7 +171,7 @@ h6 {
 
 .btn-sound{
   border-radius: 50% !important;
-  background-image: radial-gradient(circle, var(--rosa-100), var(--arancione-30)) !important;
+  background-image: radial-gradient(circle, var(--pink-100), var(--orange-30)) !important;
   aspect-ratio: 1 / 1 !important ;
 }
 
@@ -186,7 +186,7 @@ h6 {
 @keyframes pressSound {
   0% {
     transform: scale(1);
-    box-shadow: l1px 2px 0.5px rgba(255, 255, 255, 0.1),
+    box-shadow: 1px 2px 0.5px rgba(255, 255, 255, 0.1),
                 0 1px 1px rgba(255, 255, 255, 0.06);
   }
   100% {
@@ -224,7 +224,7 @@ h6 {
 }
 
 .navbar > .container-fluid {
-  background-color: var(--blu5-30) !important;
+  background-color: var(--blue5-30) !important;
   border-radius: 100px;
 }
 
@@ -259,7 +259,7 @@ h6 {
 }
 
 #offcanvasFull{
-  background-color: var(--blu-100);
+  background-color: var(--blue-100);
   color: white !important;
 }
 
@@ -357,7 +357,7 @@ h6 {
   height: 100%;
   background: linear-gradient(to bottom,
     rgba(7,7,19,0) 0%,
-    var(--blu-100) 100%);
+    var(--blue-100) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -366,7 +366,7 @@ h6 {
    SECTION STYLES
 ---------------------------------------------------- */
 .section-bg-light {
-  background-color: var(--blu2-30);
+  background-color: var(--blue2-30);
 }
 
 .filter-luminosity {
