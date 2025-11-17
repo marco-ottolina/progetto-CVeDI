@@ -2,123 +2,288 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <!-- <link rel="icon" type="image/jpeg" href="/assets/images/others/logo.jpg"> -->
-    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
     <!-- BOOTSTRAP ICONS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- BOOTSTRAP CSS -->
-    <link href="./vendor/bootstrap/bootstrap-css/bootstrap.css" rel="stylesheet">
+    <link href="./css/bootstrap-css/bootstrap.css" rel="stylesheet">
     <!-- BOOTSTRAP JS BUNDLE -->
-    <script src="./vendor/bootstrap/bootstrap-js/bootstrap.bundle.js"></script>
-    <script defer src="js/main.js"></script>
-    <link href="css/main.css" rel="stylesheet">
+    <script src="./js/bootstrap-js/bootstrap.js"></script>
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body id="body">
-<div class="circle"></div>
+<body>
+    <div class="circle"></div>
+
+    <!-- navbar -->
+<header class="navbar-wrapper">
+  <nav class="navbar custom-navbar hoverable liquidGlass-wrapper mt-4 mx-2">
+    <div class="liquidGlass-effect"></div>
+    <div class="liquidGlass-shine"></div>
+
+    <div class="container px-4 py-2">
+      <a class="navbar-brand liquidGlass-text" href="index.html">
+        <img src="img/Logo.svg" alt="Logo" width="50" height="50">
+      </a>
+
+      <div class="liquidGlass-text">
+        <button class="btn" type="button">
+          Prenota <i class="bi bi-arrow-right"></i>
+        </button>
+        <button class="btn btn-empty" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFull" aria-controls="offcanvasFull">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </nav>  
+</header>
 
 
-<!-- navbar -->
-<nav class="navbar hoverable mt-4 mx-3 sticky-top top-0">
-    <div class="container-fluid px-4 py-2 liquidGlass-wrapper">
-        <div class="liquidGlass-effect"></div>
-        <div class="liquidGlass-shine"></div>
-        <a class="navbar-brand liquidGlass-text" href="index.html">
-            <img alt="Logo" class="d-inline-block align-text-top" height="50" src="img/Logo.svg" width="50">
-        </a>
-        <div class="liquidGlass-text">
-            <button aria-controls="offcanvasFull" class="btn" data-bs-target="#offcanvasFull" data-bs-toggle="offcanvas"
-                    type="button">
-                Prenota <i class="bi bi-arrow-right"></i>
-            </button>
-            <button aria-controls="offcanvasFull" class="btn btn-empty" data-bs-target="#offcanvasFull" data-bs-toggle="offcanvas"
-                    type="button">
-                <i class="bi bi-list"></i>
-            </button>
+
+
+    <!-- Offcanvas Fullpage -->
+  <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasFull" aria-labelledby="offcanvasFullLabel">
+  <div class="offcanvas-body">
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- LOGO -->
+        <div class="col-6 col-md-2 order-1">
+          <img src="./img/Logo.svg" alt="">
         </div>
 
-    </div>
-</nav>
+        <!-- IMMAGINE (solo da md) -->
+        <div class="col-md-4 d-none d-md-block order-2">
+          <img src="./img/sfondo-prova-vetro.jpg" alt="" class="img-fluid full-y">
+        </div>
 
-<!-- Offcanvas Fullpage -->
-<div aria-labelledby="offcanvasFullLabel" class="offcanvas offcanvas-start" id="offcanvasFull" tabindex="-1">
-    <div class="offcanvas-header">
-        <h5 id="offcanvasFullLabel">Menu</h5>
-        <button class="btn-close" data-bs-dismiss="offcanvas" type="button"></button>
+        <!-- MENU -->
+        <div class="col-md-3 d-flex mt-5 mt-md-0 flex-column order-3 order-md-last">
+          <button class="btn mb-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFull">
+            Prenota <i class="bi bi-arrow-right"></i>
+          </button>
+          <button class="btn btn-empty" type="button">Home <i class="bi bi-arrow-right"></i></button>
+          <button class="btn btn-empty" type="button">Ristorante <i class="bi bi-arrow-right"></i></button>
+          <button class="btn btn-empty" type="button">Menu <i class="bi bi-arrow-right"></i></button>
+          <button class="btn btn-empty" type="button">Informazioni <i class="bi bi-arrow-right"></i></button>
+          <button class="btn btn-empty" type="button">Serate Speciali <i class="bi bi-arrow-right"></i></button>
+        </div>
+
+        <!-- PULSANTE CHIUSURA -->
+        <div class="col-6 col-md-3 d-flex justify-content-end align-items-start order-2 order-md-last">
+          <button type="button" class="btn-close-custom" data-bs-dismiss="offcanvas" aria-label="Chiudi">
+            <i class="bi bi-arrow-left"></i>
+          </button>
+        </div>
+
+      </div>
     </div>
-    <div class="offcanvas-body">
-        Contenuto dell’offcanvas fullpage
-    </div>
+  </div>
 </div>
 
-<video autoplay id="bg-video" loop muted playsinline>
-    <source src="/img/video-prova.mp4" type="video/mp4">
-</video>
 
-<h1>Questo è un grandissimo header!</h1>
+    <section class="full-y py-5" id="header-menu">
+      <div class="header-wrapper">
+        <div class="header-overlay"></div>
+        <img src="./img/Menu-header.webp" alt="Sfondo Menu" class="img-fluid">
+      </div>
+          <div class="container mb-5 d-flex flex-column justify-content-end align-items-start h-100">
+            <h1>Percorsi</h1>
+            <h1 class="body-lead">Un racconto in ogni portata</h1>
+          </div>
+    </section>
 
-<p>Questo è un esempio di paragrafo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <section class="mt-5 py-5">
+    <div class="container text-center mt-5">
+      <h2>Synestesia</h2>
+      <p>
+        Ogni piatto racconta ciò che il mare ha custodito e che l’uomo ha imparato di nuovo ad ascoltare. <br>
+        Le pietanze sono accompagnate da una melodia percepita solo dal suo commensale: grazie a Synestesia, 
+        un sistema di micro-vibrazioni diffuse nel piatto, il suono si propaga direttamente nei sensi trasformando ogni 
+        portata in una composizione dove gusto e suono si fondono.
+      </p>
+      <button class="btn mt-2">Leggi di più <i class="bi bi-arrow-right"></i></button>
+    </div>
+  </section>
 
-<!-- PATTERN PER IL FILTRO GLASS-LIQUID -->
-<svg style="display: none">
-    <filter
-            filterUnits="objectBoundingBox"
-            height="100%"
-            id="glass-distortion"
-            width="100%"
-            x="0%"
-            y="0%"
-    >
+<section class="timeline-section py-5">
+  <div class="container timeline-container">
+
+    <!-- ITEM 1 -->
+    <div class="timeline-item my-5">
+      <div class="row align-items-start">
+
+        <div class="col-md-6 px-5">
+          <img src="./img/Menu-1.png" class="img-fluid timeline-img">
+          <div class="bubble-box">
+              <video muted loop playsinline id="bg-video">
+              <source src="/img/video-prova.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="col-md-6 px-5 mt-2 mt-md-0">
+          <h2>Thalassa</h2>
+          <p>Un intreccio di corallo rigenerato, in una mousse di plankton fermentato e perle di salinità cangiante. 
+            La sua consistenza si trasforma al contatto e ogni boccone racchiude l’essenza del mare in continuo mutamento.</p>
+          <div class="container d-flex justify-content-between justify-content-start p-0">
+            <button class="btn btn-sound me-md-3 order-last order-md-first"><i class="bi bi-soundwave"></i></button>
+            <button class="btn mt-2">
+              Immergiti nel piatto <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="timeline-item my-5 mt-5 mt-md-0">
+      <div class="row align-items-start">
+
+        <div class="col-md-6 px-5 mt-5 mt-md-0">
+          <img src="./img/Menu-1.png" class="img-fluid timeline-img">
+          <div class="bubble-box">
+              <video muted loop playsinline id="bg-video">
+              <source src="/img/video-prova.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="col-md-6 px-5 mt-2 mt-md-0">
+          <h2>Thalassa</h2>
+          <p>Un intreccio di corallo rigenerato, in una mousse di plankton fermentato e perle di salinità cangiante. 
+            La sua consistenza si trasforma al contatto e ogni boccone racchiude l’essenza del mare in continuo mutamento.</p>
+          <div class="container d-flex justify-content-between justify-content-start p-0">
+            <button class="btn btn-sound me-md-3 order-last order-md-first"><i class="bi bi-soundwave"></i></button>
+            <button class="btn mt-2">
+              Immergiti nel piatto <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+  <!-- <footer class="py-4 mt-5 section-bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <h5>Orari di apertura</h5>
+          <p>Martedì - Domenica <br> 19:00 - 01:00</p>
+        </div>
+        <div class="col-3">
+          <h5>Contatti</h5>
+          <p>Riff <br> Atlas, P.zza Corolleo 1 <br>24°N — 46°O, -230 m <br>
+            Settore abissale Ovest
+          </p>
+        </div>
+        <div class="col-3">
+          <h5>Prenotazioni</h5>
+          <p>Per vivere l’esperienza di un percorso di suoni, luci e sapori custoditi nel cuore del fondale di Atlas, è necessaria la prenotazione
+          </p>
+          <button class="btn mt-2">
+            Prenota <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+        <div class="col-4">
+          <div class="row justify-content-end">
+            <div class="col-6">
+              <h5>Linea abissale</h5>
+              <p>
+                Resta aggiornato sulle serate: inserisci i tuoi dati per iscriverti alla linea abissale
+              </p>
+              <button class="btn mt-2">
+                Iscriviti <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+
+        </div>
+        </div>
+        <div class="col-4">
+          <div class="row">
+            <div class="col-6">
+                <img src="./img/Logo.svg" alt="" class="img-fluid">
+            </div>
+            <div class="col-6 d-flex justify-content-start align-items-end">
+                <button class="btn btn-empty">A</button>
+                <button class="btn btn-empty">B</button>
+                <button class="btn btn-empty">C</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+
+
+    <!-- PATTERN PER IL FILTRO GLASS-LIQUID -->
+    <svg style="display: none">
+      <filter
+        id="glass-distortion"
+        x="0%"
+        y="0%"
+        width="100%"
+        height="100%"
+        filterUnits="objectBoundingBox"
+      >
         <feTurbulence
-                baseFrequency="0.01 0.01"
-                numOctaves="30"
-                result="turbulence"
-                seed="31"
-                type="fractalNoise"
+          type="fractalNoise"
+          baseFrequency="0.01 0.01"
+          numOctaves="30"
+          seed="31"
+          result="turbulence"
         />
         <!-- Seeds: 14, 17,  -->
 
         <feComponentTransfer in="turbulence" result="mapped">
-            <feFuncR amplitude="1" exponent="10" offset="0.5" type="gamma"/>
-            <feFuncG amplitude="0" exponent="1" offset="0" type="gamma"/>
-            <feFuncB amplitude="0" exponent="1" offset="0.5" type="gamma"/>
+          <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+          <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+          <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
         </feComponentTransfer>
 
-        <feGaussianBlur in="turbulence" result="softMap" stdDeviation="3"/>
+        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
 
         <feSpecularLighting
-                in="softMap"
-                lighting-color="white"
-                result="specLight"
-                specularConstant="1"
-                specularExponent="100"
-                surfaceScale="2"
+          in="softMap"
+          surfaceScale="2"
+          specularConstant="1"
+          specularExponent="100"
+          lighting-color="white"
+          result="specLight"
         >
-            <fePointLight x="-200" y="-200" z="300"/>
+          <fePointLight x="-200" y="-200" z="300" />
         </feSpecularLighting>
 
         <feComposite
-                in="specLight"
-                k1="0"
-                k2="1"
-                k3="1"
-                k4="0"
-                operator="arithmetic"
-                result="litImage"
+          in="specLight"
+          operator="arithmetic"
+          k1="0"
+          k2="1"
+          k3="1"
+          k4="0"
+          result="litImage"
         />
 
         <feDisplacementMap
-                in="SourceGraphic"
-                in2="softMap"
-                scale="30"
-                xChannelSelector="R"
-                yChannelSelector="G"
+          in="SourceGraphic"
+          in2="softMap"
+          scale="30"
+          xChannelSelector="R"
+          yChannelSelector="G"
         />
-    </filter>
-</svg>
+      </filter>
+    </svg>
 
-<!-- scale è il valore che determina l'intensità della distorsione -->
+    <!-- scale è il valore che determina l'intensità della distorsione -->
 
 </body>
 </html>

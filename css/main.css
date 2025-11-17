@@ -3,7 +3,7 @@
 ---------------------------------------------------- */
 @font-face {
   font-family: 'Kaftan';
-  src: url('/vendor/fonts/kaftan-trial.otf') format('opentype');
+  src: url('./kaftan-trial.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -12,49 +12,61 @@
    COLOR PALETTE
 ---------------------------------------------------- */
 :root {
-  /* --- Blues (main palette) --- */
-  --blue-100: #070713;
-  --blue-30: rgba(7, 7, 19, 0.3);
-  --blue-dark: #EAE9FB;
+  /* --- Blu palette --- */
+  --blu-100: #070713;
+  --blu-30: rgba(7, 7, 19, 0.3);
+  --blu-dark: #EAE9FB;
 
-  --blue2-100: #16153C;
-  --blue2-30: rgba(22, 21, 60, 0.3);
-  --blue2-dark: #7E7AE8;
+  --blu2-100: #16153C;
+  --blu2-30: rgba(22, 21, 60, 0.3);
+  --blu2-dark: #7E7AE8;
 
-  --blue3-100: #3C38BD;
-  --blue3-30: rgba(60, 56, 189, 0.3);
-  --blue3-dark: #3C38BD;
+  --blu3-100: #3C38BD;
+  --blu3-30: rgba(60, 56, 189, 0.3);
+  --blu3-dark: #3C38BD;
 
-  --blue4-100: #7E7AE8;
-  --blue4-30: rgba(126, 122, 232, 0.3);
-  --blue4-dark: #16153C;
+  --blu4-100: #7E7AE8;
+  --blu4-30: rgba(126, 122, 232, 0.3);
+  --blu4-dark: #16153C;
 
-  --blue5-100: #EAE9FB;
-  --blue5-30: rgba(234, 233, 251, 0.3);
-  --blue5-dark: #070713;
+  --blu5-100: #EAE9FB;
+  --blu5-30: rgba(234, 233, 251, 0.3);
+  --blu5-dark: #070713;
 
-  /* --- Pinks (highlights) --- */
-  --pink-100: #FF327A;
-  --pink-30: rgba(255, 50, 122, 0.3);
-  --pink-dark: #FF327A;
+  /* --- Rosa --- */
+  --rosa-100: #FF327A;
+  --rosa-30: rgba(255, 50, 122, 0.3);
+  --rosa-dark: #FF327A;
 
-  /* --- Oranges (highlights) --- */
-  --orange-100: #F66755;
-  --orange-30: rgba(246, 103, 85, 0.3);
-  --orange-dark: #F66755;
+  /* --- Arancione --- */
+  --arancione-100: #F66755;
+  --arancione-30: rgba(246, 103, 85, 0.3);
+  --arancione-dark: #F66755;
 }
 
 /* ----------------------------------------------------
    BASE STYLES
 ---------------------------------------------------- */
 body {
-  background-color: var(--blue-100);
+  background-color: var(--blu-100);
   font-family: 'Manrope', sans-serif;
   color: #fff;
   font-size: 1.125rem;
   line-height: 1.35rem;
   overflow-x: hidden;
 }
+
+body.offcanvas-open {
+  overflow: visible !important;
+  padding-right: 0 !important;
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+
 
 /* Typography */
 h1, h2, h3 {
@@ -75,7 +87,7 @@ h4, h5, h6 {
 h4 {
   font-size: 1.5rem;
   line-height: 2rem;
-  color: var(--orange-100);
+  color: var(--arancione-100);
 }
 
 h5 {
@@ -117,6 +129,8 @@ h6 {
   transition: border, opacity 0.3s;
 }
 
+@media (max-width: 992px) { .circle { display: none; } }
+
 .hovered {
   opacity: 0.3;
 }
@@ -147,8 +161,8 @@ h6 {
 ---------------------------------------------------- */
 #offcanvasFull {
   width: 100vw !important;
-  max-width: 100vw;
-  height: 100vh;
+  height: 100vh !important;
+  overflow: hidden !important;
 }
 
 /* ----------------------------------------------------
@@ -156,7 +170,9 @@ h6 {
 ---------------------------------------------------- */
 .btn {
   color: white !important;
-  background-color: var(--blue4-30) !important;
+  width: fit-content !important;
+  display: inline-block !important;
+  background-color: var(--blu4-30) !important;
   gap: 0.5rem !important;
   padding: 1rem 1.5rem !important;
   border-radius: 100px;
@@ -171,7 +187,7 @@ h6 {
 
 .btn-sound{
   border-radius: 50% !important;
-  background-image: radial-gradient(circle, var(--pink-100), var(--orange-30)) !important;
+  background-image: radial-gradient(circle, var(--rosa-100), var(--arancione-30)) !important;
   aspect-ratio: 1 / 1 !important ;
 }
 
@@ -186,7 +202,7 @@ h6 {
 @keyframes pressSound {
   0% {
     transform: scale(1);
-    box-shadow: 1px 2px 0.5px rgba(255, 255, 255, 0.1),
+    box-shadow: l1px 2px 0.5px rgba(255, 255, 255, 0.1),
                 0 1px 1px rgba(255, 255, 255, 0.06);
   }
   100% {
@@ -221,10 +237,11 @@ h6 {
   width: 100%;
   background: transparent;
   padding: 0;
+  z-index: 99999 !important;
 }
 
 .navbar > .container-fluid {
-  background-color: var(--blue5-30) !important;
+  background-color: var(--blu5-30) !important;
   border-radius: 100px;
 }
 
@@ -242,6 +259,7 @@ h6 {
   justify-content: center;
   width: 100%;
   padding: 0.5rem 0;
+  z-index: 999 !important;
 }
 
 /* Navbar glass morphism */
@@ -250,7 +268,7 @@ h6 {
   width: 100%;
   border-radius: 100px;
   overflow: hidden;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.3);
 }
 
 .custom-navbar .container {
@@ -259,7 +277,7 @@ h6 {
 }
 
 #offcanvasFull{
-  background-color: var(--blue-100);
+  background-color: var(--blu-100);
   color: white !important;
 }
 
@@ -333,7 +351,7 @@ h6 {
   height: 80svh;
 }
 
-.video-wrapper {
+.header-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -343,13 +361,19 @@ h6 {
   z-index: -1;
 }
 
+.header-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 #bg-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.video-overlay {
+.header-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -357,7 +381,7 @@ h6 {
   height: 100%;
   background: linear-gradient(to bottom,
     rgba(7,7,19,0) 0%,
-    var(--blue-100) 100%);
+    var(--blu-100) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -366,7 +390,7 @@ h6 {
    SECTION STYLES
 ---------------------------------------------------- */
 .section-bg-light {
-  background-color: var(--blue2-30);
+  background-color: var(--blu2-30);
 }
 
 .filter-luminosity {
@@ -389,3 +413,81 @@ h6 {
 @media (min-width: 992px) { .custom-navbar { max-width: 960px; } }
 @media (min-width: 1200px) { .custom-navbar { max-width: 1140px; } }
 @media (min-width: 1400px) { .custom-navbar { max-width: 1320px; } }
+
+/* ========================== */
+/* Contenitore timeline       */
+/* ========================== */
+.timeline-container {
+  position: relative;
+  padding: 50px 0;
+}
+
+/* Linea verticale grigia */
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: var(--blu5-30);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+/* Linea di riempimento dinamica (rossa) */
+.timeline-fill {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 0; /* modificata via JS */
+  background: var(--blu5-100);
+  transform: translateX(-50%);
+  z-index: -1;
+  transition: height 0.2s linear; /* animazione morbida */
+}
+
+/* ========================== */
+/* Punti rossi sulla linea     */
+/* ========================== */
+/* Punti della timeline */
+.timeline-dot {
+  position: absolute;
+  left: 50%;                 /* linea verticale */
+  width: 28px;
+  height: 28px;
+  background: var(--blu5-100);         /* colore iniziale */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: all 0.3s ease; /* animazione morbida */
+}
+
+/* Punto attivo */
+.timeline-dot.active {
+  background-color: var(--blu5-100);     /* diventa rosso quando attivo */
+  transform: translate(-50%, -50%) scale(1.2); /* leggero ingrandimento */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 576px) { 
+  .timeline-container::before { 
+    display: none;
+  } 
+  .timeline-fill {
+    display: none;
+  }
+  .timeline-dot {
+    display: none;
+  }
+}
+
+.bubble-box {
+  position: relative;
+  transform: translateY(-50%);
+  left: 0;
+  width: 50%;
+}
+
+

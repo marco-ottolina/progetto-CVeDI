@@ -1,75 +1,105 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Select the circle element
+  /* =========================
+     CURSOR PERSONALIZZATO
+  ========================== */
   const circleElement = document.querySelector(".circle");
 
-  // Create objects to track mouse position and custom cursor position
-  const mouse = { x: 0, y: 0 }; // Track current mouse position
-  const previousMouse = { x: 0, y: 0 }; // Store the previous mouse position
-  const circle = { x: 0, y: 0 }; // Track the circle position
+  const mouse = { x: 0, y: 0 };
+  const previousMouse = { x: 0, y: 0 };
+  const circle = { x: 0, y: 0 };
 
-  // Initialize variables to track scaling and rotation
-  let currentScale = 0; // Track current scale value
-  let currentAngle = 0; // Track current angle value
+  let currentScale = 0;
+  let currentAngle = 0;
+  const speed = 0.17;
 
-  // Update mouse position on the 'mousemove' event
-  window.addEventListener("mousemove", (e) => {
+  window.addEventListener("mousemove", e => {
     mouse.x = e.x;
     mouse.y = e.y;
   });
 
-  // Smoothing factor for cursor movement speed (0 = smoother, 1 = instant)
-  const speed = 0.17;
-
-  // Start animation
   const tick = () => {
-    // MOVE
-    // Calculate circle movement based on mouse position and smoothing
     circle.x += (mouse.x - circle.x) * speed;
     circle.y += (mouse.y - circle.y) * speed;
-    // Create a transformation string for cursor translation
     const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
 
-    // SQUEEZE
-    // 1. Calculate the change in mouse position (deltaMouse)
     const deltaMouseX = mouse.x - previousMouse.x;
     const deltaMouseY = mouse.y - previousMouse.y;
-    // Update previous mouse position for the next frame
     previousMouse.x = mouse.x;
     previousMouse.y = mouse.y;
-    // 2. Calculate mouse velocity using Pythagorean theorem and adjust speed
-    const mouseVelocity = Math.min(
-      Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2) * 4,
-      150
-    );
-    // 3. Convert mouse velocity to a value in the range [0, 0.5]
+    const mouseVelocity = Math.min(Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2) * 4, 150);
     const scaleValue = (mouseVelocity / 150) * 0.5;
-    // 4. Smoothly update the current scale
     currentScale += (scaleValue - currentScale) * speed;
-    // 5. Create a transformation string for scaling
     const scaleTransform = `scale(${1 + currentScale}, ${1 - currentScale})`;
 
-    // ROTATE
-    // 1. Calculate the angle using the atan2 function
     const angle = (Math.atan2(deltaMouseY, deltaMouseX) * 180) / Math.PI;
-    // 2. Check for a threshold to reduce shakiness at low mouse velocity
-    if (mouseVelocity > 5) {
-      currentAngle = angle;
-    }
-    // 3. Create a transformation string for rotation
+    if (mouseVelocity > 5) currentAngle = angle;
     const rotateTransform = `rotate(${currentAngle}deg)`;
 
-    // Apply all transformations to the circle element in a specific order: translate -> rotate -> scale
     circleElement.style.transform = `${translateTransform} ${rotateTransform} ${scaleTransform}`;
 
-    // Request the next frame to continue the animation
-    window.requestAnimationFrame(tick);
+    requestAnimationFrame(tick);
   };
-
-  // Start the animation loop
   tick();
 
+  /* =========================
+   TIMELINE
+========================== */
+const timeline = document.querySelector(".timeline-container");
+
+// Linea rossa
+const fill = document.createElement("div");
+fill.className = "timeline-fill";
+timeline.appendChild(fill);
+
+// Punti
+const items = document.querySelectorAll(".timeline-item");
+const dots = [];
+
+items.forEach(item => {
+  const dot = document.createElement("div");
+  dot.className = "timeline-dot";
+
+  const itemTop = item.offsetTop;
+  const itemHeight = item.offsetHeight;
+  dot.style.top = `${itemTop + itemHeight / 2}px`;
+
+  timeline.appendChild(dot);
+  dots.push(dot);
+});
+
+function updateTimeline() {
+  const scrollTop = window.scrollY;
+  const viewportHeight = window.innerHeight;
+  const timelineTop = timeline.offsetTop;
+  const timelineHeight = timeline.offsetHeight;
+
+  let fillHeight = scrollTop + viewportHeight / 1.5 - timelineTop;
+  fillHeight = Math.max(0, Math.min(fillHeight, timelineHeight));
+  fill.style.height = fillHeight + "px";
+
+  // Attiva SOLO i dot
+  dots.forEach(dot => {
+    const dotTop = dot.offsetTop;
+    if (dotTop <= fillHeight) dot.classList.add("active");
+    else dot.classList.remove("active");
+  });
+}
+
+window.addEventListener("scroll", updateTimeline);
+window.addEventListener("resize", () => {
+  items.forEach((item, i) => {
+    const itemTop = item.offsetTop;
+    const itemHeight = item.offsetHeight;
+    dots[i].style.top = `${itemTop + itemHeight / 2}px`;
+  });
+  updateTimeline();
+});
+
+updateTimeline();
 
 });
+
+
 
 let myHoverables = document.getElementsByClassName("hoverable");
 for (let i = 0; i < myHoverables.length; i++) {
@@ -91,3 +121,61 @@ for (let i = 0; i < buttonSound.length; i++) {
     this.classList.toggle("attivo");
   });
 }
+
+document.addEventListener('show.bs.offcanvas', () => {
+  document.body.classList.add('offcanvas-open');
+});
+document.addEventListener('hide.bs.offcanvas', () => {
+  document.body.classList.remove('offcanvas-open');
+});
+
+document.addEventListener('show.bs.offcanvas', () => {
+  document.body.classList.add('no-scroll');
+});
+
+document.addEventListener('hide.bs.offcanvas', () => {
+  document.body.classList.remove('no-scroll');
+});
+
+
+document.querySelectorAll(".btn-sound").forEach(btn => {
+  btn.addEventListener("click", function () {
+    const item = this.closest(".timeline-item");
+    const video = item.querySelector("video");
+
+    if (!video) return;
+
+    // Se il video è in riproduzione → soft-stop
+    if (!video.paused) {
+      let rate = video.playbackRate;
+      const interval = setInterval(() => {
+        rate -= 0.1;                   // rallenta
+        video.playbackRate = Math.max(rate, 0.1);
+
+        if (rate <= 0.1) {
+          clearInterval(interval);
+          video.pause();
+          video.playbackRate = 1;      // reset per la prossima riproduzione
+        }
+      }, 40);
+      return;
+    }
+
+    // Se il video è fermo → soft-start
+    video.play();
+    video.playbackRate = 0.1;
+
+    let rate = 0.1;
+    const interval = setInterval(() => {
+      rate += 0.1;                     // accelera
+      video.playbackRate = rate;
+
+      if (rate >= 1) {
+        video.playbackRate = 1;
+        clearInterval(interval);
+      }
+    }, 40);
+  });
+});
+
+
