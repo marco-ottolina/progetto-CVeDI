@@ -17,11 +17,323 @@
     <script src="./js/main.js"></script>
 
     <!-- page title -->
-    <title> homepage </title>
+    <title> serate speciali </title>
+
+    <!-- Local CSS (toDo: put it into the main.css if I wrote some, or delete this section if I didn't need it) -->
+    <style>
+
+        .spaceFromNavbar {
+            top: 5rem;
+        }
+
+    </style>
 
 </head>
 
 <body>
+
+<!-- navbar -->
+<!-- toDo: update it with improved version -->
+<header class="navbar-wrapper">
+    <nav class="navbar custom-navbar hoverable liquidGlass-wrapper mt-4">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-shine"></div>
+
+        <div class="container px-4 py-2">
+            <a class="navbar-brand liquidGlass-text" href="index.html">
+                <img alt="Logo" height="50" src="img/Logo.svg" width="50">
+            </a>
+
+            <div class="liquidGlass-text">
+                <button aria-controls="offcanvasFull" class="btn" data-bs-target="#offcanvasFull"
+                        data-bs-toggle="offcanvas"
+                        type="button">
+                    Prenota <i class="bi bi-arrow-right"></i>
+                </button>
+                <button aria-controls="offcanvasFull" class="btn btn-empty" data-bs-target="#offcanvasFull"
+                        data-bs-toggle="offcanvas"
+                        type="button">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Off-canvas full-page (= opened hamburger menu) -->
+<!-- toDo: update it with improved version -->
+<div aria-labelledby="offcanvasFullLabel" class="offcanvas offcanvas-top" id="offcanvasFull" tabindex="-1">
+    <div class="offcanvas-header">
+    </div>
+    <div class="offcanvas-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img alt="" src="./img/Logo.svg">
+                </div>
+                <div class="col-4">
+                    <img alt="" class="img-fluid" src="./img/sfondo-prova-vetro.jpg">
+                </div>
+                <div class="col-3 justify-content-start">
+                    <button aria-controls="offcanvasFull" class="btn mb-5" data-bs-target="#offcanvasFull"
+                            data-bs-toggle="offcanvas"
+                            type="button">
+                        Prenota <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <button aria-controls="offcanvasFull" class="btn btn-empty" data-bs-target="#offcanvasFull"
+                            data-bs-toggle="offcanvas" type="button">
+                        Home <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <button aria-controls="offcanvasFull" class="btn btn-empty" data-bs-target="#offcanvasFull"
+                            data-bs-toggle="offcanvas" type="button">
+                        Menu <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <button aria-controls="offcanvasFull" class="btn btn-empty" data-bs-target="#offcanvasFull"
+                            data-bs-toggle="offcanvas" type="button">
+                        Ristorante <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <button aria-controls="offcanvasFull" class="btn btn-empty" data-bs-target="#offcanvasFull"
+                            data-bs-toggle="offcanvas" type="button">
+                        Altro <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="col-3 d-flex justify-content-end align-items-start">
+                    <button aria-label="Chiudi" class="btn-close-custom" data-bs-dismiss="offcanvas" type="button">
+                        <i class="bi bi-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hero -->
+<!-- toDo: aggiornare dopo che Otto ha rivisto l'elemento -->
+<section class="container-fluid full-y py-5" id="hero-special-events">
+    <div class="video-wrapper">
+        <video autoplay id="bg-video" loop muted playsinline>
+            <source src="/img/video-prova.mp4" type="video/mp4">
+            <!-- toDo: mettere immagine animata di background quando la abbiamo -->
+        </video>
+        <div class="video-overlay"></div> <!-- toDo: a che serve questo??? -->
+    </div>
+    <div class="container mb-5 d-flex flex-column justify-content-end align-items-start h-100">
+        <img alt="Logo" class="mb-3" height="100" src="./img/Logo.svg" width="200">
+        <h1 class="body-lead">Serate speciali</h1>
+        <p class="body-lead">Oltre la cena, nel cuore dell'esperienza</p>
+    </div>
+</section>
+
+<!-- introduction -->
+<section class="container full-y mt-5 py-5">
+    <h2 class="text-center mt-5 mb-3">Incontri dal profondo</h2>
+    <p class="body-lead">
+        Le nostre serate speciali sono rituali sensoriali in cui gastronomia, suono e tecnologia si uniscono per creare
+        esperienze irripetibili.
+        Ogni evento è un incontro: tra elementi, emozioni e memorie che riaffiorano dal profondo. Un invito a vivere il
+        mare in una forma diversa, ogni volta unica.
+    </p>
+</section>
+
+<!-- special events list (main page content) -->
+<!-- fluid container, padding in all directions = 5 -->
+<main class="container-fluid p-5" id="events-list">
+
+    <!-- element 1-->
+    <!-- display: flex, (by default) flex is a column, (when >= medium = 768px) flex is a row, content occupies 100% of the height, items within content occupy 100% of the height, margin both top and bottom (y) to 5 = ($spacer * 3), padding both top and bottom (y) to 3 = ($spacer * 1) -->
+    <div class="d-flex flex-column flex-md-row h-100 align-items-stretch my-5 py-3">
+        <!-- display: flex, flex is a column, content is {justify-content = in the direction of the main axis = vertical in a column / horizontal in a row} aligned to the start (top/left), content is {align-items = perpendicular to main axis = horizontal in a column / vertical in a row} = aligned to the start (left/top), items within grow to their maximum size (flex-grow = 1), (by default) content must fill all the 12 columns, (when >= medium = 768px) content must fill only 6 columns, (when >= medium = 768px) position to sticky-top, content has height = 50% of screen, when >= medium-size padding-end to 5, when >= large padding-start to 5, z-index to -1 (z-n1) so that the element is further back than the nav-bar -->
+        <!-- toDo: need custom CSS if we are to make a padding-end larger than pe-5, to use it in place of current pe-md-5 -->
+        <div class="d-flex flex-column justify-content-start align-items-start flex-grow-1 col-12 col-md-6 sticky-md-top h-50 pe-md-5 ps-lg-5 z-n1 spaceFromNavbar"> <!-- toDo: figure out how to add padding that acts only against another sticky element (the nav-bar) and not in general -->
+            <!-- each element but the last has a bottom-padding of 1*$spacer (pb-3) -->
+            <h6 class="pb-3">03/11/2531</h6>
+            <h3 class="pb-3">Luce liquida</h3>
+            <p class="pb-3">
+                Una cena-performance in cui la luce si trasforma in ingrediente. Proiezioni, riflessi e ombre danzano
+                sulla
+                tavola, mutando al ritmo del servizio. I piatti reagiscono alla luminosità, rivelando colori e
+                consistenze
+                inaspettate.
+            </p>
+            <!-- bottom button has a margin-bottom of 3*$spacer to not make it stick to the image on mobile -->
+            <button class="btn hoverable mb-5">
+                Prenota
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+        <!-- display: flex, content is {align-items = perpendicular to main axis = horizontal in a column / vertical in a row} = aligned to the end (right/bottom), if content >= small (but < medium) align items at start (done to avoid wierd small-tabled behavior), if >= medium resume end-alignment, (by default) occupy 12 columns, (when >= medium = 768px) occupy 6 columns -->
+        <div class="d-flex align-items-end align-items-md-start align-items-lg-end col-12 col-md-6">
+            <img
+                    alt="Immagine dell'evento luce liquida"
+                    class="img-fluid w-100"
+                    loading="lazy"
+                    sizes="
+                        (max-width: 800px) 100vw,
+                        40vw
+                    "
+                    src="./img/serate-speciali-main-1-1200w.webp"
+                    srcset="
+                    ./img/serate-speciali-main-1-800w.webp 800w,
+                    ./img/serate-speciali-main-1-1200w.webp 1200w,
+                    ./img/serate-speciali-main-1-2000w.webp 2000w
+                    "
+            />
+        </div>
+    </div>
+
+    <!-- element 2-->
+    <div class="d-flex flex-column flex-md-row h-100 align-items-stretch my-5 py-3">
+        <div class="d-flex flex-column justify-content-start align-items-start flex-grow-1 col-12 col-md-6 sticky-md-top h-50 pe-md-5 ps-lg-5 z-n1 spaceFromNavbar">
+            <h6 class="pb-3">21/11/2531</h6>
+            <h3 class="pb-3">Metamorfosi</h3>
+            <p class="pb-3">
+                Nulla resta uguale, nemmeno per un istante. Durante la serata, la materia si trasforma davanti agli
+                occhi: il calore, la luce e il suono mutano la sostanza dei piatti in tempo reale. Ogni portata è un
+                atto di metamorfosi, un invito ad assaporare il cambiamento, a percepire il mare non come luogo, ma come
+                organismo in continua evoluzione.
+            </p>
+            <button class="btn hoverable mb-5">
+                Prenota
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+        <div class="d-flex align-items-end align-items-md-start align-items-lg-end col-12 col-md-6">
+            <!-- ratio of 1x1 to make the image the same size as the (square) images, z-index to -1 (z-n1) so that the element is further back than the nav-bar -->
+            <div class="ratio ratio-1x1 z-n1">
+                <!-- object fit to cover to make it fill the entire square (cutting top and both, as videos are more tall than they are large, but this is by design) -->
+                <video autoplay class="img-fluid w-100 object-fit-cover" loop muted playsinline>
+                    <source src="/img/serate-speciali-main-2.webm" type="video/webm">
+                    <!-- toDo: see if we need a lower-res version as well -->
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- element 3 -->
+    <div class="d-flex flex-column flex-md-row h-100 align-items-stretch my-5 py-3">
+        <div class="d-flex flex-column justify-content-start align-items-start flex-grow-1 col-12 col-md-6 sticky-md-top h-50 pe-md-5 ps-lg-5 z-n1 spaceFromNavbar">
+            <h6 class="pb-3">06/12/2531</h6>
+            <h3 class="pb-3">Silenzio profondo</h3>
+            <p class="pb-3">
+                Per una notte, la musica tace e lascia spazio al suono naturale del respiro, del mare e dei gesti. Ogni
+                piatto è servito come un’eco visiva, accompagnato solo da giochi di luce e vibrazioni sottili
+                percepibili sotto la pelle. Un’esperienza di ascolto profondo e consapevolezza, dove l’assenza diventa
+                presenza.
+            </p>
+            <button class="btn hoverable mb-5">
+                Prenota
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+        <div class="d-flex align-items-end align-items-md-start align-items-lg-end col-12 col-md-6">
+            <img
+                    alt="Immagine dell'evento silenzio profondo"
+                    class="img-fluid w-100"
+                    loading="lazy"
+                    sizes="
+                        (max-width: 800px) 100vw,
+                        40vw
+                    "
+                    src="./img/serate-speciali-main-3-1200w.webp"
+                    srcset="
+                    ./img/serate-speciali-main-3-800w.webp 800w,
+                    ./img/serate-speciali-main-3-1200w.webp 1200w,
+                    ./img/serate-speciali-main-3-2000w.webp 2000w
+                    "
+            />
+        </div>
+    </div>
+
+    <!-- element 4 -->
+    <div class="d-flex flex-column flex-md-row h-100 align-items-stretch my-5 py-3">
+        <div class="d-flex flex-column justify-content-start align-items-start flex-grow-1 col-12 col-md-6 sticky-md-top h-50 pe-md-5 ps-lg-5 z-n1 spaceFromNavbar">
+            <h6 class="pb-3">08/03/2532</h6>
+            <h3 class="pb-3">Festa del tritone</h3>
+            <p class="pb-3">
+                In occasione della festa del tritone, Riff dedica un percorso a quello che una volta era il genere
+                maschile. Insieme ai piatti sofisticati, verranno proposte musiche riscoperte da artisti degli anni 2000
+                che omaggiavano gli uomini tra cui Barbie Girl di Aqua.
+            </p>
+            <button class="btn hoverable mb-5">
+                Prenota
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+        <div class="d-flex align-items-end align-items-md-start align-items-lg-end col-12 col-md-6">
+            <div class="ratio ratio-1x1 z-n1">
+                <video autoplay class="img-fluid w-100 object-fit-cover" loop muted playsinline>
+                    <source src="/img/serate-speciali-main-4.webm" type="video/webm">
+                    <!-- toDo: see if we need a lower-res version as well -->
+                </video>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- footer -->
+<!-- toDo -->
+
+<!-- Empty div to set the mouse effect only when content is shown (doesn't work directly put on body) -->
+<div class="circle"></div>
+
+<!-- Liquid glass filter pattern -->
+<!-- toDo: update it upon having final specs for it -->
+<svg style="display: none">
+    <filter
+            filterUnits="objectBoundingBox"
+            height="100%"
+            id="glass-distortion"
+            width="100%"
+            x="0%"
+            y="0%"
+    >
+        <feTurbulence
+                baseFrequency="0.01 0.01"
+                numOctaves="30"
+                result="turbulence"
+                seed="31"
+                type="fractalNoise"
+        />
+
+        <feComponentTransfer in="turbulence" result="mapped">
+            <feFuncR amplitude="1" exponent="10" offset="0.5" type="gamma"/>
+            <feFuncG amplitude="0" exponent="1" offset="0" type="gamma"/>
+            <feFuncB amplitude="0" exponent="1" offset="0.5" type="gamma"/>
+        </feComponentTransfer>
+
+        <feGaussianBlur in="turbulence" result="softMap" stdDeviation="3"/>
+
+        <feSpecularLighting
+                in="softMap"
+                lighting-color="white"
+                result="specLight"
+                specularConstant="1"
+                specularExponent="100"
+                surfaceScale="2"
+        >
+            <fePointLight x="-200" y="-200" z="300"/>
+        </feSpecularLighting>
+
+        <feComposite
+                in="specLight"
+                k1="0"
+                k2="1"
+                k3="1"
+                k4="0"
+                operator="arithmetic"
+                result="litImage"
+        />
+
+        <feDisplacementMap
+                in="SourceGraphic"
+                in2="softMap"
+                scale="30"
+                xChannelSelector="R"
+                yChannelSelector="G"
+        />
+    </filter>
+</svg>
 
 </body>
 
