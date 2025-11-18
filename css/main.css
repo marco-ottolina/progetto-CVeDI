@@ -2,297 +2,308 @@
    FONT
 ---------------------------------------------------- */
 @font-face {
-  font-family: 'Kaftan';
-  src: url('./kaftan-trial.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Kaftan';
+    src: url('vendor/fonts/kaftan-trial.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* ----------------------------------------------------
    COLOR PALETTE
 ---------------------------------------------------- */
 :root {
-  /* --- Blu palette --- */
-  --blu-100: #070713;
-  --blu-30: rgba(7, 7, 19, 0.3);
-  --blu-dark: #EAE9FB;
+    /* --- Blues (main palette) --- */
+    --blue-100: #070713;
+    --blue-30: rgba(7, 7, 19, 0.3);
+    --blue-dark: #EAE9FB;
 
-  --blu2-100: #16153C;
-  --blu2-30: rgba(22, 21, 60, 0.3);
-  --blu2-dark: #7E7AE8;
+    --blue2-100: #16153C;
+    --blue2-30: rgba(22, 21, 60, 0.3);
+    --blue2-dark: #7E7AE8;
 
-  --blu3-100: #3C38BD;
-  --blu3-30: rgba(60, 56, 189, 0.3);
-  --blu3-dark: #3C38BD;
+    --blue3-100: #3C38BD;
+    --blue3-30: rgba(60, 56, 189, 0.3);
+    --blue3-dark: #3C38BD;
 
-  --blu4-100: #7E7AE8;
-  --blu4-30: rgba(126, 122, 232, 0.3);
-  --blu4-dark: #16153C;
+    --blue4-100: #7E7AE8;
+    --blue4-30: rgba(126, 122, 232, 0.3);
+    --blue4-dark: #16153C;
 
-  --blu5-100: #EAE9FB;
-  --blu5-30: rgba(234, 233, 251, 0.3);
-  --blu5-dark: #070713;
+    --blue5-100: #EAE9FB;
+    --blue5-30: rgba(234, 233, 251, 0.3);
+    --blue5-dark: #070713;
 
-  /* --- Rosa --- */
-  --rosa-100: #FF327A;
-  --rosa-30: rgba(255, 50, 122, 0.3);
-  --rosa-dark: #FF327A;
+    /* --- Pinks (highlights) --- */
+    --pink-100: #FF327A;
+    --pink-30: rgba(255, 50, 122, 0.3);
+    --pink-dark: #FF327A;
 
-  /* --- Arancione --- */
-  --arancione-100: #F66755;
-  --arancione-30: rgba(246, 103, 85, 0.3);
-  --arancione-dark: #F66755;
+    /* --- Oranges (highlights) --- */
+    --orange-100: #F66755;
+    --orange-30: rgba(246, 103, 85, 0.3);
+    --orange-dark: #F66755;
 }
 
 /* ----------------------------------------------------
    BASE STYLES
 ---------------------------------------------------- */
 body {
-  background-color: var(--blu-100);
-  font-family: 'Manrope', sans-serif;
-  color: #fff;
-  font-size: 1.125rem;
-  line-height: 1.35rem;
-  overflow-x: hidden;
+    background-color: var(--blue-100);
+    font-family: 'Manrope', sans-serif;
+    color: #fff;
+    font-size: 1.125rem;
+    line-height: 1.35rem;
+    overflow-x: hidden;
 }
 
 body.offcanvas-open {
-  overflow: visible !important;
-  padding-right: 0 !important;
+    overflow: visible !important;
+    padding-right: 0 !important;
 }
 
 body.no-scroll {
-  overflow: hidden !important;
-  height: 100vh !important;
+    overflow: hidden !important;
+    height: 100vh !important;
 }
-
 
 
 /* Typography */
 h1, h2, h3 {
-  font-family: 'Kaftan', sans-serif;
-  font-weight: 400;
-  color: #fff;
+    font-family: 'Kaftan', sans-serif;
+    font-weight: 400;
+    color: #fff;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 2rem; }
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
 
 h4, h5, h6 {
-  font-weight: 700;
-  color: #fff;
+    font-weight: 700;
+    color: #fff;
 }
 
 h4 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  color: var(--arancione-100);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--orange-100);
 }
 
 h5 {
-  font-size: 1.125rem;
-  line-height: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
 }
 
 h6 {
-  font-size: 0.75rem;
-  line-height: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
 }
 
 .body-lead {
-  font-size: 1.5rem;
-  line-height: 1.8rem;
-  font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    font-weight: 400;
 }
 
 .caption {
-  font-size: 0.875rem;
-  line-height: 1.05rem;
-  font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.05rem;
+    font-weight: 400;
 }
 
 /* ----------------------------------------------------
    CURSOR EFFECT
 ---------------------------------------------------- */
 .circle {
-  --circle-size: 50px;
-  background-image: radial-gradient(circle, cyan, transparent, transparent);
-  position: fixed;
-  height: var(--circle-size);
-  width: var(--circle-size);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 100%;
-  top: calc(var(--circle-size) / 2 * -1);
-  left: calc(var(--circle-size) / 2 * -1);
-  pointer-events: none;
-  transition: border, opacity 0.3s;
+    --circle-size: 50px;
+    background-image: radial-gradient(circle, cyan, transparent, transparent);
+    position: fixed;
+    height: var(--circle-size);
+    width: var(--circle-size);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+    top: calc(var(--circle-size) / 2 * -1);
+    left: calc(var(--circle-size) / 2 * -1);
+    pointer-events: none;
+    transition: border, opacity 0.3s;
 }
 
-@media (max-width: 992px) { .circle { display: none; } }
+@media (max-width: 992px) {
+    .circle {
+        display: none;
+    }
+}
 
 .hovered {
-  opacity: 0.3;
+    opacity: 0.3;
 }
 
 /* ----------------------------------------------------
    GENERIC ELEMENTS
 ---------------------------------------------------- */
 #prova {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .glass {
-  background: rgba(255,255,255,.08);
-  border: 2px solid transparent;
-  backdrop-filter: url(#frosted);
-  -webkit-backdrop-filter: url(#frosted);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  outline: 0;
+    background: rgba(255, 255, 255, .08);
+    border: 2px solid transparent;
+    backdrop-filter: url(#frosted);
+    -webkit-backdrop-filter: url(#frosted);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    outline: 0;
 }
 
 /* ----------------------------------------------------
    OFFCANVAS
 ---------------------------------------------------- */
 #offcanvasFull {
-  width: 100vw !important;
-  height: 100vh !important;
-  overflow: hidden !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow: hidden !important;
 }
 
 /* ----------------------------------------------------
    BUTTONS
 ---------------------------------------------------- */
 .btn {
-  color: white !important;
-  width: fit-content !important;
-  display: inline-block !important;
-  background-color: var(--blu4-30) !important;
-  gap: 0.5rem !important;
-  padding: 1rem 1.5rem !important;
-  border-radius: 100px;
-  box-shadow: inset 0 2px 0.5px rgba(255, 255, 255, 0.1),
-              0 1px 1px rgba(255, 255, 255, 0.06);
+    color: white !important;
+    width: fit-content !important;
+    display: inline-block !important;
+    background-color: var(--blue4-30) !important;
+    gap: 0.5rem !important;
+    padding: 1rem 1.5rem !important;
+    border-radius: 100px;
+    box-shadow: inset 0 2px 0.5px rgba(255, 255, 255, 0.1),
+    0 1px 1px rgba(255, 255, 255, 0.06);
 }
 
 .btn-empty {
-  background-color: transparent !important;
-  box-shadow: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
-.btn-sound{
-  border-radius: 50% !important;
-  background-image: radial-gradient(circle, var(--rosa-100), var(--arancione-30)) !important;
-  aspect-ratio: 1 / 1 !important ;
+.btn-sound {
+    border-radius: 50% !important;
+    background-image: radial-gradient(circle, var(--pink-100), var(--orange-30)) !important;
+    aspect-ratio: 1 / 1 !important;
 }
 
-.btn-sound:active{
-  animation: pressSound 1s forwards;
+.btn-sound:active {
+    animation: pressSound 1s forwards;
 }
 
 .attivo {
-  animation: attivo 1.8s infinite;
+    animation: attivo 1.8s infinite;
 }
 
 @keyframes pressSound {
-  0% {
-    transform: scale(1);
-    box-shadow: l1px 2px 0.5px rgba(255, 255, 255, 0.1),
-                0 1px 1px rgba(255, 255, 255, 0.06);
-  }
-  100% {
-    transform: scale(0.9);
-    box-shadow: inset 0 1px 0.2px rgba(255, 255, 255, 0.1),
-                0 0.5px 0.5px rgba(255, 255, 255, 0.06);
-  }
+    0% {
+        transform: scale(1);
+        box-shadow: 1px 2px 0.5px rgba(255, 255, 255, 0.1),
+        0 1px 1px rgba(255, 255, 255, 0.06);
+    }
+    100% {
+        transform: scale(0.9);
+        box-shadow: inset 0 1px 0.2px rgba(255, 255, 255, 0.1),
+        0 0.5px 0.5px rgba(255, 255, 255, 0.06);
+    }
 }
 
 
 @keyframes attivo {
-  0% {
-    box-shadow: 0 0 10px #F66755, 0 0 15px #5d251d;
-    opacity: 1;
-  }
-  50% {
-    box-shadow: 0 0 20px #F66755, 0 0 30px #5d251d;
-    opacity: 0.6;
-  }
-  100% {
-    box-shadow: 0 0 10px #F66755, 0 0 15px #5d251d;;
-    opacity: 1;
-  }
+    0% {
+        box-shadow: 0 0 10px #F66755, 0 0 15px #5d251d;
+        opacity: 1;
+    }
+    50% {
+        box-shadow: 0 0 20px #F66755, 0 0 30px #5d251d;
+        opacity: 0.6;
+    }
+    100% {
+        box-shadow: 0 0 10px #F66755, 0 0 15px #5d251d;;
+        opacity: 1;
+    }
 }
 
 /* ----------------------------------------------------
    NAVBAR
 ---------------------------------------------------- */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: transparent;
-  padding: 0;
-  z-index: 99999 !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    z-index: 99999 !important;
 }
 
 .navbar > .container-fluid {
-  background-color: var(--blu5-30) !important;
-  border-radius: 100px;
+    background-color: var(--blue5-30) !important;
+    border-radius: 100px;
 }
 
 .navbar.liquid-glass {
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    z-index: 1000;
 }
 
 /* Wrapper sticky centrato */
 .navbar-wrapper {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 0.5rem 0;
-  z-index: 999 !important;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 0;
+    z-index: 999 !important;
 }
 
 /* Navbar glass morphism */
 .custom-navbar {
-  position: relative;
-  width: 100%;
-  border-radius: 100px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.3);
+    position: relative;
+    width: 100%;
+    border-radius: 100px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .custom-navbar .container {
-  padding-left: 1rem;
-  padding-right: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-#offcanvasFull{
-  background-color: var(--blu-100);
-  color: white !important;
+#offcanvasFull {
+    background-color: var(--blue-100);
+    color: white !important;
 }
 
 .btn-close-custom {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 .btn-close-custom:hover {
-  opacity: 0.8;
-  transform: translateX(-2px);
-  transition: 0.2s ease;
+    opacity: 0.8;
+    transform: translateX(-2px);
+    transition: 0.2s ease;
 }
 
 
@@ -300,46 +311,45 @@ h6 {
    LIQUID GLASS EFFECT
 ---------------------------------------------------- */
 .liquidGlass-wrapper {
-  position: relative;
-  display: flex;
-  font-weight: 600;
-  overflow: hidden;
-  color: black;
-  cursor: pointer;
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2),
-              0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    font-weight: 600;
+    overflow: hidden;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .liquidGlass-effect {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  backdrop-filter: blur(3px);
-  filter: url(#glass-distortion);
-  overflow: hidden;
-  isolation: isolate;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    backdrop-filter: blur(3px);
+    filter: url(#glass-distortion);
+    overflow: hidden;
+    isolation: isolate;
 }
 
 .liquidGlass-tint {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.25);
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .liquidGlass-text {
-  z-index: 3;
-  color: white;
+    z-index: 3;
+    color: white;
 }
 
 .liquidGlass-shine {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  border-radius: 1000px;
-  overflow: hidden;
-  box-shadow:
-    inset 0.5px 0px 0px 0 rgba(255, 255, 255, 0.5),
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: 1000px;
+    overflow: hidden;
+    box-shadow: inset 0.5px 0px 0px 0 rgba(255, 255, 255, 0.5),
     inset -0.5px -1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
@@ -347,147 +357,174 @@ h6 {
    VIDEO BACKGROUND
 ---------------------------------------------------- */
 .full-y {
-  height: 80vh;
-  height: 80svh;
+    height: 80vh;
+    height: 80svh;
 }
 
 .header-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
 }
 
 .header-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #bg-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .header-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom,
-    rgba(7,7,19,0) 0%,
-    var(--blu-100) 100%);
-  z-index: 1;
-  pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+    rgba(7, 7, 19, 0) 0%,
+    var(--blue-100) 100%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* ----------------------------------------------------
    SECTION STYLES
 ---------------------------------------------------- */
 .section-bg-light {
-  background-color: var(--blu2-30);
+    background-color: var(--blue2-30);
 }
 
 .filter-luminosity {
-  mix-blend-mode: luminosity;
+    mix-blend-mode: luminosity;
 }
 
-/* Non posso usare mix-blend-mode nel background-image */
+/* You can't use mix-blend-mode on the background-image */
 #home-serate-speciali {
-  background-image: url(../img/home-serate-speciali.svg);
-  background-position: right;
-  background-repeat: no-repeat;
-  /* mix-blend-mode deve stare su un img, non su background */
+    background-image: url(../img/home-serate-speciali.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    /* mix-blend-mode must be on an img, not on a background */
 }
 
 /* ----------------------------------------------------
    RESPONSIVE WIDTHS (Bootstrap-like)
 ---------------------------------------------------- */
-@media (min-width: 576px) { .custom-navbar { max-width: 540px; } }
-@media (min-width: 768px) { .custom-navbar { max-width: 720px; } }
-@media (min-width: 992px) { .custom-navbar { max-width: 960px; } }
-@media (min-width: 1200px) { .custom-navbar { max-width: 1140px; } }
-@media (min-width: 1400px) { .custom-navbar { max-width: 1320px; } }
+@media (min-width: 576px) {
+    .custom-navbar {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .custom-navbar {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .custom-navbar {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .custom-navbar {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .custom-navbar {
+        max-width: 1320px;
+    }
+}
 
 /* ========================== */
-/* Contenitore timeline       */
+/* Timeline element container */
 /* ========================== */
 .timeline-container {
-  position: relative;
-  padding: 50px 0;
+    position: relative;
+    padding: 50px 0;
 }
 
-/* Linea verticale grigia */
+/* Gray vertical line */
 .timeline-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 4px;
-  height: 100%;
-  background: var(--blu5-30);
-  transform: translateX(-50%);
-  z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: var(--blue5-30);
+    transform: translateX(-50%);
+    z-index: -1;
 }
 
-/* Linea di riempimento dinamica (rossa) */
+/* Dynamic filling line (red) */
 .timeline-fill {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 4px;
-  height: 0; /* modificata via JS */
-  background: var(--blu5-100);
-  transform: translateX(-50%);
-  z-index: -1;
-  transition: height 0.2s linear; /* animazione morbida */
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 0; /* modificata via JS */
+    background: var(--blue5-100);
+    transform: translateX(-50%);
+    z-index: -1;
+    transition: height 0.2s linear; /* animazione morbida */
 }
 
 /* ========================== */
-/* Punti rossi sulla linea     */
+/* Red dots on the line       */
 /* ========================== */
-/* Punti della timeline */
+
+/* Timeline dots */
 .timeline-dot {
-  position: absolute;
-  left: 50%;                 /* linea verticale */
-  width: 28px;
-  height: 28px;
-  background: var(--blu5-100);         /* colore iniziale */
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  transition: all 0.3s ease; /* animazione morbida */
+    position: absolute;
+    left: 50%; /* linea verticale */
+    width: 28px;
+    height: 28px;
+    background: var(--blue5-100); /* colore iniziale */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: all 0.3s ease; /* animazione morbida */
 }
 
-/* Punto attivo */
+/* Active dot */
 .timeline-dot.active {
-  background-color: var(--blu5-100);     /* diventa rosso quando attivo */
-  transform: translate(-50%, -50%) scale(1.2); /* leggero ingrandimento */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    background-color: var(--blue5-100); /* diventa rosso quando attivo */
+    transform: translate(-50%, -50%) scale(1.2); /* leggero ingrandimento */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 576px) { 
-  .timeline-container::before { 
-    display: none;
-  } 
-  .timeline-fill {
-    display: none;
-  }
-  .timeline-dot {
-    display: none;
-  }
+@media (max-width: 576px) {
+    .timeline-container::before {
+        display: none;
+    }
+
+    .timeline-fill {
+        display: none;
+    }
+
+    .timeline-dot {
+        display: none;
+    }
 }
 
 .bubble-box {
-  position: relative;
-  transform: translateY(-50%);
-  left: 0;
-  width: 50%;
+    position: relative;
+    transform: translateY(-50%);
+    left: 0;
+    width: 50%;
 }
 
 

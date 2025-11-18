@@ -1,181 +1,180 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* =========================
-     CURSOR PERSONALIZZATO
+    /* =========================
+       CURSOR PERSONALIZZATO
+    ========================== */
+    const circleElement = document.querySelector(".circle");
+
+    const mouse = {x: 0, y: 0};
+    const previousMouse = {x: 0, y: 0};
+    const circle = {x: 0, y: 0};
+
+    let currentScale = 0;
+    let currentAngle = 0;
+    const speed = 0.17;
+
+    window.addEventListener("mousemove", e => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    });
+
+    const tick = () => {
+        circle.x += (mouse.x - circle.x) * speed;
+        circle.y += (mouse.y - circle.y) * speed;
+        const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
+
+        const deltaMouseX = mouse.x - previousMouse.x;
+        const deltaMouseY = mouse.y - previousMouse.y;
+        previousMouse.x = mouse.x;
+        previousMouse.y = mouse.y;
+        const mouseVelocity = Math.min(Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2) * 4, 150);
+        const scaleValue = (mouseVelocity / 150) * 0.5;
+        currentScale += (scaleValue - currentScale) * speed;
+        const scaleTransform = `scale(${1 + currentScale}, ${1 - currentScale})`;
+
+        const angle = (Math.atan2(deltaMouseY, deltaMouseX) * 180) / Math.PI;
+        if (mouseVelocity > 5) currentAngle = angle;
+        const rotateTransform = `rotate(${currentAngle}deg)`;
+
+        circleElement.style.transform = `${translateTransform} ${rotateTransform} ${scaleTransform}`;
+
+        requestAnimationFrame(tick);
+    };
+    tick();
+
+    /* =========================
+     TIMELINE
   ========================== */
-  const circleElement = document.querySelector(".circle");
-
-  const mouse = { x: 0, y: 0 };
-  const previousMouse = { x: 0, y: 0 };
-  const circle = { x: 0, y: 0 };
-
-  let currentScale = 0;
-  let currentAngle = 0;
-  const speed = 0.17;
-
-  window.addEventListener("mousemove", e => {
-    mouse.x = e.x;
-    mouse.y = e.y;
-  });
-
-  const tick = () => {
-    circle.x += (mouse.x - circle.x) * speed;
-    circle.y += (mouse.y - circle.y) * speed;
-    const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
-
-    const deltaMouseX = mouse.x - previousMouse.x;
-    const deltaMouseY = mouse.y - previousMouse.y;
-    previousMouse.x = mouse.x;
-    previousMouse.y = mouse.y;
-    const mouseVelocity = Math.min(Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2) * 4, 150);
-    const scaleValue = (mouseVelocity / 150) * 0.5;
-    currentScale += (scaleValue - currentScale) * speed;
-    const scaleTransform = `scale(${1 + currentScale}, ${1 - currentScale})`;
-
-    const angle = (Math.atan2(deltaMouseY, deltaMouseX) * 180) / Math.PI;
-    if (mouseVelocity > 5) currentAngle = angle;
-    const rotateTransform = `rotate(${currentAngle}deg)`;
-
-    circleElement.style.transform = `${translateTransform} ${rotateTransform} ${scaleTransform}`;
-
-    requestAnimationFrame(tick);
-  };
-  tick();
-
-  /* =========================
-   TIMELINE
-========================== */
-const timeline = document.querySelector(".timeline-container");
+    const timeline = document.querySelector(".timeline-container");
 
 // Linea rossa
-const fill = document.createElement("div");
-fill.className = "timeline-fill";
-timeline.appendChild(fill);
+    const fill = document.createElement("div");
+    fill.className = "timeline-fill";
+    timeline.appendChild(fill);
 
 // Punti
-const items = document.querySelectorAll(".timeline-item");
-const dots = [];
+    const items = document.querySelectorAll(".timeline-item");
+    const dots = [];
 
-items.forEach(item => {
-  const dot = document.createElement("div");
-  dot.className = "timeline-dot";
+    items.forEach(item => {
+        const dot = document.createElement("div");
+        dot.className = "timeline-dot";
 
-  const itemTop = item.offsetTop;
-  const itemHeight = item.offsetHeight;
-  dot.style.top = `${itemTop + itemHeight / 2}px`;
+        const itemTop = item.offsetTop;
+        const itemHeight = item.offsetHeight;
+        dot.style.top = `${itemTop + itemHeight / 2}px`;
 
-  timeline.appendChild(dot);
-  dots.push(dot);
+        timeline.appendChild(dot);
+        dots.push(dot);
+    });
+
+    function updateTimeline() {
+        const scrollTop = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const timelineTop = timeline.offsetTop;
+        const timelineHeight = timeline.offsetHeight;
+
+        let fillHeight = scrollTop + viewportHeight / 1.5 - timelineTop;
+        fillHeight = Math.max(0, Math.min(fillHeight, timelineHeight));
+        fill.style.height = fillHeight + "px";
+
+        // Attiva SOLO i dot
+        dots.forEach(dot => {
+            const dotTop = dot.offsetTop;
+            if (dotTop <= fillHeight) dot.classList.add("active");
+            else dot.classList.remove("active");
+        });
+    }
+
+    window.addEventListener("scroll", updateTimeline);
+    window.addEventListener("resize", () => {
+        items.forEach((item, i) => {
+            const itemTop = item.offsetTop;
+            const itemHeight = item.offsetHeight;
+            dots[i].style.top = `${itemTop + itemHeight / 2}px`;
+        });
+        updateTimeline();
+    });
+
+    updateTimeline();
+
 });
-
-function updateTimeline() {
-  const scrollTop = window.scrollY;
-  const viewportHeight = window.innerHeight;
-  const timelineTop = timeline.offsetTop;
-  const timelineHeight = timeline.offsetHeight;
-
-  let fillHeight = scrollTop + viewportHeight / 1.5 - timelineTop;
-  fillHeight = Math.max(0, Math.min(fillHeight, timelineHeight));
-  fill.style.height = fillHeight + "px";
-
-  // Attiva SOLO i dot
-  dots.forEach(dot => {
-    const dotTop = dot.offsetTop;
-    if (dotTop <= fillHeight) dot.classList.add("active");
-    else dot.classList.remove("active");
-  });
-}
-
-window.addEventListener("scroll", updateTimeline);
-window.addEventListener("resize", () => {
-  items.forEach((item, i) => {
-    const itemTop = item.offsetTop;
-    const itemHeight = item.offsetHeight;
-    dots[i].style.top = `${itemTop + itemHeight / 2}px`;
-  });
-  updateTimeline();
-});
-
-updateTimeline();
-
-});
-
 
 
 let myHoverables = document.getElementsByClassName("hoverable");
 for (let i = 0; i < myHoverables.length; i++) {
-  myHoverables[i].addEventListener("mouseover", function() {
-    document.getElementsByClassName("circle")[0].classList.add("hovered");
-    document.getElementsByClassName("circle")[0].classList.remove("not-hovered");
-    console.log('sopra');
-  });
-  myHoverables[i].addEventListener("mouseout", function() {
-    document.getElementsByClassName("circle")[0].classList.remove("hovered");
-    document.getElementsByClassName("circle")[0].classList.add("not-hovered");
-    console.log('sotto');
-  });
+    myHoverables[i].addEventListener("mouseover", function () {
+        document.getElementsByClassName("circle")[0].classList.add("hovered");
+        document.getElementsByClassName("circle")[0].classList.remove("not-hovered");
+        console.log('sopra');
+    });
+    myHoverables[i].addEventListener("mouseout", function () {
+        document.getElementsByClassName("circle")[0].classList.remove("hovered");
+        document.getElementsByClassName("circle")[0].classList.add("not-hovered");
+        console.log('sotto');
+    });
 }
 
 let buttonSound = document.getElementsByClassName("btn-sound");
 for (let i = 0; i < buttonSound.length; i++) {
-  buttonSound[i].addEventListener("click", function() {
-    this.classList.toggle("attivo");
-  });
+    buttonSound[i].addEventListener("click", function () {
+        this.classList.toggle("attivo");
+    });
 }
 
 document.addEventListener('show.bs.offcanvas', () => {
-  document.body.classList.add('offcanvas-open');
+    document.body.classList.add('offcanvas-open');
 });
 document.addEventListener('hide.bs.offcanvas', () => {
-  document.body.classList.remove('offcanvas-open');
+    document.body.classList.remove('offcanvas-open');
 });
 
 document.addEventListener('show.bs.offcanvas', () => {
-  document.body.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');
 });
 
 document.addEventListener('hide.bs.offcanvas', () => {
-  document.body.classList.remove('no-scroll');
+    document.body.classList.remove('no-scroll');
 });
 
 
 document.querySelectorAll(".btn-sound").forEach(btn => {
-  btn.addEventListener("click", function () {
-    const item = this.closest(".timeline-item");
-    const video = item.querySelector("video");
+    btn.addEventListener("click", function () {
+        const item = this.closest(".timeline-item");
+        const video = item.querySelector("video");
 
-    if (!video) return;
+        if (!video) return;
 
-    // Se il video è in riproduzione → soft-stop
-    if (!video.paused) {
-      let rate = video.playbackRate;
-      const interval = setInterval(() => {
-        rate -= 0.1;                   // rallenta
-        video.playbackRate = Math.max(rate, 0.1);
+        // Se il video è in riproduzione → soft-stop
+        if (!video.paused) {
+            let rate = video.playbackRate;
+            const interval = setInterval(() => {
+                rate -= 0.1;                   // rallenta
+                video.playbackRate = Math.max(rate, 0.1);
 
-        if (rate <= 0.1) {
-          clearInterval(interval);
-          video.pause();
-          video.playbackRate = 1;      // reset per la prossima riproduzione
+                if (rate <= 0.1) {
+                    clearInterval(interval);
+                    video.pause();
+                    video.playbackRate = 1;      // reset per la prossima riproduzione
+                }
+            }, 40);
+            return;
         }
-      }, 40);
-      return;
-    }
 
-    // Se il video è fermo → soft-start
-    video.play();
-    video.playbackRate = 0.1;
+        // Se il video è fermo → soft-start
+        video.play();
+        video.playbackRate = 0.1;
 
-    let rate = 0.1;
-    const interval = setInterval(() => {
-      rate += 0.1;                     // accelera
-      video.playbackRate = rate;
+        let rate = 0.1;
+        const interval = setInterval(() => {
+            rate += 0.1;                     // accelera
+            video.playbackRate = rate;
 
-      if (rate >= 1) {
-        video.playbackRate = 1;
-        clearInterval(interval);
-      }
-    }, 40);
-  });
+            if (rate >= 1) {
+                video.playbackRate = 1;
+                clearInterval(interval);
+            }
+        }, 40);
+    });
 });
 
 
