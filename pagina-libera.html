@@ -7,13 +7,13 @@
     <!-- meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-
     <!-- style imports -->
-    <link href="./vendor/bootstrap/bootstrap-css/bootstrap.css" rel="stylesheet"/>
+   <link href="./vendor/bootstrap/bootstrap-css/bootstrap.css" rel="stylesheet">
     <link href="./css/main.css" rel="stylesheet"/>
-
+    <!-- BOOTSTRAP ICONS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- script imports -->
-    <script src="./vendor/bootstrap/bootstrap-js/bootstrap.bundle.js"></script>
+    <script src="./vendor/bootstrap/bootstrap-js/bootstrap.js"></script>
     <script src="./js/main.js"></script>
 
     <!-- page title -->
@@ -99,7 +99,7 @@
                 </div>
                 <div class="col-3 d-flex justify-content-end align-items-start">
                     <button aria-label="Chiudi" class="btn-close-custom" data-bs-dismiss="offcanvas" type="button">
-                        <i class="bi bi-arrow-left"></i>
+                        <img src="../media/icon/arrow-right.webp" alt="Freccia destra" style="height: 1.3em;">
                     </button>
                 </div>
             </div>
@@ -109,27 +109,25 @@
 
 <!-- hero -->
 <!-- toDo: aggiornare dopo che Otto ha rivisto l'elemento -->
-<section class="container-fluid full-y py-5" id="hero-special-events">
-    <div class="video-wrapper">
-        <video autoplay id="bg-video" loop muted playsinline>
-            <source src="/img/video-prova.mp4" type="video/mp4">
-            <!-- toDo: mettere immagine animata di background quando la abbiamo -->
-        </video>
-        <div class="video-overlay"></div> <!-- toDo: a che serve questo??? -->
-    </div>
-    <div class="container mb-5 d-flex flex-column justify-content-end align-items-start h-100">
-        <img alt="Logo" class="mb-3" height="100" src="./img/Logo.svg" width="200">
-        <h1 class="body-lead">Serate speciali</h1>
-        <p class="body-lead">Oltre la cena, nel cuore dell'esperienza</p>
-    </div>
-</section>
+    <section class="full-y py-5">
+        <div class="header-wrapper">
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="/img/video-prova.mp4" type="video/mp4">
+    </video>
+    <div class="header-overlay"></div>
+  </div>
+      <div class="container mb-5 d-flex flex-column justify-content-end align-items-start h-100">
+            <h1>Serate Speciali</h1>
+            <h1 class="body-lead">Oltre la cena, nel cuore dell'esperienza</h1>
+        </div>
+    </section>
 
 <!-- introduction -->
-<section class="container full-y mt-5 py-5">
+<section class="container mt-5">
     <h2 class="text-center mt-5 mb-3">Incontri dal profondo</h2>
-    <p class="body-lead">
+    <p class="body-lead px-5">
         Le nostre serate speciali sono rituali sensoriali in cui gastronomia, suono e tecnologia si uniscono per creare
-        esperienze irripetibili.
+        esperienze irripetibili. <br>
         Ogni evento è un incontro: tra elementi, emozioni e memorie che riaffiorano dal profondo. Un invito a vivere il
         mare in una forma diversa, ogni volta unica.
     </p>

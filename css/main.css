@@ -3,7 +3,7 @@
 ---------------------------------------------------- */
 @font-face {
     font-family: 'Kaftan';
-    src: url('vendor/fonts/kaftan-trial.otf') format('opentype');
+    src: url('../vendor/fonts/kaftan-trial.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -32,6 +32,8 @@
     --blue5-100: #EAE9FB;
     --blue5-30: rgba(234, 233, 251, 0.3);
     --blue5-dark: #070713;
+
+    --blue70-100: #817de8;
 
     /* --- Pinks (highlights) --- */
     --pink-100: #FF327A;
@@ -182,7 +184,6 @@ h6 {
 .btn {
     color: white !important;
     width: fit-content !important;
-    display: inline-block !important;
     background-color: var(--blue4-30) !important;
     gap: 0.5rem !important;
     padding: 1rem 1.5rem !important;
@@ -357,8 +358,8 @@ h6 {
    VIDEO BACKGROUND
 ---------------------------------------------------- */
 .full-y {
-    height: 80vh;
-    height: 80svh;
+    height: 90vh;
+    height: 90svh;
 }
 
 .header-wrapper {
@@ -527,4 +528,15 @@ h6 {
     width: 50%;
 }
 
+input{
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid var(--blue70-100) !important;
+    color: white !important;
+}
 
+input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
