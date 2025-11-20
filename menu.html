@@ -30,10 +30,13 @@
       </a>
 
       <div class="liquidGlass-text">
-        <button class="btn" type="button">
-          Prenota <i class="bi bi-arrow-right"></i>
+        <button class="btn liquidGlass-wrapper">
+          <div class="liquidGlass-effect" aria-hidden="true"></div>
+          <div class="liquidGlass-tint" aria-hidden="true"></div>
+          <div class="liquidGlass-shine" aria-hidden="true"></div>
+          <span class="liquidGlass-text">Prenota <i class="bi bi-arrow-right"></i></span>
         </button>
-        <button class="btn btn-empty" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFull" aria-controls="offcanvasFull">
+        <button class="btn-empty" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFull" aria-controls="offcanvasFull">
           <i class="bi bi-list"></i>
         </button>
       </div>
@@ -61,15 +64,18 @@
         </div>
 
         <!-- MENU -->
-        <div class="col-md-3 d-flex mt-5 mt-md-0 flex-column order-3 order-md-last">
-          <button class="btn mb-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFull">
-            Prenota <i class="bi bi-arrow-right"></i>
+        <div class="col-md-3 d-flex mt-5 mt-md-0 flex-column order-3 order-md-last align-items-start">
+          <button class="btn liquidGlass-wrapper mb-5">
+            <div class="liquidGlass-effect" aria-hidden="true"></div>
+            <div class="liquidGlass-tint" aria-hidden="true"></div>
+            <div class="liquidGlass-shine" aria-hidden="true"></div>
+            <span class="liquidGlass-text">Prenota <i class="bi bi-arrow-right"></i></span>
           </button>
-          <button class="btn btn-empty" type="button">Home <i class="bi bi-arrow-right"></i></button>
-          <button class="btn btn-empty" type="button">Ristorante <i class="bi bi-arrow-right"></i></button>
-          <button class="btn btn-empty" type="button">Menu <i class="bi bi-arrow-right"></i></button>
-          <button class="btn btn-empty" type="button">Informazioni <i class="bi bi-arrow-right"></i></button>
-          <button class="btn btn-empty" type="button">Serate Speciali <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty" type="button">Home <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty mt-3" type="button">Ristorante <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty mt-3" type="button">Menu <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty mt-3" type="button">Informazioni <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty mt-3" type="button">Serate Speciali <i class="bi bi-arrow-right"></i></button>
         </div>
 
         <!-- PULSANTE CHIUSURA -->
@@ -96,7 +102,7 @@
           </div>
     </section>
 
-  <section class="mt-5 py-5">
+  <section class="py-5">
     <div class="container text-center mt-5">
       <h2>Synestesia</h2>
       <p>
@@ -105,7 +111,18 @@
         un sistema di micro-vibrazioni diffuse nel piatto, il suono si propaga direttamente nei sensi trasformando ogni 
         portata in una composizione dove gusto e suono si fondono.
       </p>
-      <button class="btn mt-2">Leggi di più <i class="bi bi-arrow-right"></i></button>
+      <button class="btn liquidGlass-wrapper">
+        <div class="liquidGlass-effect" aria-hidden="true"></div>
+        <div class="liquidGlass-tint" aria-hidden="true"></div>
+        <div class="liquidGlass-shine" aria-hidden="true"></div>
+        <span class="liquidGlass-text">Leggi di più <i class="bi bi-arrow-right"></i></span>
+      </button>
+
+
+      
+          
+
+      </div>
     </div>
   </section>
 
@@ -130,10 +147,18 @@
           <p>Un intreccio di corallo rigenerato, in una mousse di plankton fermentato e perle di salinità cangiante. 
             La sua consistenza si trasforma al contatto e ogni boccone racchiude l’essenza del mare in continuo mutamento.</p>
           <div class="container d-flex justify-content-between justify-content-start p-0">
-            <button class="btn btn-sound me-md-3 order-last order-md-first"><i class="bi bi-soundwave"></i></button>
-            <button class="btn mt-2">
-              Immergiti nel piatto <i class="bi bi-arrow-right"></i>
-            </button>
+          <button class="btn liquidGlass-wrapper btn-sound me-md-3 order-last order-md-first">
+            <div class="liquidGlass-effect" aria-hidden="true"></div>
+            <div class="liquidGlass-tint" aria-hidden="true"></div>
+            <div class="liquidGlass-shine" aria-hidden="true"></div>
+            <span class="liquidGlass-text"><i class="bi bi-soundwave"></i></span>
+          </button>
+          <button class="btn mt-2 liquidGlass-wrapper">
+              <div class="liquidGlass-effect" aria-hidden="true"></div>
+              <div class="liquidGlass-tint" aria-hidden="true"></div>
+              <div class="liquidGlass-shine" aria-hidden="true"></div>
+              <span class="liquidGlass-text">Immergiti nel piatto <i class="bi bi-arrow-right"></i></span>
+          </button>
           </div>
         </div>
 
@@ -154,14 +179,63 @@
         </div>
 
         <div class="col-md-6 px-5 mt-2 mt-md-0">
-          <h2>Thalassa</h2>
-          <p>Un intreccio di corallo rigenerato, in una mousse di plankton fermentato e perle di salinità cangiante. 
-            La sua consistenza si trasforma al contatto e ogni boccone racchiude l’essenza del mare in continuo mutamento.</p>
+          <h2>Madreperla</h2>
+          <p>Una conchiglia termica che si apre al contatto, rivelando una crema di alghe sinaptiche e petali di medusa disidratata. 
+            Al palato un’armonia tra dolcezza marina e note metalliche.</p>
           <div class="container d-flex justify-content-between justify-content-start p-0">
-            <button class="btn btn-sound me-md-3 order-last order-md-first"><i class="bi bi-soundwave"></i></button>
-            <button class="btn mt-2">
-              Immergiti nel piatto <i class="bi bi-arrow-right"></i>
-            </button>
+            <div class="container d-flex justify-content-between justify-content-start p-0">
+          <button class="btn liquidGlass-wrapper btn-sound me-md-3 order-last order-md-first">
+            <div class="liquidGlass-effect" aria-hidden="true"></div>
+            <div class="liquidGlass-tint" aria-hidden="true"></div>
+            <div class="liquidGlass-shine" aria-hidden="true"></div>
+            <span class="liquidGlass-text"><i class="bi bi-soundwave"></i></span>
+          </button>
+          <button class="btn mt-2 liquidGlass-wrapper">
+              <div class="liquidGlass-effect" aria-hidden="true"></div>
+              <div class="liquidGlass-tint" aria-hidden="true"></div>
+              <div class="liquidGlass-shine" aria-hidden="true"></div>
+              <span class="liquidGlass-text">Immergiti nel piatto <i class="bi bi-arrow-right"></i></span>
+          </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+    <!-- ITEM 3 -->
+    <div class="timeline-item my-5 mt-5 mt-md-0">
+      <div class="row align-items-start">
+
+        <div class="col-md-6 px-5 mt-5 mt-md-0">
+          <img src="./img/Menu-1.png" class="img-fluid timeline-img">
+          <div class="bubble-box">
+              <video muted loop playsinline class="bg-video">
+              <source src="/img/video-prova.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="col-md-6 px-5 mt-2 mt-md-0">
+          <h2>Bioluma</h2>
+          <p>Una composizione bioluminescente: sfera di polline marino e zucchero di kelp che si illuminano al respiro del commensale. 
+            All’interno, un cuore di lichene cristallizzato e idromiele d’acqua profonda.</p>
+          <div class="container d-flex justify-content-between justify-content-start p-0">
+            <div class="container d-flex justify-content-between justify-content-start p-0">
+          <button class="btn liquidGlass-wrapper btn-sound me-md-3 order-last order-md-first">
+            <div class="liquidGlass-effect" aria-hidden="true"></div>
+            <div class="liquidGlass-tint" aria-hidden="true"></div>
+            <div class="liquidGlass-shine" aria-hidden="true"></div>
+            <span class="liquidGlass-text"><i class="bi bi-soundwave"></i></span>
+          </button>
+          <button class="btn mt-2 liquidGlass-wrapper">
+              <div class="liquidGlass-effect" aria-hidden="true"></div>
+              <div class="liquidGlass-tint" aria-hidden="true"></div>
+              <div class="liquidGlass-shine" aria-hidden="true"></div>
+              <span class="liquidGlass-text">Immergiti nel piatto <i class="bi bi-arrow-right"></i></span>
+          </button>
           </div>
         </div>
 
@@ -188,8 +262,11 @@
           <h5>Prenotazioni</h5>
           <p>Per vivere l’esperienza di un percorso di suoni, luci e sapori custoditi nel cuore del fondale di Atlas, è necessaria la prenotazione
           </p>
-          <button class="btn mt-2">
-            Prenota <i class="bi bi-arrow-right"></i>
+          <button class="btn liquidGlass-wrapper" type="submit">
+              <div class="liquidGlass-effect" aria-hidden="true"></div>
+              <div class="liquidGlass-tint" aria-hidden="true"></div>
+              <div class="liquidGlass-shine" aria-hidden="true"></div>
+              <span class="liquidGlass-text">Iscriviti <i class="bi bi-arrow-right"></i></span>
           </button>
         </div>
         <div class="col-md-6">
@@ -204,7 +281,12 @@
                   <label for="exampleInputEmail1" class="form-label">E-mail</label>
                   <input type="text" class="form-control" id="exampleInputEmail1">
                 </div>
-                <button type="submit" class="btn btn-primary">Iscriviti <i class="bi bi-arrow-right"></i></button>
+                <button class="btn liquidGlass-wrapper" type="submit">
+                    <div class="liquidGlass-effect" aria-hidden="true"></div>
+                    <div class="liquidGlass-tint" aria-hidden="true"></div>
+                    <div class="liquidGlass-shine" aria-hidden="true"></div>
+                    <span class="liquidGlass-text">Iscriviti <i class="bi bi-arrow-right"></i></span>
+                </button>
               </form>
               
             </div>
