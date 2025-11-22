@@ -12,7 +12,8 @@
     <script src="./vendor/swiper/swiper-bundle.js"></script>
 
     <!-- style imports -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet"/> <!-- bootstrap icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
+    <!-- bootstrap icons -->
     <link href="./vendor/bootstrap/bootstrap-css/bootstrap.css" rel="stylesheet"/> <!-- bootstrap css -->
     <link href="./css/main.css" rel="stylesheet"/>
     <link href="./vendor/swiper/swiper.css" rel="stylesheet"/>
@@ -47,23 +48,26 @@
 <body>
 <div class="circle"></div>
 
-<!-- navbar -->
-<header class="navbar-wrapper">
+<!-- navbar (done) -->
+<header class="navbar-wrapper container-fluid">
     <nav class="navbar custom-navbar hoverable liquidGlass-wrapper mt-4 mx-2">
         <div class="liquidGlass-effect"></div>
         <div class="liquidGlass-shine"></div>
 
-        <div class="container px-4 py-2">
+        <div class="container-fluid px-4 py-2">
             <a class="navbar-brand liquidGlass-text" href="index.html">
-                <img alt="Logo" height="50" src="/media/img/Logo.svg" width="50">
+                <img alt="Logo" height="50" src="media/img/Logo.svg" width="50">
             </a>
 
             <div class="liquidGlass-text">
-                <button class="btn" type="button">
-                    Prenota <i class="bi bi-arrow-right"></i>
+                <button class="btn liquidGlass-wrapper">
+                    <span aria-hidden="true" class="liquidGlass-effect"></span>
+                    <span aria-hidden="true" class="liquidGlass-tint"></span>
+                    <span aria-hidden="true" class="liquidGlass-shine"></span>
+                    <span class="liquidGlass-text" onclick="window.location.href='prenota.html'">Prenota <i
+                            class="bi bi-arrow-right"></i></span>
                 </button>
-                <button aria-controls="offcanvasFull" class="btn btn-empty" data-bs-target="#offcanvasFull"
-                        data-bs-toggle="offcanvas"
+                <button aria-controls="offcanvasFull" class="btn-empty" data-bs-target="#offcanvasFull" data-bs-toggle="offcanvas"
                         type="button">
                     <i class="bi bi-list"></i>
                 </button>
@@ -73,7 +77,7 @@
 </header>
 
 
-<!-- Offcanvas Fullpage -->
+<!-- Off-canvas full-page (= opened hamburger menu) [updated] -->
 <div aria-labelledby="offcanvasFullLabel" class="offcanvas offcanvas-top" id="offcanvasFull" tabindex="-1">
     <div class="offcanvas-body">
         <div class="container-fluid">
@@ -81,25 +85,33 @@
 
                 <!-- LOGO -->
                 <div class="col-6 col-md-2 order-1">
-                    <img alt="" src="./media/img/Logo.svg">
+                    <img alt="" src="media/img/Logo.svg">
                 </div>
 
                 <!-- IMMAGINE (solo da md) -->
                 <div class="col-md-4 d-none d-md-block order-2">
-                    <img alt="" class="img-fluid full-y" src="./media/img/sfondo-prova-vetro.jpg">
+                    <img alt="" class="img-fluid full-y" src="media/img/sfondo-prova-vetro.jpg">
                 </div>
 
                 <!-- MENU -->
-                <div class="col-md-3 d-flex mt-5 mt-md-0 flex-column order-3 order-md-last">
-                    <button class="btn mb-5" data-bs-target="#offcanvasFull" data-bs-toggle="offcanvas" type="button">
-                        Prenota <i class="bi bi-arrow-right"></i>
+                <div class="col-md-3 d-flex mt-5 mt-md-0 flex-column order-3 order-md-last align-items-start">
+                    <button class="btn liquidGlass-wrapper mb-5">
+                        <span aria-hidden="true" class="liquidGlass-effect"></span>
+                        <span aria-hidden="true" class="liquidGlass-tint"></span>
+                        <span aria-hidden="true" class="liquidGlass-shine"></span>
+                        <span class="liquidGlass-text" onclick="'window.location.href: prenota.html'">Prenota <i
+                                class="bi bi-arrow-right"></i></span>
                     </button>
-                    <button class="btn btn-empty" type="button">Home <i class="bi bi-arrow-right"></i></button>
-                    <button class="btn btn-empty" type="button">Ristorante <i class="bi bi-arrow-right"></i></button>
-                    <button class="btn btn-empty" type="button">Menu <i class="bi bi-arrow-right"></i></button>
-                    <button class="btn btn-empty" type="button">Informazioni <i class="bi bi-arrow-right"></i></button>
-                    <button class="btn btn-empty" type="button">Serate Speciali <i class="bi bi-arrow-right"></i>
-                    </button>
+                    <button class="btn-empty" onclick="window.location.href='index.html'" type="button">Home <i
+                            class="bi bi-arrow-right"></i></button>
+                    <button class="btn-empty mt-3" onclick="window.location.href='ristorante.html'" type="button">
+                        Ristorante <i class="bi bi-arrow-right"></i></button>
+                    <button class="btn-empty mt-3" onclick="window.location.href='menu.html'" type="button">Menu <i
+                            class="bi bi-arrow-right"></i></button>
+                    <button class="btn-empty mt-3" onclick="window.location.href='info.html'" type="button">Informazioni
+                        <i class="bi bi-arrow-right"></i></button>
+                    <button class="btn-empty mt-3" onclick="window.location.href='pagina-libera.html'" type="button">
+                        Serate Speciali <i class="bi bi-arrow-right"></i></button>
                 </div>
 
                 <!-- PULSANTE CHIUSURA -->
@@ -115,14 +127,15 @@
 </div>
 
 
-<!-- Hero background-->
-<section class="full-y py-5" id="header-menu">
+<!-- hero (updated) -->
+<section class="full-y py-5">
     <div class="header-wrapper">
         <div class="header-overlay"></div>
-        <img alt="Sfondo Menu" class="img-fluid" src="./media/img/serate-speciali-main-1-2000w.webp">
-        <!-- toDo: change image -->
+        <video autoplay class="bg-video" loop muted playsinline>
+            <source src="/media/video/restaurant-coral.webm" type="video/webm">
+        </video>
     </div>
-    <div class="container mb-5 d-flex flex-column justify-content-end align-items-start h-100">
+    <div class="container-fluid mb-5 mx-4 d-flex flex-column justify-content-end align-items-start h-100">
         <h1>Il ristorante</h1>
         <span class="body-lead">Un'esperienza tra le note del tempo</span>
     </div>
@@ -333,19 +346,19 @@
                     <div class="px-5 align-items-start text-start">
                         <div class="row">
                             <div class="col-4">
-                            <img src="/media/img/descpiatto1-1-800.webp" class="img-fluid">
+                                <img class="img-fluid" src="/media/img/descpiatto1-1-800.webp">
+                            </div>
+                            <div class="col-8">
+                                <h4>Esperienza indimenticabile</h4>
+                                <p>Ciao</p>
+                                <p>9.2/10</p>
+                                <p>Entrare in questo ristorante è come immergersi...</p>
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <h4>Esperienza indimenticabile</h4>
-                            <p>Ciao</p>
-                            <p>9.2/10</p>
-                            <p>Entrare in questo ristorante è come immergersi...</p>
-                        </div>
-                        </div>
-                        
-                         
+
+
                     </div>
-                   
+
                 </div>
 
                 <div class="swiper-slide d-flex flex-column justify-content-center p-4">
@@ -385,7 +398,7 @@
     <!-- toDo: carousel is still a mess, needs fixing -->
 
     <!-- Slider main container -->
-    <div class="swiper swiper-reviews" >
+    <div class="swiper swiper-reviews">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- User reviews list -->
@@ -450,9 +463,9 @@
     </div>
 </section>
 
-<!-- footer -->
-<footer class="py-4 mt-5 section-bg-light">
-    <div class="container">
+<!-- footer (updated) -->
+<footer class="p-4 mt-5 section-bg-light">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-6 col-md-3">
                 <h5>Orari di apertura</h5>
@@ -467,8 +480,11 @@
                 <p>Per vivere l’esperienza di un percorso di suoni, luci e sapori custoditi nel cuore del fondale di
                     Atlas, è necessaria la prenotazione
                 </p>
-                <button class="btn mt-2">
-                    Prenota <i class="bi bi-arrow-right"></i>
+                <button class="btn liquidGlass-wrapper" onclick="window.location.href='prenota.html'" type="submit">
+                    <span aria-hidden="true" class="liquidGlass-effect"></span>
+                    <span aria-hidden="true" class="liquidGlass-tint"></span>
+                    <span aria-hidden="true" class="liquidGlass-shine"></span>
+                    <span class="liquidGlass-text">Prenota <i class="bi bi-arrow-right"></i></span>
                 </button>
             </div>
             <div class="col-md-6">
@@ -481,9 +497,13 @@
                         <form>
                             <div class="mb-3">
                                 <label class="form-label" for="exampleInputEmail1">E-mail</label>
-                                <input class="form-control" id="exampleInputEmail1" type="text">
+                                <input class="form-control" id="exampleInputEmail1" type="email">
                             </div>
-                            <button class="btn btn-primary" type="submit">Iscriviti <i class="bi bi-arrow-right"></i>
+                            <button class="btn liquidGlass-wrapper" type="submit">
+                                <span aria-hidden="true" class="liquidGlass-effect"></span>
+                                <span aria-hidden="true" class="liquidGlass-tint"></span>
+                                <span aria-hidden="true" class="liquidGlass-shine"></span>
+                                <span class="liquidGlass-text">Iscriviti <i class="bi bi-arrow-right"></i></span>
                             </button>
                         </form>
 
@@ -498,9 +518,9 @@
                     <img alt="" class="img-fluid" src="./img/Logo.svg">
                 </div>
                 <div>
-                    <button class="btn btn-empty">A</button>
-                    <button class="btn btn-empty">B</button>
-                    <button class="btn btn-empty">C</button>
+                    <button class="btn-empty"><img alt="Social 1" src="/media/icon/footer-1.svg"></button>
+                    <button class="btn-empty"><img alt="Social 2" src="/media/icon/footer-2.svg"></button>
+                    <button class="btn-empty"><img alt="Social 3" src="/media/icon/footer-3.svg"></button>
                 </div>
             </div>
         </div>
