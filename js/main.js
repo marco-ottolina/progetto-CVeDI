@@ -137,6 +137,7 @@ document.addEventListener('hide.bs.offcanvas', () => {
 });
 
 
+/* toDo: change comments to italian */
 document.querySelectorAll(".btn-sound").forEach(btn => {
     btn.addEventListener("click", function () {
         const item = this.closest(".timeline-item");
@@ -177,6 +178,7 @@ document.querySelectorAll(".btn-sound").forEach(btn => {
     });
 });
 
+/* image swiper element adapted for MULTIPLE IMAGES */
 document.addEventListener('DOMContentLoaded', function() {
     const swiper = new Swiper('.swiper', {
         // Optional parameters
@@ -211,6 +213,27 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollbar: {
             el: '.swiper-scrollbar',
         },
+    });
+})
+
+/* image swiper element adapted for REVIEWS */
+document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper('.swiper-reviews', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        centeredSlides: true,
+        spaceBetween: 5,
+
+        slidesPerView: 1,
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
     });
 })
 

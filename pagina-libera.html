@@ -8,10 +8,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <!-- style imports -->
-   <link href="./vendor/bootstrap/bootstrap-css/bootstrap.css" rel="stylesheet">
+    <link href="./vendor/bootstrap/bootstrap-css/bootstrap.css" rel="stylesheet">
     <link href="./css/main.css" rel="stylesheet"/>
     <!-- BOOTSTRAP ICONS-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- script imports -->
     <script src="./vendor/bootstrap/bootstrap-js/bootstrap.js"></script>
     <script src="./js/main.js"></script>
@@ -41,7 +41,7 @@
 
         <div class="container px-4 py-2">
             <a class="navbar-brand liquidGlass-text" href="index.html">
-                <img alt="Logo" height="50" src="img/Logo.svg" width="50">
+                <img alt="Logo" height="50" src="/media/img/Logo.svg" width="50">
             </a>
 
             <div class="liquidGlass-text">
@@ -69,10 +69,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-2">
-                    <img alt="" src="./img/Logo.svg">
+                    <img alt="" src="./media/img/Logo.svg">
                 </div>
                 <div class="col-4">
-                    <img alt="" class="img-fluid" src="./img/sfondo-prova-vetro.jpg">
+                    <img alt="" class="img-fluid" src="./media/img/sfondo-prova-vetro.jpg">
                 </div>
                 <div class="col-3 justify-content-start">
                     <button aria-controls="offcanvasFull" class="btn mb-5" data-bs-target="#offcanvasFull"
@@ -99,7 +99,7 @@
                 </div>
                 <div class="col-3 d-flex justify-content-end align-items-start">
                     <button aria-label="Chiudi" class="btn-close-custom" data-bs-dismiss="offcanvas" type="button">
-                        <img src="../media/icon/arrow-right.webp" alt="Freccia destra" style="height: 1.3em;">
+                        <img alt="Freccia destra" src="./media/icon/arrow-right.webp" style="height: 1.3em;">
                     </button>
                 </div>
             </div>
@@ -109,18 +109,18 @@
 
 <!-- hero -->
 <!-- toDo: aggiornare dopo che Otto ha rivisto l'elemento -->
-    <section class="full-y py-5">
-        <div class="header-wrapper">
-    <video autoplay muted loop playsinline class="bg-video">
-      <source src="/img/video-prova.mp4" type="video/mp4">
-    </video>
-    <div class="header-overlay"></div>
-  </div>
-      <div class="container mb-5 d-flex flex-column justify-content-end align-items-start h-100">
-            <h1>Serate Speciali</h1>
-            <span class="body-lead">Oltre la cena, nel cuore dell'esperienza</span>
-        </div>
-    </section>
+<section class="full-y py-5">
+    <div class="header-wrapper">
+        <video autoplay class="bg-video" loop muted playsinline>
+            <source src="/media/img/video-prova.mp4" type="video/mp4">
+        </video>
+        <div class="header-overlay"></div>
+    </div>
+    <div class="container mb-5 d-flex flex-column justify-content-end align-items-start h-100">
+        <h1>Serate Speciali</h1>
+        <span class="body-lead">Oltre la cena, nel cuore dell'esperienza</span>
+    </div>
+</section>
 
 <!-- introduction -->
 <section class="container mt-5">
@@ -142,7 +142,8 @@
     <div class="d-flex flex-column flex-md-row h-100 align-items-stretch my-5 py-3">
         <!-- display: flex, flex is a column, content is {justify-content = in the direction of the main axis = vertical in a column / horizontal in a row} aligned to the start (top/left), content is {align-items = perpendicular to main axis = horizontal in a column / vertical in a row} = aligned to the start (left/top), items within grow to their maximum size (flex-grow = 1), (by default) content must fill all the 12 columns, (when >= medium = 768px) content must fill only 6 columns, (when >= medium = 768px) position to sticky-top, content has height = 50% of screen, when >= medium-size padding-end to 5, when >= large padding-start to 5, z-index to -1 (z-n1) so that the element is further back than the nav-bar -->
         <!-- toDo: need custom CSS if we are to make a padding-end larger than pe-5, to use it in place of current pe-md-5 -->
-        <div class="d-flex flex-column justify-content-start align-items-start flex-grow-1 col-12 col-md-6 sticky-md-top h-50 pe-md-5 ps-lg-5 z-n1 spaceFromNavbar"> <!-- toDo: figure out how to add padding that acts only against another sticky element (the nav-bar) and not in general -->
+        <div class="d-flex flex-column justify-content-start align-items-start flex-grow-1 col-12 col-md-6 sticky-md-top h-50 pe-md-5 ps-lg-5 z-n1 spaceFromNavbar">
+            <!-- toDo: figure out how to add padding that acts only against another sticky element (the nav-bar) and not in general -->
             <!-- each element but the last has a bottom-padding of 1*$spacer (pb-3) -->
             <h6 class="pb-3">03/11/2531</h6>
             <h3 class="pb-3">Luce liquida</h3>
@@ -166,14 +167,17 @@
                     class="img-fluid w-100"
                     loading="lazy"
                     sizes="
-                        (max-width: 800px) 100vw,
-                        40vw
+                        (min-width: 1200px) 600px,
+                        (min-width: 992px) 500px,
+                        (min-width: 768px) 400px,
+                        (min-width: 576px) 500px,
+                        100vw
                     "
                     src="media/img/serate-speciali-main-1-1200w.webp"
                     srcset="
-                    media/img/serate-speciali-main-1-800w.webp 800w,
-                media/img/serate-speciali-main-1-1200w.webpwebp 1200w,
-            media/img/serate-speciali-main-1-2000w.webp00w.webp 2000w
+                        media/img/serate-speciali-main-1-800w.webp 800w,
+                        media/img/serate-speciali-main-1-1200w.webp 1200w,
+                        media/img/serate-speciali-main-1-2000w.webp 2000w
                     "
             />
         </div>
@@ -229,18 +233,23 @@
                     class="img-fluid w-100"
                     loading="lazy"
                     sizes="
-                        (max-width: 800px) 100vw,
-                        40vw
+                        (min-width: 1200px) 600px,
+                        (min-width: 992px) 500px,
+                        (min-width: 768px) 400px,
+                        (min-width: 576px) 500px,
+                        100vw
                     "
                     src="media/img/serate-speciali-main-3-1200w.webp"
                     srcset="
                     media/img/serate-speciali-main-3-800w.webp 800w,
-                media/img/serate-speciali-main-3-1200w.webpwebp 1200w,
-            media/img/serate-speciali-main-3-2000w.webp00w.webp 2000w
+                    media/img/serate-speciali-main-3-1200w.webp 1200w,
+                    media/img/serate-speciali-main-3-2000w.webp 2000w
                     "
             />
         </div>
     </div>
+
+    <!-- toDo: cambiare sizes in valori assoluti, in particolari px -->
 
     <!-- element 4 -->
     <div class="d-flex flex-column flex-md-row h-100 align-items-stretch my-5 py-3">
@@ -315,6 +324,7 @@
 
         <feComposite
                 in="specLight"
+                in2="specLight"
                 k1="0"
                 k2="1"
                 k3="1"
