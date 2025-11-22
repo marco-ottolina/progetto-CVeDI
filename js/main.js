@@ -95,7 +95,18 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTimeline();
     });
 
-    updateTimeline();
+        // Ricalcola dot quando le immagini hanno finito di caricarsi
+    document.querySelectorAll('.timeline-item img').forEach(img => {
+        img.addEventListener('load', () => {
+            items.forEach((item, i) => {
+                const itemTop = item.offsetTop;
+                const itemHeight = item.offsetHeight;
+                dots[i].style.top = `${itemTop + itemHeight / 2}px`;
+            });
+            updateTimeline();
+        });
+    });
+
 
 });
 
@@ -178,16 +189,19 @@ document.querySelectorAll(".btn-sound").forEach(btn => {
     });
 });
 
-/* image swiper element adapted for MULTIPLE IMAGES */
 document.addEventListener('DOMContentLoaded', function() {
-    const swiper = new Swiper('.swiper', {
-        // Optional parameters
+
+    /* =========================================
+       1. CAROSELLO IMMAGINI (Multiplo)
+       Usa la classe specifica .swiper-images
+       ========================================= */
+    const swiperImages = new Swiper('.swiper-images', {
         direction: 'horizontal',
         loop: true,
-
         centeredSlides: true,
         spaceBetween: 5,
 
+        // Breakpoints specifici per questo carosello
         breakpoints: {
             0: {
                 slidesPerView: 1,
@@ -197,43 +211,53 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
 
-
-        // If we need pagination
         pagination: {
-            el: '.swiper-pagination',
+            el: '.swiper-images .swiper-pagination', // Scoping specifico
         },
 
-        // Navigation arrows
+        // Scoping specifico dei bottoni: cerca solo dentro .swiper-images
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-images .swiper-button-next',
+            prevEl: '.swiper-images .swiper-button-prev',
         },
 
-        // And if we need scrollbar
         scrollbar: {
-            el: '.swiper-scrollbar',
+            el: '.swiper-images .swiper-scrollbar',
         },
     });
-})
 
-/* image swiper element adapted for REVIEWS */
-document.addEventListener('DOMContentLoaded', function() {
-    const swiper = new Swiper('.swiper-reviews', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
+    /* =========================================
+       2. CAROSELLO RECENSIONI (Singolo)
+       Usa la classe specifica .swiper-reviews
+       ========================================= */
+const swiperReviews = new Swiper('.swiper-reviews', {
+    direction: 'horizontal',
+    loop: true,
+    spaceBetween: 0,
+    centeredSlides: true,
 
-        centeredSlides: true,
-        spaceBetween: 5,
-
-        slidesPerView: 1,
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+    breakpoints: {
+        0: {
+            slidesPerView: 1
         },
+        768: {
+            slidesPerView: 1
+        }
+    },
 
-    });
-})
+    navigation: {
+        nextEl: '.swiper-reviews .swiper-button-next',
+        prevEl: '.swiper-reviews .swiper-button-prev'
+    },
 
+    pagination: {
+        el: '.swiper-reviews .swiper-pagination'
+    },
+
+    scrollbar: {
+        el: '.swiper-reviews .swiper-scrollbar'
+    }
+});
+
+
+});

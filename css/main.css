@@ -194,6 +194,10 @@ h6 {
     0 1px 1px rgba(255, 255, 255, 0.06);
 }
 
+.btn:hover{
+    background-image: radial-gradient(var(--pink-100), transparent);
+}
+
 .btn .btn-nav{
     background-color: var(--blue3-50) !important;
         position: relative;
@@ -286,15 +290,9 @@ h6 {
 /* Navbar glass morphism */
 .custom-navbar {
     position: relative;
-    width: 100%;
     border-radius: 100px;
     overflow: hidden;
     background: var(--blue-50);
-}
-
-.custom-navbar .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
 
 #offcanvasFull {
@@ -477,39 +475,6 @@ h6 {
     /* mix-blend-mode must be on an img, not on a background */
 }
 
-/* ----------------------------------------------------
-   RESPONSIVE WIDTHS (Bootstrap-like)
----------------------------------------------------- */
-@media (min-width: 576px) {
-    .custom-navbar {
-        max-width: 540px;
-    }
-}
-
-@media (min-width: 768px) {
-    .custom-navbar {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) {
-    .custom-navbar {
-        max-width: 960px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .custom-navbar {
-        max-width: 1140px;
-    }
-}
-
-@media (min-width: 1400px) {
-    .custom-navbar {
-        max-width: 1320px;
-    }
-}
-
 /* ========================== */
 /* Timeline element container */
 /* ========================== */
@@ -544,6 +509,22 @@ h6 {
     transition: height 0.2s linear; /* animazione morbida */
 }
 
+@media (max-width: 991px) {
+    .timeline-container::before {
+        width: 2px;
+        background-color: var(--blue4-dark);
+    }
+
+    .timeline-fill {
+        width: 2px;
+        background: var(--blue3-100);
+    }
+
+    .timeline-dot {
+        display: none;
+    }
+} 
+
 /* ========================== */
 /* Red dots on the line       */
 /* ========================== */
@@ -563,12 +544,12 @@ h6 {
 
 /* Active dot */
 .timeline-dot.active {
-    background-color: var(--blue5-100); /* diventa rosso quando attivo */
+    background-color: var(--blue5-100);
     transform: translate(-50%, -50%) scale(1.2); /* leggero ingrandimento */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
     .timeline-container::before {
         display: none;
     }
@@ -580,7 +561,7 @@ h6 {
     .timeline-dot {
         display: none;
     }
-}
+} */
 
 .bubble-box {
     position: relative;
@@ -600,4 +581,18 @@ input{
 input:focus {
     outline: none !important;
     box-shadow: none !important;
+}
+
+.swiper-reviews .swiper-button-prev,
+.swiper-reviews .swiper-button-next {
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}
+.swiper-reviews * {
+    pointer-events: auto !important;
+}
+.liquidGlass-effect,
+.liquidGlass-tint,
+.liquidGlass-shine {
+    pointer-events: none !important;
 }

@@ -28,6 +28,19 @@
             /* toDo: adapt path when putting into main.css */
         }
 
+        /* danger: this tyle is actually working on a later-instanced element, do not remove this style */
+        .swiper-navigation-icon {
+            display: none;
+        }
+
+        .swiper-reviews .swiper-slide {
+            display: none;
+        }
+
+        .swiper-reviews .swiper-slide-active {
+            display: block;
+        }
+
     </style>
 
 </head>
@@ -134,7 +147,7 @@
         <!-- toDo: carousel is still a mess, needs fixing -->
 
         <!-- Slider main container -->
-        <div class="swiper">
+        <div class="swiper swiper-images">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper z-n1">
                 <!-- Slides -->
@@ -168,16 +181,16 @@
             <!-- navigation buttons (inside slides because they are on top of them) -->
             <div class="d-flex flex-row justify-content-between">
                 <button class="btn liquidGlass-wrapper swiper-button-prev position-absolute top-50 start-0">
-                    <div aria-hidden="true" class="liquidGlass-effect"></div>
-                    <div aria-hidden="true" class="liquidGlass-tint"></div>
-                    <div aria-hidden="true" class="liquidGlass-shine"></div>
+                    <span aria-hidden="true" class="liquidGlass-effect"></span>
+                    <span aria-hidden="true" class="liquidGlass-tint"></span>
+                    <span aria-hidden="true" class="liquidGlass-shine"></span>
                     <span class="liquidGlass-text"><i class="bi bi-arrow-left"></i></span>
                 </button>
                 <button class="btn liquidGlass-wrapper swiper-button-next position-absolute top-50 end-0">
-                    <div aria-hidden="true" class="liquidGlass-effect"></div>
-                    <div aria-hidden="true" class="liquidGlass-tint"></div>
-                    <div aria-hidden="true" class="liquidGlass-shine"></div>
-                    <span class="liquidGlass-text"> <i class="bi bi-arrow-right"></i></span>
+                    <span aria-hidden="true" class="liquidGlass-effect"></span>
+                    <span aria-hidden="true" class="liquidGlass-tint"></span>
+                    <span aria-hidden="true" class="liquidGlass-shine"></span>
+                    <span class="liquidGlass-text"><i class="bi bi-arrow-right"></i></span>
                 </button>
             </div>
 
@@ -306,21 +319,82 @@
     </div>
 </section>
 
+<!-- carousel -->
+<section>
+    <div class="container text-center mt-5">
+        <h2>Spazi che sussurrano</h2>
+
+        <!-- SLIDER -->
+        <div class="swiper swiper-reviews position-relative">
+
+            <!-- Wrapper -->
+            <div class="swiper-wrapper">
+                <div class="swiper-slide d-flex flex-column align-items-start p-4 px-5">
+                    <div class="px-5 align-items-start text-start">
+                        <div class="row">
+                            <div class="col-4">
+                            <img src="/media/img/descpiatto1-1-800.webp" class="img-fluid">
+                        </div>
+                        <div class="col-8">
+                            <h4>Esperienza indimenticabile</h4>
+                            <p>Ciao</p>
+                            <p>9.2/10</p>
+                            <p>Entrare in questo ristorante è come immergersi...</p>
+                        </div>
+                        </div>
+                        
+                         
+                    </div>
+                   
+                </div>
+
+                <div class="swiper-slide d-flex flex-column justify-content-center p-4">
+                    <h4>Esperienza indimenticabile</h4>
+                    <p>@maris.smith</p>
+                    <p>9.2/10</p>
+                    <p>Entrare in questo ristorante è come immergersi...</p>
+                </div>
+
+                <div class="swiper-slide d-flex flex-column justify-content-center p-4">
+                    <h4>Esperienza indimenticabile</h4>
+                    <p>@maris.smith</p>
+                    <p>9.2/10</p>
+                    <p>Entrare in questo ristorante è come immergersi...</p>
+                </div>
+
+                <!-- Aggiungi altre slide se vuoi -->
+            </div>
+
+            <!-- NAV BUTTONS (funzionano ora) -->
+            <button class="btn liquidGlass-wrapper swiper-button-prev position-absolute top-50 start-0 translate-middle-y">
+                <i class="bi bi-arrow-left liquidGlass-text"></i>
+            </button>
+
+            <button class="btn liquidGlass-wrapper swiper-button-next position-absolute top-50 end-0 translate-middle-y">
+                <i class="bi bi-arrow-right liquidGlass-text"></i>
+            </button>
+
+        </div>
+    </div>
+</section>
+
+
 <!-- user reviews -->
 <section class="container text-center mt-5">
     <h2>Spazi che sussurrano</h2>
     <!-- toDo: carousel is still a mess, needs fixing -->
 
     <!-- Slider main container -->
-    <div class="swiper-reviews">
+    <div class="swiper swiper-reviews" >
         <!-- Additional required wrapper -->
-        <div class="swiper-wrapper z-n1">
+        <div class="swiper-wrapper">
             <!-- User reviews list -->
 
             <!-- toDo: fix the content (still awaiting final appearance, revised from mockup) -->
 
             <!-- user review 1 -->
             <div class="swiper-slide">
+                <img src="/media/img/descpiatto1-1-800.webp">
                 <h4>Esperienza indimenticabile</h4>
                 <p>@maris.smith</p>
                 <p>9.2/10</p>
@@ -331,6 +405,7 @@
 
             <!-- user review 2 -->
             <div class="swiper-slide">
+                <img src="/media/img/descpiatto1-1-800.webp">
                 <h4>Esperienza indimenticabile 2</h4>
                 <p>@maris.smith</p>
                 <p>9.2/10</p>
@@ -341,6 +416,7 @@
 
             <!-- user review 3 -->
             <div class="swiper-slide">
+                <img src="/media/img/descpiatto1-1-800.webp">
                 <h4>Esperienza indimenticabile 3</h4>
                 <p>@maris.smith</p>
                 <p>9.2/10</p>
@@ -354,18 +430,20 @@
         <!-- toDo: fix the buttons, they are on top of the page -->
 
         <!-- navigation buttons (inside slides because they are on top of them) -->
-        <div class="d-flex flex-row justify-content-between z-1">
-            <button class="btn liquidGlass-wrapper swiper-button-prev position-absolute top-50 start-0">
-                <div aria-hidden="true" class="liquidGlass-effect"></div>
-                <div aria-hidden="true" class="liquidGlass-tint"></div>
-                <div aria-hidden="true" class="liquidGlass-shine"></div>
+        <div class="d-flex justify-content-between align-items-center position-absolute top-0 start-0 w-100 h-100 z-2 pe-none px-3">
+
+            <button class="btn liquidGlass-wrapper js-review-prev border-0 position-relative pe-auto">
+                <span aria-hidden="true" class="liquidGlass-effect"></span>
+                <span aria-hidden="true" class="liquidGlass-tint"></span>
+                <span aria-hidden="true" class="liquidGlass-shine"></span>
                 <span class="liquidGlass-text"><i class="bi bi-arrow-left"></i></span>
             </button>
-            <button class="btn liquidGlass-wrapper swiper-button-next position-absolute top-50 end-0">
-                <div aria-hidden="true" class="liquidGlass-effect"></div>
-                <div aria-hidden="true" class="liquidGlass-tint"></div>
-                <div aria-hidden="true" class="liquidGlass-shine"></div>
-                <span class="liquidGlass-text"> <i class="bi bi-arrow-right"></i></span>
+
+            <button class="btn liquidGlass-wrapper js-review-next border-0 position-relative pe-auto" id="buttonDestro">
+                <span aria-hidden="true" class="liquidGlass-effect"></span>
+                <span aria-hidden="true" class="liquidGlass-tint"></span>
+                <span aria-hidden="true" class="liquidGlass-shine"></span>
+                <span class="liquidGlass-text"><i class="bi bi-arrow-right"></i></span>
             </button>
         </div>
 

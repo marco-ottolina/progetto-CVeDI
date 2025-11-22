@@ -14,27 +14,29 @@
     <script src="./vendor/bootstrap/bootstrap-js/bootstrap.js"></script>
     <script src="js/main.js" defer></script>
     <link rel="stylesheet" href="css/main.css">
+    <!-- LINK FOR ANIMATED ICON SOUND-->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 </head>
 <body>
     <div class="circle"></div>
 
     <!-- navbar -->
-<header class="navbar-wrapper">
+<header class="navbar-wrapper container-fluid">
   <nav class="navbar custom-navbar hoverable liquidGlass-wrapper mt-4 mx-2">
     <div class="liquidGlass-effect"></div>
     <div class="liquidGlass-shine"></div>
 
-    <div class="container px-4 py-2">
+    <div class="container-fluid px-4 py-2">
       <a class="navbar-brand liquidGlass-text" href="index.html">
         <img src="img/Logo.svg" alt="Logo" width="50" height="50">
       </a>
 
       <div class="liquidGlass-text">
         <button class="btn liquidGlass-wrapper">
-          <div class="liquidGlass-effect" aria-hidden="true"></div>
-          <div class="liquidGlass-tint" aria-hidden="true"></div>
-          <div class="liquidGlass-shine" aria-hidden="true"></div>
-          <span class="liquidGlass-text">Prenota <i class="bi bi-arrow-right"></i></span>
+          <span class="liquidGlass-effect" aria-hidden="true"></span>
+          <span class="liquidGlass-tint" aria-hidden="true"></span>
+          <span class="liquidGlass-shine" aria-hidden="true"></span>
+          <span class="liquidGlass-text" onclick="window.location.href='prenota.html'">Prenota <i class="bi bi-arrow-right"></i></span>
         </button>
         <button class="btn-empty" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFull" aria-controls="offcanvasFull">
           <i class="bi bi-list"></i>
@@ -66,16 +68,16 @@
         <!-- MENU -->
         <div class="col-md-3 d-flex mt-5 mt-md-0 flex-column order-3 order-md-last align-items-start">
           <button class="btn liquidGlass-wrapper mb-5">
-            <div class="liquidGlass-effect" aria-hidden="true"></div>
-            <div class="liquidGlass-tint" aria-hidden="true"></div>
-            <div class="liquidGlass-shine" aria-hidden="true"></div>
-            <span class="liquidGlass-text">Prenota <i class="bi bi-arrow-right"></i></span>
+            <span class="liquidGlass-effect" aria-hidden="true"></span>
+            <span class="liquidGlass-tint" aria-hidden="true"></span>
+            <span class="liquidGlass-shine" aria-hidden="true"></span>
+            <span class="liquidGlass-text" onclick="'window.location.href: prenota.html'">Prenota <i class="bi bi-arrow-right"></i></span>
           </button>
-          <button class="btn-empty" type="button">Home <i class="bi bi-arrow-right"></i></button>
-          <button class="btn-empty mt-3" type="button">Ristorante <i class="bi bi-arrow-right"></i></button>
-          <button class="btn-empty mt-3" type="button">Menu <i class="bi bi-arrow-right"></i></button>
-          <button class="btn-empty mt-3" type="button">Informazioni <i class="bi bi-arrow-right"></i></button>
-          <button class="btn-empty mt-3" type="button">Serate Speciali <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty" type="button" onclick="window.location.href='index.html'">Home <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty mt-3" type="button" onclick="window.location.href='ristorante.html'">Ristorante <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty mt-3" type="button" onclick="window.location.href='menu.html'">Menu <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty mt-3" type="button" onclick="window.location.href='info.html'">Informazioni <i class="bi bi-arrow-right"></i></button>
+          <button class="btn-empty mt-3" type="button" onclick="window.location.href='pagina-libera.html'">Serate Speciali <i class="bi bi-arrow-right"></i></button>
         </div>
 
         <!-- PULSANTE CHIUSURA -->
@@ -96,7 +98,7 @@
         <div class="header-overlay"></div>
         <img src="./img/Menu-header.webp" alt="Sfondo Menu" class="img-fluid">
       </div>
-          <div class="container mb-5 d-flex flex-column justify-content-end align-items-start h-100">
+          <div class="container-fluid mb-5 mx-4 d-flex flex-column justify-content-end align-items-start h-100">
             <h1>Percorsi</h1>
             <h1 class="body-lead">Un racconto in ogni portata</h1>
           </div>
@@ -110,17 +112,7 @@
         Le pietanze sono accompagnate da una melodia percepita solo dal suo commensale: grazie a Synestesia, 
         un sistema di micro-vibrazioni diffuse nel piatto, il suono si propaga direttamente nei sensi trasformando ogni 
         portata in una composizione dove gusto e suono si fondono.
-      </p>
-      <button class="btn liquidGlass-wrapper">
-        <div class="liquidGlass-effect" aria-hidden="true"></div>
-        <div class="liquidGlass-tint" aria-hidden="true"></div>
-        <div class="liquidGlass-shine" aria-hidden="true"></div>
-        <span class="liquidGlass-text">Leggi di più <i class="bi bi-arrow-right"></i></span>
-      </button>
-
-
-      
-          
+      </p>          
 
       </div>
     </div>
@@ -134,7 +126,24 @@
       <div class="row align-items-start">
 
         <div class="col-md-6 px-5">
-          <img src="./img/Menu-1.png" class="img-fluid timeline-img">
+          <img
+                        alt="Primo piatto"
+                        class="img-fluid timeline-img"
+                        loading="lazy"
+                        sizes="
+                            (min-width: 1200px) 600px,
+                            (min-width: 992px) 500px,
+                            (min-width: 768px) 400px,
+                            (min-width: 576px) 500px,
+                            100vw
+                        "
+                        src="./media/img/home-1-1200.webp"
+                        srcset="
+                        ./media/img/home-1-800.webp 800w,
+                        ./media/img/home-1-1200.webp 1200w,
+                        ./media/img/home-1-2000.webp 2000w
+                        "
+          >
           <div class="bubble-box">
               <video muted loop playsinline class="bg-video">
               <source src="/img/video-prova.mp4" type="video/mp4">
@@ -146,17 +155,17 @@
           <h2>Thalassa</h2>
           <p>Un intreccio di corallo rigenerato, in una mousse di plankton fermentato e perle di salinità cangiante. 
             La sua consistenza si trasforma al contatto e ogni boccone racchiude l’essenza del mare in continuo mutamento.</p>
-          <div class="container d-flex justify-content-between justify-content-start p-0">
-          <button class="btn liquidGlass-wrapper btn-sound me-md-3 order-last order-md-first">
-            <div class="liquidGlass-effect" aria-hidden="true"></div>
-            <div class="liquidGlass-tint" aria-hidden="true"></div>
-            <div class="liquidGlass-shine" aria-hidden="true"></div>
-            <span class="liquidGlass-text"><i class="bi bi-soundwave"></i></span>
+          <div class="container d-flex justify-content-start justify-content-start p-0">
+          <button class="btn liquidGlass-wrapper btn-sound me-4">
+            <span class="liquidGlass-effect" aria-hidden="true"></span>
+            <span class="liquidGlass-tint" aria-hidden="true"></span>
+            <span class="liquidGlass-shine" aria-hidden="true"></span>
+            <span class="liquidGlass-text"><dotlottie-wc src="https://lottie.host/ea858305-cea5-4b8c-bc8e-717903542021/H5lwSIiiO3.lottie" style="width: 1rem;height: 1rem" autoplay loop></dotlottie-wc></span>
           </button>
-          <button class="btn mt-2 liquidGlass-wrapper">
-              <div class="liquidGlass-effect" aria-hidden="true"></div>
-              <div class="liquidGlass-tint" aria-hidden="true"></div>
-              <div class="liquidGlass-shine" aria-hidden="true"></div>
+          <button class="btn mt-2 liquidGlass-wrapper" onclick="window.location.href='menu/descrizione-piatto-1.html'">
+              <span class="liquidGlass-effect" aria-hidden="true"></span>
+              <span class="liquidGlass-tint" aria-hidden="true"></span>
+              <span class="liquidGlass-shine" aria-hidden="true"></span>
               <span class="liquidGlass-text">Immergiti nel piatto <i class="bi bi-arrow-right"></i></span>
           </button>
           </div>
@@ -170,7 +179,24 @@
       <div class="row align-items-start">
 
         <div class="col-md-6 px-5 mt-5 mt-md-0">
-          <img src="./img/Menu-1.png" class="img-fluid timeline-img">
+          <img
+                        alt="Secondo piatto"
+                        class="img-fluid timeline-img"
+                        loading="lazy"
+                        sizes="
+                            (min-width: 1200px) 600px,
+                            (min-width: 992px) 500px,
+                            (min-width: 768px) 400px,
+                            (min-width: 576px) 500px,
+                            100vw
+                        "
+                        src="./media/img/home-2-1200.webp"
+                        srcset="
+                        ./media/img/home-2-800.webp 800w,
+                        ./media/img/home-2-1200.webp 1200w,
+                        ./media/img/home-2-2000.webp 2000w
+                        "
+          >
           <div class="bubble-box">
               <video muted loop playsinline class="bg-video">
               <source src="/img/video-prova.mp4" type="video/mp4">
@@ -182,15 +208,15 @@
           <h2>Madreperla</h2>
           <p>Una conchiglia termica che si apre al contatto, rivelando una crema di alghe sinaptiche e petali di medusa disidratata. 
             Al palato un’armonia tra dolcezza marina e note metalliche.</p>
-          <div class="container d-flex justify-content-between justify-content-start p-0">
-            <div class="container d-flex justify-content-between justify-content-start p-0">
-          <button class="btn liquidGlass-wrapper btn-sound me-md-3 order-last order-md-first">
-            <div class="liquidGlass-effect" aria-hidden="true"></div>
-            <div class="liquidGlass-tint" aria-hidden="true"></div>
-            <div class="liquidGlass-shine" aria-hidden="true"></div>
-            <span class="liquidGlass-text"><i class="bi bi-soundwave"></i></span>
+          <div class="container d-flex justify-content-start justify-content-start p-0">
+            <div class="container d-flex justify-content-start justify-content-start p-0">
+          <button class="btn liquidGlass-wrapper btn-sound me-4">
+            <span class="liquidGlass-effect" aria-hidden="true"></span>
+            <span class="liquidGlass-tint" aria-hidden="true"></span>
+            <span class="liquidGlass-shine" aria-hidden="true"></span>
+            <span class="liquidGlass-text"><dotlottie-wc src="https://lottie.host/ea858305-cea5-4b8c-bc8e-717903542021/H5lwSIiiO3.lottie" style="width: 1rem;height: 1rem" autoplay loop></dotlottie-wc></span>
           </button>
-          <button class="btn mt-2 liquidGlass-wrapper">
+          <button class="btn mt-2 liquidGlass-wrapper" onclick="window.location.href='menu/descrizione-piatto-2.html'">
               <div class="liquidGlass-effect" aria-hidden="true"></div>
               <div class="liquidGlass-tint" aria-hidden="true"></div>
               <div class="liquidGlass-shine" aria-hidden="true"></div>
@@ -210,7 +236,24 @@
       <div class="row align-items-start">
 
         <div class="col-md-6 px-5 mt-5 mt-md-0">
-          <img src="./img/Menu-1.png" class="img-fluid timeline-img">
+          <img
+                        alt="Terzo piatto"
+                        class="img-fluid timeline-img"
+                        loading="lazy"
+                        sizes="
+                            (min-width: 1200px) 600px,
+                            (min-width: 992px) 500px,
+                            (min-width: 768px) 400px,
+                            (min-width: 576px) 500px,
+                            100vw
+                        "
+                        src="./media/img/home-3-1200.webp"
+                        srcset="
+                        ./media/img/home-3-800.webp 800w,
+                        ./media/img/home-3-1200.webp 1200w,
+                        ./media/img/home-3-2000.webp 2000w
+                        "
+          >
           <div class="bubble-box">
               <video muted loop playsinline class="bg-video">
               <source src="/img/video-prova.mp4" type="video/mp4">
@@ -222,18 +265,18 @@
           <h2>Bioluma</h2>
           <p>Una composizione bioluminescente: sfera di polline marino e zucchero di kelp che si illuminano al respiro del commensale. 
             All’interno, un cuore di lichene cristallizzato e idromiele d’acqua profonda.</p>
-          <div class="container d-flex justify-content-between justify-content-start p-0">
-            <div class="container d-flex justify-content-between justify-content-start p-0">
-          <button class="btn liquidGlass-wrapper btn-sound me-md-3 order-last order-md-first">
-            <div class="liquidGlass-effect" aria-hidden="true"></div>
-            <div class="liquidGlass-tint" aria-hidden="true"></div>
-            <div class="liquidGlass-shine" aria-hidden="true"></div>
-            <span class="liquidGlass-text"><i class="bi bi-soundwave"></i></span>
+          <div class="container d-flex justify-content-start justify-content-start p-0">
+            <div class="container d-flex justify-content-start justify-content-start p-0">
+          <button class="btn liquidGlass-wrapper btn-sound me-4">
+            <span class="liquidGlass-effect" aria-hidden="true"></span>
+            <span class="liquidGlass-tint" aria-hidden="true"></span>
+            <span class="liquidGlass-shine" aria-hidden="true"></span>
+            <span class="liquidGlass-text"><dotlottie-wc src="https://lottie.host/ea858305-cea5-4b8c-bc8e-717903542021/H5lwSIiiO3.lottie" style="width: 1rem;height: 1rem" autoplay loop></dotlottie-wc></span>
           </button>
-          <button class="btn mt-2 liquidGlass-wrapper">
-              <div class="liquidGlass-effect" aria-hidden="true"></div>
-              <div class="liquidGlass-tint" aria-hidden="true"></div>
-              <div class="liquidGlass-shine" aria-hidden="true"></div>
+          <button class="btn mt-2 liquidGlass-wrapper" onclick="window.location.href='menu/descrizione-piatto-3.html'">
+              <span class="liquidGlass-effect" aria-hidden="true"></span>
+              <span class="liquidGlass-tint" aria-hidden="true"></span>
+              <span class="liquidGlass-shine" aria-hidden="true"></span>
               <span class="liquidGlass-text">Immergiti nel piatto <i class="bi bi-arrow-right"></i></span>
           </button>
           </div>
@@ -247,8 +290,8 @@
 </section>
 
 
-  <footer class="py-4 mt-5 section-bg-light">
-    <div class="container">
+  <footer class="p-4 mt-5 section-bg-light">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-6 col-md-3">
           <h5>Orari di apertura</h5>
@@ -262,11 +305,11 @@
           <h5>Prenotazioni</h5>
           <p>Per vivere l’esperienza di un percorso di suoni, luci e sapori custoditi nel cuore del fondale di Atlas, è necessaria la prenotazione
           </p>
-          <button class="btn liquidGlass-wrapper" type="submit">
-              <div class="liquidGlass-effect" aria-hidden="true"></div>
-              <div class="liquidGlass-tint" aria-hidden="true"></div>
-              <div class="liquidGlass-shine" aria-hidden="true"></div>
-              <span class="liquidGlass-text">Iscriviti <i class="bi bi-arrow-right"></i></span>
+          <button class="btn liquidGlass-wrapper" type="submit" onclick="window.location.href='prenota.html'">
+              <span class="liquidGlass-effect" aria-hidden="true"></span>
+              <span class="liquidGlass-tint" aria-hidden="true"></span>
+              <span class="liquidGlass-shine" aria-hidden="true"></span>
+              <span class="liquidGlass-text">Prenota <i class="bi bi-arrow-right"></i></span>
           </button>
         </div>
         <div class="col-md-6">
@@ -279,12 +322,12 @@
               <form>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">E-mail</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1">
+                  <input type="email" class="form-control" id="exampleInputEmail1">
                 </div>
                 <button class="btn liquidGlass-wrapper" type="submit">
-                    <div class="liquidGlass-effect" aria-hidden="true"></div>
-                    <div class="liquidGlass-tint" aria-hidden="true"></div>
-                    <div class="liquidGlass-shine" aria-hidden="true"></div>
+                    <span class="liquidGlass-effect" aria-hidden="true"></span>
+                    <span class="liquidGlass-tint" aria-hidden="true"></span>
+                    <span class="liquidGlass-shine" aria-hidden="true"></span>
                     <span class="liquidGlass-text">Iscriviti <i class="bi bi-arrow-right"></i></span>
                 </button>
               </form>
@@ -300,9 +343,9 @@
             <img src="./img/Logo.svg" alt="" class="img-fluid">
           </div>
           <div>
-            <button class="btn btn-empty">A</button>
-            <button class="btn btn-empty">B</button>
-            <button class="btn btn-empty">C</button>
+            <button class="btn-empty"><img src="/media/icon/footer-1.svg" alt="Social 1"></button>
+            <button class="btn-empty"><img src="/media/icon/footer-2.svg" alt="Social 2"></button>
+            <button class="btn-empty"><img src="/media/icon/footer-3.svg" alt="Social 3"></button>
           </div>
         </div>
       </div>
