@@ -785,13 +785,6 @@ a {
     }
 }
 
-.bubble-box {
-    position: relative;
-    transform: translate(-25%, -50%);
-    left: 0;
-    width: 100%;
-}
-
 /* === MUSIC BUTTONS === */
 .music-button {
     aspect-ratio: 1;
@@ -1565,6 +1558,22 @@ body.is-map-interacting .circle {
 /* == PLATE DESCRIPTION BUBBLES == */
 /* <editor-fold> */
 
+.bubble-box {
+    position: relative;
+    transform: translate(-25%, -50%);
+    left: 0;
+    width: 100%;
+}
+
+.home .bubble-box{
+    transform: translate(0%, 0%) !important;
+}
+
+.home #bollaPaginaPiatto1{
+    transform: none !important;
+    height: 100%;
+}
+
 .bubble-box-descr{
     position: absolute;
     top: 0;
@@ -1610,6 +1619,16 @@ body.is-map-interacting .circle {
 
     #bollaPaginaPiatto1{
         right: 0;
+    }
+
+    .home #bollaPaginaPiatto1{
+        transform: none !important;
+        position: relative !important;
+    }
+
+    .home #bollaPaginaPiatto1 img{
+        transform: none !important;
+        scale: 1.8;
     }
 }
 
