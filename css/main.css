@@ -1191,7 +1191,6 @@ video {
     border-radius: 4px;
 
     background: transparent;
-    /*border: 1px solid var(--blue-70); !* highlighted border *!*/
 
     color: var(--blue-70);
     font-family: 'Manrope', sans-serif;
@@ -1199,8 +1198,6 @@ video {
 
     pointer-events: none; /* Clicks pass through */
     user-select: none;
-
-    backdrop-filter: blur(4px);
 
     display: flex;
     flex-direction: column;
