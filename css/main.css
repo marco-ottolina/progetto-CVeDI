@@ -2178,3 +2178,8 @@ input[type="submit"] {
 }
 
 /* </editor-fold> */
+
+#pagina-libera-overlay {
+    position: relative;
+    z-index: 10;
+}
