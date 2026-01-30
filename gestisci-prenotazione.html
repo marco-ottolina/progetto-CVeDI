@@ -227,7 +227,7 @@
             <div class="liquidGlass-tint"></div>
 
             <div class="liquidGlass-text d-flex flex-column align-items-center">
-                <form class="row g-4 justify-content-center needs-validation" novalidate>
+                <form class="row g-4 justify-content-center needs-validation" id="formGestionePrenotazione" novalidate>
                     <div class="col-12 d-flex justify-content-between container-fluid align-items-center">
                         <p class="h5 fw-bold mb-0">ID: RFF-2531-001234</p>
                         <div>
@@ -251,25 +251,35 @@
                             <option value="4" selected>4 persone</option> <option value="5">5 persone</option>
                             <option value="6">6 persone</option>
                         </select>
+                        <div class="invalid-feedback">
+                            Selezionare il numero di persone
+                        </div>
                     </div>
 
                     <div class="col-md-6 px-3">
                         <div class="input-group">
                             <input autocomplete="off" class="form-control" id="bookingDate" placeholder="Data*" readonly required type="text" value="23/03/2026" aria-label="Seleziona data prenotazione">
-                            <img class="img-fluid position-absolute top-50 end-0 translate-middle-y me-3" alt="Icona calendario" src="media/icon/calendar.svg">
+                            <img class="img-fluid position-absolute top-0 end-0 translate-middle-y me-3" alt="Icona calendario" src="media/icon/calendar.svg">
+                            <div class="invalid-feedback">
+                                Selezionare una data
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 px-3">
                         <div class="custom-select-wrapper m-0" data-target="selectOrario">
                             <div class="select-selected">19:30</div>
-                            <img class="img-fluid position-absolute top-50 end-0 translate-middle-y me-3" alt="Icona orologio" src="media/icon/clock.svg">
+                            <img class="img-fluid position-absolute top-50 end-0 translate-middle-y me-3"
+                                 alt=""
+                                 src="media/icon/clock.svg"
+                            >
                             <div class="select-items select-hide"></div>
                         </div>
                         <select aria-label="Seleziona orario cena" class="form-select custom-hidden-select" id="selectOrario" name="orario" required tabindex="-1">
                             <option disabled value="">Orario*</option>
                             <option value="19:00">19:00</option>
-                            <option value="19:30" selected>19:30</option> <option value="20:00">20:00</option>
+                            <option value="19:30" selected>19:30</option>
+                            <option value="20:00">20:00</option>
                             <option value="20:30">20:30</option>
                             <option value="21:00">21:00</option>
                             <option value="21:30">21:30</option>
@@ -277,6 +287,9 @@
                             <option value="22:30">22:30</option>
                             <option value="23:00">23:00</option>
                         </select>
+                        <div class="invalid-feedback">
+                            Selezionare un orario
+                        </div>
                     </div>
 
                     <div class="pt-4 d-flex justify-content-center">
@@ -287,7 +300,7 @@
                             <span aria-hidden="true" class="liquidGlass-effect"></span>
                             <span aria-hidden="true" class="liquidGlass-tint"></span>
                             <span aria-hidden="true" class="liquidGlass-shine"></span>
-                            <span class="liquidGlass-text">Modifica prenotazione</span>
+                            <span class="liquidGlass-text">Salva modifiche</span>
                         </button>
                     </div>
                 </form>
@@ -297,6 +310,36 @@
 
 </div>
 
+<!-- Modal 1 (booking a table success notification)  -->
+<div class="modal fade modal-container" id="modalManageBooking" tabindex="-1" aria-labelledby="modalManageBookingLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-style liquidGlass-wrapper p-3">
+            <span aria-hidden="true" class="liquidGlass-effect"></span>
+            <span aria-hidden="true" class="liquidGlass-tint"></span>
+            <span aria-hidden="true" class="liquidGlass-shine"></span>
+
+            <div class="modal-header border-0 liquidGlass-text col-12 text-start ps-3">
+                <h4 class="modal-title" id="modalManageBookingLabel">Modifiche salvate</h4>
+            </div>
+
+            <div class="modal-body">
+                <p class="mb-0">La tua prenotazione è stata aggiornata correttamente.
+                    Abbiamo inviato una nuova <b>conferma aggiornata</b> al tuo indirizzo email.</p>
+            </div>
+
+            <div class="modal-footer border-0 justify-content-center d-flex w-100 m-0">
+                <div class="d-flex justify-content-center col-8 col-md-5">
+                    <button class="btn btn-modal liquidGlass-wrapper w-100" type="button" data-bs-dismiss="modal">
+                        <span aria-hidden="true" class="liquidGlass-effect"></span>
+                        <span aria-hidden="true" class="liquidGlass-tint"></span>
+                        <span aria-hidden="true" class="liquidGlass-shine"></span>
+                        <span class="liquidGlass-text">Chiudi</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Footer -->
 <footer class="p-4section-bg-light">

@@ -956,16 +956,13 @@ document.addEventListener('DOMContentLoaded', function () {
     /* --- 4. FORM SUBMISSION MANAGEMENT --- */
     const allForms = document.querySelectorAll('.needs-validation');
 
+    /* --- UPDATED FORM SUBMISSION MANAGEMENT --- */
     allForms.forEach(form => {
         form.addEventListener('submit', function (event) {
-
-            // 1. Prevent default reload (Simulate submission)
             event.preventDefault();
             event.stopPropagation();
 
             let isFormValid = true;
-
-            // Dynamically identify required custom fields in the current form
             const customFields = form.querySelectorAll('select[required], input[id^="bookingDate"]');
 
             customFields.forEach(field => {
@@ -974,48 +971,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            // 2. Check Validation
             if (form.checkValidity() === true && isFormValid) {
-
-                // --- SUCCESS LOGIC ---
-
-                // Table Reservation Form
+                // SUCCESS LOGIC
                 if (form.id === 'formPrenotazioneTavolo') {
-                    const modal1 = new bootstrap.Modal(document.getElementById('modalSuccesso'));
-                    modal1.show();
-                    resetFormVisuals(form);
+                    new bootstrap.Modal(document.getElementById('modalSuccesso')).show();
+                    resetFormVisuals(form, true); // True = reset values
                 }
-
-                // Private Room Form
                 else if (form.id === 'formPrenotazioneSala') {
-                    const modal2 = new bootstrap.Modal(document.getElementById('modalSuccesso2'));
-                    modal2.show();
-                    resetFormVisuals(form);
+                    new bootstrap.Modal(document.getElementById('modalSuccesso2')).show();
+                    resetFormVisuals(form, true); // True = reset values
                 }
-
+                else if (form.id === 'formGestionePrenotazione') {
+                    new bootstrap.Modal(document.getElementById('modalManageBooking')).show();
+                    resetFormVisuals(form, false); // FALSE = Keep values, just clean validation
+                }
             } else {
-                // --- ERROR LOGIC ---
+                // ERROR LOGIC
                 form.classList.add('was-validated');
             }
-
         }, false);
     });
 
 // Helper function to reset form and custom visuals after success
-    function resetFormVisuals(form) {
-        form.reset();
+    // Updated helper function to handle Edit vs New forms
+    function resetFormVisuals(form, shouldResetValues) {
+        // 1. Remove the "was-validated" class from the form
         form.classList.remove('was-validated');
 
-        // Reset Custom Selects text to their placeholder
-        form.querySelectorAll('.select-selected').forEach(el => {
-            const wrapper = el.closest('.custom-select-wrapper');
-            const selectId = wrapper.getAttribute('data-target');
-            const nativeSelect = document.getElementById(selectId);
-            if(nativeSelect) {
-                const textNode = Array.from(el.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
-                if (textNode) textNode.textContent = nativeSelect.options[0].text;
-            }
-        });
+        // 2. Remove "is-invalid" class from custom selects and datepickers
+        form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+
+        if (shouldResetValues) {
+            // Only reset content for NEW bookings
+            form.reset();
+
+            // Reset Custom Selects text to their placeholder
+            form.querySelectorAll('.select-selected').forEach(el => {
+                const wrapper = el.closest('.custom-select-wrapper');
+                const selectId = wrapper.getAttribute('data-target');
+                const nativeSelect = document.getElementById(selectId);
+                if(nativeSelect) {
+                    const textNode = Array.from(el.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+                    if (textNode) textNode.textContent = nativeSelect.options[0].text;
+                }
+            });
+        }
     }
 
     /* --- 5. REAL-TIME VALIDATION LISTENERS --- */
