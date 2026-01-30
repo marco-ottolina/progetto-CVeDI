@@ -92,6 +92,12 @@
 /* === BASE STYLES === */
 /* <editor-fold> */
 
+html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background-color: var(--blue-5);
 
@@ -556,6 +562,11 @@ a {
     height: 100%;
     overflow: hidden;
     z-index: -1;
+
+}
+
+#infoHeaderVideo {
+    transform: translateY(-30%);
 }
 
 .header-wrapper img {
