@@ -3,11 +3,6 @@ ULTIME COSE DA FARE
 
 Ale:
 
-- Rendere interattivo anche il bottone del calendario nei FORM [FATTO]
-
-- Ultimi aggiustamenti estetici mappa
-
-- Aspetto popup "mail inviata" sulle prenotazioni.
 
 Otto:
 
@@ -15,7 +10,6 @@ Otto:
     - index: fatto tutto tranne il gradient nell'hero
     - info: tutto ok, non si vede molto lo sfondo nel telefono
     - menu: la parte bassa va benissimo, la timeline è migliorabile un minimo ma non riesco a capire perchè c'è tutto quello spazio sotto la bolla della musica
-    - pagina-libera: ottima
     - prenota: ottima (vedere mappa)
     - ristorante: occhio a sfumatura nell'hero e le foto per le recensioni, il resto benissimo
     - piatto-1: (Thalassa), occhio a sfumatura nell'hero, resto ok
