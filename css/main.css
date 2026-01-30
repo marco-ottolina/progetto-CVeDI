@@ -2150,7 +2150,13 @@ input[type="submit"] {
 
 }
 
-.btn-modal .liquidGlass-effect{
+@media only screen and (min-width: 768px){
+    .modal-style {
+        min-width: 380px !important;
+    }
+}
+
+.btn-modal .liquidGlass-effect, .btn-plate .liquidGlass-effect {
     border-radius: 100px !important;
 }
 
