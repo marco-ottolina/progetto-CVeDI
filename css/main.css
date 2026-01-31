@@ -1530,6 +1530,15 @@ body.is-map-interacting .circle {
     border-color: var(--orange) !important;
 }
 
+/* fix to prevent bootstrap's default icon from padding too much the text */
+#validationCustomUsername.is-invalid,
+.was-validated #validationCustomUsername:invalid,
+#validationCustomUsername.is-valid,
+.was-validated #validationCustomUsername:valid {
+    background-image: none !important; /* Ensures no ghost icon conflict */
+    padding-right: 1rem !important; /* Resets padding to match the left side */
+}
+
 /* </editor-fold> */
 
 /* === CUSTOM BOOTSTRAP TOOLTIP STYLE === */
