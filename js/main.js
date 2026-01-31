@@ -919,48 +919,34 @@ document.addEventListener('DOMContentLoaded', function () {
     /* --- 3. SURGICAL VALIDATION ENGINE --- */
 
     function validateCustomField(elementId) {
-
         const element = document.getElementById(elementId);
         if (!element) return true;
 
         const columnContainer = element.closest('.col-md-6');
         let visualTarget = null;
+        let isInvalid = false;
 
-        // Clean up previous error states (Simulated errors)
-        const oldError = columnContainer.querySelector('.custom-error');
-        if (oldError) oldError.remove();
-
-        // ---- LOGIC FOR CUSTOM SELECTS ----
         if (element.tagName === 'SELECT') {
             const wrapper = columnContainer.querySelector('.custom-select-wrapper');
             visualTarget = wrapper.querySelector('.select-selected');
-
-            // Check if value is empty
-            const isInvalid = element.value === '' || element.selectedIndex === 0;
-
-            if (isInvalid) {
-                visualTarget.classList.add('is-invalid');
-                return false;
-            } else {
-                visualTarget.classList.remove('is-invalid');
-                return true;
-            }
+            isInvalid = element.value === '' || element.selectedIndex === 0;
         }
-
-        // ---- LOGIC FOR DATE INPUTS ----
-        if (elementId.includes('bookingDate')) {
+        else if (elementId.includes('bookingDate')) {
             visualTarget = element;
-            const isInvalid = element.value.trim() === '';
-
-            if (isInvalid) {
-                visualTarget.classList.add('is-invalid');
-                return false;
-            } else {
-                visualTarget.classList.remove('is-invalid');
-                return true;
-            }
+            isInvalid = element.value.trim() === '';
         }
-        return true;
+
+        if (isInvalid) {
+            visualTarget.classList.add('is-invalid');
+            // CHIRURGIA: Diciamo al browser che il campo è nativamente invalido
+            element.setCustomValidity("Invalid");
+            return false;
+        } else {
+            visualTarget.classList.remove('is-invalid');
+            // CHIRURGIA: Resettiamo lo stato nativo
+            element.setCustomValidity("");
+            return true;
+        }
     }
 
     /* --- 4. FORM SUBMISSION MANAGEMENT --- */

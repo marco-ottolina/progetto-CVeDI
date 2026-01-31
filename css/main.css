@@ -1801,18 +1801,21 @@ input.form-control.is-invalid {
     border: 1px solid var(--orange, #F67055) !important;
 }
 
+/* --- SURGICAL ERROR DISPLAY --- */
+/* We show the feedback ONLY when the form has been validated AND the field is actually invalid */
 .was-validated .form-control:invalid ~ .invalid-feedback,
 .was-validated .form-select:invalid ~ .invalid-feedback,
 .was-validated .select-selected.is-invalid ~ .invalid-feedback,
-.was-validated .invalid-feedback{
-    display: block;
-    color: var(--orange, #F67055);
-    margin-top: 0.35rem;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 12px; /* 100% */
+    /* Specific fix for the datepicker inside input-groups */
+.was-validated .input-group .form-control:invalid ~ .invalid-feedback,
+.was-validated .input-group .is-invalid ~ .invalid-feedback {
+    display: block !important;
+    color: var(--orange, #F67055) !important;
+    font-size: 12px !important;
+    line-height: 12px !important;
+    margin-top: 0.35rem !important;
 }
+
 .custom-error {
     margin-top: 6px;
     color: var(--orange);
@@ -1825,9 +1828,35 @@ input.form-control.is-invalid {
     margin-top: 18px
 }
 
+.form-control {
+    color: var(--blue-95) !important; /* Testo che scrivi */
+}
+
+.form-control::placeholder {
+    color: var(--blue-95-70) !important; /* Colore "grigino" del segnaposto */
+    opacity: 1;
+}
+
+/* Assicuriamoci che non diventi scuro quando clicchi (focus) */
+.form-control:focus {
+    color: var(--blue-95) !important;
+    background-color: var(--blue-5); /* Mantiene lo sfondo scuro */
+}
+
+/* 2. CUSTOM SELECTS */
+/* Il testo selezionato deve essere chiaro */
+.select-selected {
+    color: var(--blue-95) !important;
+}
+
+/* Solo quando è un placeholder deve essere grigino */
+.select-selected.is-placeholder {
+    color: var(--blue-95-70) !important;
+}
+
 /* </editor-fold> */
 
-/* DAREPICKER Custom Palette */
+/* DATEPICKER Custom Palette */
 /* <editor-fold> */
 
 .datepicker-input {
