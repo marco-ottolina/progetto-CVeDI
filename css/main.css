@@ -1631,8 +1631,8 @@ body.is-map-interacting .circle {
         width: 100%;
     }
 
-    #bollaPaginaPiatto2 img {
-        scale: 1.2;
+    #bollaPaginaPiatto2 img, #bollaPaginaPiatto3 img {
+        scale: 1.1;
     }
 
     #bollaPaginaPiatto1 img, #bollaPaginaPiatto2 img, #bollaPaginaPiatto3 img{
