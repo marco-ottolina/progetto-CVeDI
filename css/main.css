@@ -184,10 +184,7 @@ h6 {
 
 a {
     text-decoration: none;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding: 1px 6px;
 }
 
 /* </editor-fold> */
@@ -967,8 +964,12 @@ footer {
 }
 
 /* backgroun color for preferences */
-.chips.preference.chips-active, .preference-active {
+.chips.preference.chips-active {
     background-image: radial-gradient(ellipse, var(--blue-50, #40b0ff), transparent 70%) !important;
+}
+
+.preference-active {
+    background-image: radial-gradient(ellipse, var(--blue-50, #40b0ff), transparent 90%) !important;
 }
 
 /* allergens and preferences wrapper section */
