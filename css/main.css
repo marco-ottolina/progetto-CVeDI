@@ -33,6 +33,8 @@
 
     /* --- Pinks (highlights) --- */
     --pink: #FF3276;
+    --pink-70: rgba(255, 50, 118, 0.7);
+    --pink-30: rgba(255, 50, 118, 0.3);
 
     /* --- Oranges (highlights) --- */
     --orange: #F67055;
@@ -328,7 +330,19 @@ a {
 .btn-sound {
     border-radius: 50%;
     padding: 1rem;
-    background-image: radial-gradient(circle, var(--pink), var(--orange)) !important;
+
+    /* Gradient Logic:
+       1. 1%   : Orange (The "hint" in the center)
+       2. 10%  : Pink (The "bridge" to make the glow vibrant, not muddy)
+       3. 75% : Blue-15 (Darker blue at the edges)
+    */
+    background-image: radial-gradient(
+            circle,
+            var(--orange) 1%,
+            var(--pink-70) 10%,
+            var(--blue-15) 75%
+    ) !important;
+
     aspect-ratio: 1 / 1 !important;
 }
 
