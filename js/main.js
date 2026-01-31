@@ -842,6 +842,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // Initial sync: text from native select
         updateTextSafely(selectedDiv, originalSelect.options[originalSelect.selectedIndex].text);
 
+        // check for initial color (default value is blue-95-70, correct value is blue-95
+        if (originalSelect.value === "") {
+            selectedDiv.classList.add('is-placeholder');
+        } else {
+            selectedDiv.classList.remove('is-placeholder');
+        }
+
         // Build simulated options based on native <select>
         itemsDiv.innerHTML = '';
         Array.from(originalSelect.options).forEach(option => {
@@ -859,6 +866,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.stopPropagation();
                 updateTextSafely(selectedDiv, this.innerHTML);
                 originalSelect.value = this.getAttribute('data-value');
+
+                // Remove placeholder color on selection
+                selectedDiv.classList.remove('is-placeholder');
 
                 // UI update for selection
                 Array.from(itemsDiv.children).forEach(child => child.classList.remove('same-as-selected'));
@@ -992,7 +1002,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, false);
     });
 
-// Helper function to reset form and custom visuals after success
+    // Helper function to reset form and custom visuals after success
     // Updated helper function to handle Edit vs New forms
     function resetFormVisuals(form, shouldResetValues) {
         // 1. Remove the "was-validated" class from the form
@@ -1013,6 +1023,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if(nativeSelect) {
                     const textNode = Array.from(el.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
                     if (textNode) textNode.textContent = nativeSelect.options[0].text;
+
+                    // Restore the dark-white (--blue-95-70) color
+                    el.classList.add('is-placeholder');
                 }
             });
         }
@@ -1151,6 +1164,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (textNode) {
                         textNode.textContent = placeholderText;
                     }
+
+                    // === NEW LINE: Restore the blue placeholder color ===
+                    selectedDiv.classList.add('is-placeholder');
                 }
             });
 

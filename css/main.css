@@ -255,7 +255,7 @@ a {
 /* <editor-fold> */
 
 .btn {
-    color: white;
+    color: var(--blue-95);
     width: fit-content;
     z-index: 10;
     background-color: var(--blue-50-30);
@@ -277,7 +277,7 @@ a {
 
 /* style is partially duplicated due to an issue in assigning both btn and btn-nav to the same element */
 .btn-nav {
-    color: white;
+    color: var(--blue-95);
     width: fit-content;
     background-color: var(--blue-15-30);
     gap: 0.5rem;
@@ -296,7 +296,7 @@ a {
 }
 
 .btn-secondary {
-    color: white;
+    color: var(--blue-95);
     border: none;
     background-color: transparent;
     text-decoration: underline;
@@ -322,7 +322,7 @@ a {
 
 .btn-empty {
     background-color: transparent !important;
-    color: white;
+    color: var(--blue-95);
     border: none;
     box-shadow: none !important;
 }
@@ -449,7 +449,7 @@ a {
 .btn-close-custom {
     background: none;
     border: none;
-    color: white;
+    color: var(--blue-95);
     font-size: 2rem;
     cursor: pointer;
 }
@@ -599,7 +599,7 @@ a {
 }
 
 [class^="allergen"] {
-    color: white;
+    color: var(--blue-95);
     margin-right: 0.5rem;
 }
 
@@ -830,7 +830,7 @@ input, select, .was-validated .form-control.ignore-validation:valid,
     padding: 0.5rem 1rem;
     width: 100%;
     box-sizing: border-box;
-    color: white !important;
+    color: var(--blue-95); !important;
     font-family: inherit;
     font-size: 1rem;
 
@@ -1830,6 +1830,10 @@ input.form-control.is-invalid {
 /* DAREPICKER Custom Palette */
 /* <editor-fold> */
 
+.datepicker-input {
+    color: var(--blue-95);
+}
+
 /* Overwrites the background of the main container */
 .datepicker-dropdown.datepicker {
     border-radius: 8px !important;
@@ -1941,7 +1945,7 @@ input.form-control.is-invalid {
 /* normal selected day and hover */
 .datepicker-cell.selected, .datepicker-cell.selected:hover {
     background: radial-gradient(circle, var(--orange), var(--orange), transparent, transparent) !important;
-    color: #fff;
+    color: var(--blue-95) !important;
     font-weight: 600;
 }
 
@@ -2043,7 +2047,7 @@ input.form-control.is-invalid {
     padding: 0.5rem 1rem;
     width: 100%;
     box-sizing: border-box;
-    color: white !important;
+    color: var(--blue-95) !important;
     font-family: inherit;
     font-size: 1rem;
     /* linear gradient */
@@ -2057,6 +2061,11 @@ input.form-control.is-invalid {
 .select-selected:hover,
 .select-selected.select-arrow-active {
     border-color: var(--blue-70);
+}
+
+/* Color for the placeholder state in custom selects */
+.select-selected.is-placeholder {
+    color: var(--blue-95-70) !important;
 }
 
 
@@ -2135,7 +2144,7 @@ input[type="submit"] {
 .datepicker-picker .view-switch:hover {
     background-color: var(--blue-70-30) !important;
     background-image: radial-gradient(ellipse, var(--orange, #F67055), transparent, transparent) !important;
-    color: white !important;
+    color: var(--blue-95) !important;
 }
 
 /* Make buttons round or square */
