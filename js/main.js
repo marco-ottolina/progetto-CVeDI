@@ -159,18 +159,32 @@ document.addEventListener("DOMContentLoaded", function () {
 /* === HIDING THE MOUSE CURSOS OVER HOVERABLE ITEMS === */
 document.addEventListener('DOMContentLoaded', function () {
 
-    let myHoverables = document.getElementsByClassName("hoverable");
-    for (let i = 0; i < myHoverables.length; i++) {
-        myHoverables[i].addEventListener("mouseover", function () {
-            document.getElementsByClassName("circle")[0].classList.add("hovered");
-            document.getElementsByClassName("circle")[0].classList.remove("not-hovered");
-        });
-        myHoverables[i].addEventListener("mouseout", function () {
-            document.getElementsByClassName("circle")[0].classList.remove("hovered");
-            document.getElementsByClassName("circle")[0].classList.add("not-hovered");
-        });
-    }
+    /* --- 1. AUTOMATIC HOVER CLASS INJECTION --- */
+    // We must add the 'hoverable' class FIRST so the event listeners can find these elements
+    const glassWrappers = document.querySelectorAll('.liquidGlass-wrapper');
+    glassWrappers.forEach(wrapper => {
+        wrapper.classList.add('hoverable');
+    });
 
+    /* --- 2. CUSTOM CURSOR HOVER LOGIC --- */
+    // Now that all elements have the 'hoverable' class, we attach the mouse effects
+    const myHoverables = document.getElementsByClassName("hoverable");
+    const cursorCircle = document.getElementsByClassName("circle")[0];
+
+    // Check if the cursor element exists to avoid errors
+    if (cursorCircle) {
+        for (let i = 0; i < myHoverables.length; i++) {
+            myHoverables[i].addEventListener("mouseover", function () {
+                cursorCircle.classList.add("hovered");
+                cursorCircle.classList.remove("not-hovered");
+            });
+
+            myHoverables[i].addEventListener("mouseout", function () {
+                cursorCircle.classList.remove("hovered");
+                cursorCircle.classList.add("not-hovered");
+            });
+        }
+    }
 });
 
 /* === OFFCANVAS FULLPAGE INTERACTIVITY === */
@@ -916,6 +930,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.addEventListener('click', () => closeAllSelects());
 
+
+
     /* --- 3. SURGICAL VALIDATION ENGINE --- */
 
     function validateCustomField(elementId) {
@@ -1334,3 +1350,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// HOVERABLE OBJECTS
+document.addEventListener("DOMContentLoaded", function () {
+    const glassWrappers = document.querySelectorAll('.liquidGlass-wrapper');
+    // Iterates through each element to apply the 'hoverable' utility class
+    glassWrappers.forEach(wrapper => {
+        wrapper.classList.add('hoverable');
+    });
+})
