@@ -106,7 +106,8 @@ body {
     font-size: 1.125rem;
     line-height: 1.35rem;
 
-    overflow-x: hidden;
+    overflow-x: clip;
+
 }
 
 body.offcanvas-open {
@@ -447,7 +448,7 @@ a {
 
 /* to not make the navbar go over a sticky element (used in serate-speciali.html's sticky elements) */
 .spaceFromNavbar {
-    top: 5rem;
+    top: 6.5rem;
 }
 
 /* </editor-fold> */
