@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }, 50);
                 }
 
-                this.classList.remove('attivo');
+                this.classList.remove('ourIsActive');
                 currentAudio = null;
                 currentVideo = null;
                 currentButton = null;
@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             /* 4. Reset UI of the previously active button */
             if (currentButton && currentButton !== this) {
-                currentButton.classList.remove('attivo');
+                currentButton.classList.remove('ourIsActive');
             }
 
             // === CASE 3: START NEW MEDIA ===
@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
             currentAudio = audio;
             currentVideo = video;
             currentButton = this;
-            this.classList.add('attivo');
+            this.classList.add('ourIsActive');
         });
     }
 
@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 activeBubbles.forEach(img => {
                     img.src = img.getAttribute('data-static');
                 });
-                currentButton.classList.remove('attivo');
+                currentButton.classList.remove('ourIsActive');
                 currentButton = null;
             }
 
@@ -378,11 +378,11 @@ document.addEventListener("DOMContentLoaded", () => {
             /* Simple Toggle: Play or Pause with UI feedback */
             if (audio.paused) {
                 audio.play();
-                playBtn.classList.add('attivo');
+                playBtn.classList.add('ourIsActive');
             } else {
                 audio.pause();
                 audio.currentTime = 0;
-                playBtn.classList.remove('attivo');
+                playBtn.classList.remove('ourIsActive');
             }
         });
     }

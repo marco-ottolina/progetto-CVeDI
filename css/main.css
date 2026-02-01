@@ -102,14 +102,11 @@ html {
 
 body {
     background-color: var(--blue-5);
-
     font-family: 'Manrope', sans-serif;
-    color: var(--Text-color); /* Original designed had 2 different whites for Headings & Text, this changed - the 2 variables remained */
+    color: var(--Text-color);
     font-size: 1.125rem;
     line-height: 1.35rem;
-
     overflow-x: clip;
-
 }
 
 body.offcanvas-open {
@@ -164,7 +161,7 @@ h6 {
 h3.h4 {
     line-height: 2rem;
     color: var(--blue-95, #EAE9FB);
-    font-family: "Kaftan Serif - Trial";
+    font-family: "Kaftan Serif - Trial", serif;
     font-size: var(--Typography-h4, 1.5rem);
     font-style: normal;
     font-weight: 400;
@@ -184,6 +181,7 @@ h3.h6 {
     line-height: 1rem;
     font-weight: 700;
 }
+
 /* = content = */
 
 .body-lead {
@@ -208,8 +206,9 @@ h3.h6 {
     font-size: var(--Typography-body-l);
 }
 
+/* Style for anchors */
 a {
-    text-decoration: none;
+    text-decoration: none; /* remove default text's underline */
     padding: 1px 6px;
 }
 
@@ -225,7 +224,7 @@ a {
     position: fixed;
     height: var(--circle-size);
     width: var(--circle-size);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(234, 233, 251, 0.2);
     border-radius: 100%;
     top: calc(var(--circle-size) / 2 * -1);
     left: calc(var(--circle-size) / 2 * -1);
@@ -248,28 +247,27 @@ a {
 
 /* </editor-fold> */
 
-/* === OFFCANVAS FULLPAGE (aka the opened hamburger menu) === */
+/* === OFFCANVAS FULLPAGE (the opened hamburger menu) === */
 /* <editor-fold> */
+
 #offCanvasFull {
     width: 100vw !important;
-    /* 100dvh occupa esattamente il 100% dello spazio visibile dinamico */
     height: 100dvh !important;
     min-height: 100dvh !important;
     max-height: 100dvh !important;
     position: fixed;
-    overflow: hidden !important; /* Blocca ogni tentativo di scroll esterno */
-
+    overflow: hidden !important;
     background-color: rgba(7, 7, 19, 0.9);
     color: var(--blue-95) !important;
-    border: none !important; /* Rimuove eventuali bordi di default */
+    border: none !important;
 }
 
 #offCanvasFull .offcanvas-body {
-    overflow: hidden !important; /* Impedisce lo scroll interno */
+    overflow: hidden !important;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0; /* Opzionale: rimuove padding che potrebbero spingere il contenuto fuori */
+    padding: 0;
 }
 
 /* </editor-fold> */
@@ -277,6 +275,7 @@ a {
 /* === BUTTONS === */
 /* <editor-fold> */
 
+/* regular buttons */
 .btn {
     color: var(--blue-95);
     width: fit-content;
@@ -298,11 +297,12 @@ a {
     font-weight: bold;
 }
 
-/* style is partially duplicated due to an issue in assigning both btn and btn-nav to the same element */
+/* nav menu buttons */
 .btn-nav {
     color: var(--blue-95);
     width: fit-content;
     background-color: var(--blue-15-30);
+    /* style is partially duplicated due to an issue in assigning both btn and btn-nav to the same element */
     gap: 0.5rem;
     padding: 1rem 1.5rem;
     border-radius: 100px;
@@ -318,6 +318,7 @@ a {
     line-height: 1;
 }
 
+/* alternate buttons */
 .btn-secondary {
     color: var(--blue-95);
     border: none;
@@ -325,17 +326,19 @@ a {
     text-decoration: underline;
 }
 
+/* allergens & preferences buttons */
 .btn-filter {
     margin-right: 0.5rem;
 }
 
+/* round music buttons */
 .btn-circular {
     aspect-ratio: 1 / 1;
 }
 
 /* focus for accessibility */
 .btn:focus-visible {
-    outline: 3px solid rgba(255, 255, 255, 0.12);
+    outline: 3px solid rgba(234, 233, 251, 0.12);
     outline-offset: 3px;
 }
 
@@ -350,10 +353,10 @@ a {
     box-shadow: none !important;
 }
 
+/* round sound buttons */
 .btn-sound {
     border-radius: 50%;
     padding: 1rem;
-
     /* Gradient Logic:
        1. 1%   : Orange (The "hint" in the center)
        2. 10%  : Pink (The "bridge" to make the glow vibrant, not muddy)
@@ -373,17 +376,17 @@ a {
     animation: pressSound 1s forwards;
 }
 
+/* pill-shaped sound buttons */
 .btn-plate {
     border-radius: 28px;
     padding: 16px 24px;
-    /* Swapped orange for pink.
-       Note: The radial start is changed from 30% to 0% to make the glow softer like the image. */
     background: linear-gradient(0deg, var(--blue-50-30), var(--blue-50-30)),
     radial-gradient(62.44% 72.74% at 50% 50%, var(--pink) 0%, rgba(255, 50, 118, 0) 100%);
 }
 
-.attivo {
-    animation: attivo 1.8s infinite;
+/* named it "ourIsActive" to avoid overlap with .active and .isActive */
+.ourIsActive {
+    animation: soundActive 1.8s infinite;
 }
 
 @keyframes pressSound {
@@ -399,7 +402,7 @@ a {
     }
 }
 
-@keyframes attivo {
+@keyframes soundActive {
     0% {
         /* Dim state - subtle shadow, normal brightness */
         box-shadow: 0 0 5px var(--pink-30);
@@ -422,9 +425,9 @@ a {
 /* === NAVBAR === */
 /* <editor-fold> */
 
+/* navbar element (inside) */
 .navbar {
     position: relative;
-    /*top: 0;*/
     width: 100%;
     background: transparent;
     padding: 0;
@@ -436,7 +439,7 @@ a {
     z-index: 1000;
 }
 
-/* Wrapper sticky centrato */
+/* navbar's wrapper (to make it sticky) */
 .navbar-wrapper {
     position: fixed;
     top: 0;
@@ -448,6 +451,7 @@ a {
     z-index: 999 !important;
 }
 
+/* adjustment for videos that are too centered (they should be shifted right) */
 .hero-to-right {
     display: flex;
     width: 100%;
@@ -455,6 +459,7 @@ a {
     overflow: visible;
 }
 
+/* adjustments for other videos that are too centered (once again, to shift them to the right) */
 .hero-width-75 {
     width: 75%;
     mix-blend-mode: screen;
@@ -462,6 +467,7 @@ a {
     mask-image: linear-gradient(to right, transparent 0%, black 20%);
 }
 
+/* adjustment for some of the plates description's videos */
 .hero-width-75-10 {
     padding-right: -20%;
 }
@@ -474,6 +480,7 @@ a {
     background: var(--blue-5-70);
 }
 
+/* navbar's custom button */
 .btn-close-custom {
     background: none;
     border: none;
@@ -484,18 +491,17 @@ a {
 
 .btn-close-custom:hover {
     opacity: 0.8;
-    /*transform: rotate(359deg);*/
     transition: 0.2s ease;
 }
 
-/* to not make the navbar go over a sticky element (used in serate-speciali.html's sticky elements) */
+/* to not make the navbar go over a sticky element (used in <special evenings>'s sticky elements) */
 .spaceFromNavbar {
     top: 6.5rem;
 }
 
 /* </editor-fold> */
 
-/* === LIQUID GLASS EFFECT (using SVG as reflections reference) === */
+/* === LIQUID GLASS EFFECT (using SVG) === */
 /* <editor-fold> */
 
 /* liquid glass wrapper (positions the layers) */
@@ -552,7 +558,7 @@ a {
     border-radius: inherit;
     overflow: hidden;
     box-shadow: inset 0 0 0.5px rgba(255, 255, 255, 0.5),
-    inset 0.5px -1px 0.5px rgba(255, 255, 255, 0.5);
+                inset 0.5px -1px 0.5px rgba(255, 255, 255, 0.5);
     pointer-events: none;
     mix-blend-mode: normal;
     opacity: 0.9;
@@ -561,8 +567,8 @@ a {
 /* text (in front) */
 .liquidGlass-text {
     position: relative; /* positioning above layers */
-    z-index: 10; /* definitely in front of everything */
-    color: inherit; /* inherits color set on .btn (white) */
+    z-index: 10; /* put in front of everything */
+    color: inherit; /* inherits color set on .btn (blue-95) */
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     pointer-events: auto; /* text must be clickable when inside a button */
@@ -573,10 +579,8 @@ a {
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); /* improves readability on complex backgrounds */
 }
 
-/* fix to ensure buttons can't be pressed when nearby but only when on top of the actual button (when it's a liquid glass button) */
-.liquidGlass-effect,
-.liquidGlass-tint,
-.liquidGlass-shine {
+/* fix to ensure buttons can't be pressed when nearby but only when on top of the actual button */
+.liquidGlass-effect, .liquidGlass-tint, .liquidGlass-shine {
     pointer-events: none !important;
 }
 
@@ -591,7 +595,7 @@ a {
 }
 
 /* override heder's height in home (as it contains an additional button) */
-#header-home {
+#home-header {
     height: 45svh;
 }
 
@@ -642,9 +646,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom,
-    rgba(7, 7, 19, 0) 0%, var(--blue-5) 60%,
-    var(--blue-5) 100%);
+    background: linear-gradient(to bottom, rgba(7, 7, 19, 0) 0%, var(--blue-5) 60%, var(--blue-5) 100%);
     z-index: 1;
     pointer-events: none;
     overflow: hidden;
@@ -670,14 +672,6 @@ a {
 
 .filter-luminosity {
     mix-blend-mode: luminosity;
-}
-
-/* You can't use mix-blend-mode on the background-image */
-#home-serate-speciali {
-    /*background-image: url(../media/img/home-serate-speciali.svg);*/
-    background-position: right;
-    background-repeat: no-repeat;
-    /* mix-blend-mode must be on an img, not on a background */
 }
 
 /* Restaurant's values section (ristorante.html) */
@@ -706,7 +700,7 @@ a {
     background: linear-gradient(
             180deg,
             var(--blue-5, #070713) 0%,
-            rgba(7, 7, 19, 0.85) 50%, /* 0.85 opaqueness to make it look (much) darker even in the most visible spot */ var(--blue-5, #070713) 100%
+            rgba(7, 7, 19, 0.85) 50%, var(--blue-5, #070713) 100%
     );
 }
 
@@ -730,18 +724,18 @@ a {
 /* === TIMELINE ELEMENT === */
 /* <editor-fold> */
 
-/* container */
+/* timeline's container */
 .timeline-container {
     position: relative;
     z-index: 0;
 }
 
-/* item itself */
+/* timeline's item */
 .timeline-item {
     z-index: 10;
 }
 
-/* Gray vertical line */
+/* Draw vertical line in the timeline */
 .timeline-container::before {
     content: "";
     position: absolute;
@@ -754,7 +748,7 @@ a {
     z-index: -10;
 }
 
-/* Dynamic filling line */
+/* Dynamic line filling */
 .timeline-fill {
     position: absolute;
     left: 50%;
@@ -767,7 +761,7 @@ a {
     transition: height 0.2s linear; /* smooth animation */
 }
 
-/* colors on small screens */
+/* responsive colors based on screen's size */
 @media (min-width: 768px) {
 
     .timeline-container::before {
@@ -779,9 +773,10 @@ a {
         width: 2px;
         background: var(--blue-95);
     }
+
 }
 
-/* toDo: check with Otto */
+/* vertical height limitation on some elements */
 .reduce-size-menu {
     max-height: 400px;
 }
@@ -806,24 +801,11 @@ a {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* colors on large screens */
+/* colors & responsive adjustments on larger screens */
 @media (min-width: 768px) {
 
-    /* toDo: check with Otto */
     .reduce-size-menu {
         max-height: 600px;
-    }
-
-    .timeline-dot {
-        position: absolute;
-        left: 50%; /* vertical line */
-        width: 28px;
-        height: 28px;
-        background: var(--blue-15); /* initial color */
-        border-radius: 50%;
-        transform: translate(-50%, 0%);
-        z-index: 0;
-        transition: all 0.3s ease; /* smooth animation */
     }
 
     /* Active dot */
@@ -831,9 +813,10 @@ a {
         background-color: var(--blue-95); /* active color */
         transform: translate(-50%, -50%) scale(1.2); /* slight enlargement */
     }
+
 }
 
-/* === MUSIC BUTTONS === */
+/* timeline's music buttons adjustment */
 .music-button {
     aspect-ratio: 1;
     height: 1.2rem;
@@ -900,16 +883,13 @@ input:focus, select:focus {
 /* <editor-fold> */
 
 /* = swiper reviews style =  */
-.swiper-reviews .swiper-button-prev,
-.swiper-reviews .swiper-button-next {
+.swiper-reviews .swiper-button-prev, .swiper-reviews .swiper-button-next {
     z-index: 9999 !important;
     pointer-events: auto !important;
     transform: translateY(-50%);
 }
 
-.swiper-home .swiper-button-prev,
-.swiper-home .swiper-button-next,
-.swiper-images .swiper-button-prev,
+.swiper-home .swiper-button-prev, .swiper-home .swiper-button-next, .swiper-images .swiper-button-prev,
 .swiper-images .swiper-button-next {
     z-index: 9999 !important;
     pointer-events: auto !important;
@@ -923,13 +903,13 @@ input:focus, select:focus {
 /* progress bar container */
 .swiper-reviews .swiper-pagination-progressbar {
     background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    height: 4px !important; /* Bar height */
+    height: 4px !important;
     position: absolute;
     bottom: 0 !important;
     top: auto !important; /* Forces it to the bottom */
     left: 0;
     width: 100%;
-    z-index: 10; /* Make sure it's above the slides */
+    z-index: 10; /* To make sure it's above the slides */
 }
 
 /* fill for the progress bar */
@@ -944,7 +924,7 @@ input:focus, select:focus {
     display: block;
 }
 
-/* Forces the animation origin to the LEFT */
+/* Forces the animation origin to the left */
 .swiper-reviews .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
     transform-origin: left top !important;
     left: 0 !important;
@@ -978,7 +958,7 @@ footer {
     border-radius: 1000px !important;
     padding: 0.5rem;
     border: none;
-    color: white !important;
+    color: var(--blue-95) !important;
 }
 
 .chips.allergen:not(.chips-active):hover {
@@ -1047,11 +1027,9 @@ video {
 
 /* Ex-nations style */
 .country {
-
     fill: var(--blue-5);
     stroke-width: 0.5px;
     transition: all 0.3s ease;
-
     cursor: crosshair; /* Change mouse icon to a cross upon hovering over a country */
 
     /* smooth corner joints and blur edges to make it look more "round" */
@@ -1094,7 +1072,7 @@ video {
 
     position: absolute;
     z-index: 1000; /* To put tooltips in front of the map (rather than behind it) */
-    background: var(--blue-5-70); /* Dark semi-transparent background from palette */
+    background: var(--blue-5-70); /* Dark semi-transparent background */
     color: var(--blue-95);
 
     padding: 8px 12px;
@@ -1191,12 +1169,10 @@ video {
 @keyframes riffHoverColorPulse {
     0% {
         fill: var(--orange);
-        /* Orange Glow */
         filter: blur(2px) drop-shadow(0 0 2px var(--orange)) drop-shadow(0 0 10px rgba(246, 112, 85, 0.6));
     }
     100% {
         fill: var(--pink);
-        /* Pink Glow (slightly stronger for emphasis) */
         filter: blur(2px) drop-shadow(0 0 5px var(--pink)) drop-shadow(0 0 15px rgba(255, 50, 118, 0.8));
     }
 }
@@ -1214,6 +1190,7 @@ video {
     justify-self: end;
 }
 
+/* adjustment for bigger screens */
 @media only screen and (min-width: 992px){
 
     .map-action-btn {
@@ -1226,22 +1203,16 @@ video {
 
 /* controls hint-panel main style */
 .controls-hint {
-
     position: absolute;
     bottom: 30px;
-
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
-
     background: transparent;
-
     color: var(--blue-70);
     font-family: 'Manrope', sans-serif;
     font-size: 0.85rem;
-
     pointer-events: none; /* Clicks pass through */
     user-select: none;
-
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1256,30 +1227,13 @@ video {
     gap: 8px;
 }
 
+/* spans within rows within controls hint-panel */
 .key-row span {
     color: var(--blue-95);
     font-size: var(--Typography-link);
     font-style: normal;
     font-weight: 500;
     line-height: 1.5rem;
-}
-
-/* box around the 'ALT' text to make it look like a keyboard key */
-.key-badge {
-
-    background: var(--blue-50-30);
-    border: 1px solid var(--blue-70);
-    padding: 2px 6px;
-    border-radius: 3px;
-
-    font-weight: bold;
-    font-size: 0.75rem;
-    color: var(--blue-95);
-}
-
-/* for "mouse" & "hand-dragging" emojis */
-.icon {
-    font-size: 1.1em;
 }
 
 /* style after "tooltip and circle hide when moving map" fix */
@@ -1313,25 +1267,23 @@ body.is-map-interacting .circle {
 /* Gradient must show on a device that supports hover, so it's a @media (hover:hover) */
 @media (hover: hover) {
 
-    /* To make the gradient appear when not hovered */
+    /* To make the gradient appear when not-hovered */
     #map-container::after {
         content: "";
         position: absolute;
         inset: 0; /* compact notation for top:0, right:0, bottom:0, left:0 */
         z-index: 10;
-
         background: linear-gradient(180deg, var(--blue-5, #070713) 0%, rgba(21, 20, 57, 0.00) 50%, var(--blue-5, #070713) 100%);
-
         opacity: 1; /* visible by default */
         transition: opacity 0.3s ease-in-out; /* transition animation between visible / not visible */
-
         pointer-events: none; /* to make the mouse pass through the gradient - otherwise it captures the hovers */
     }
 
-    /* To make the gradient disappear when hovered anywhere in the section (map OR button) */
+    /* To make the gradient disappear when map is hovered (anywhere) */
     #map:hover #map-container::after {
         opacity: 0;
     }
+
 }
 
 /* </editor-fold> */
@@ -1351,9 +1303,7 @@ body.is-map-interacting .circle {
     position: absolute;
     bottom: 0;
     left: 0;
-
     z-index: -1; /* -1 to make the image stay behind the text */
-
     width: auto;
     max-height: 100%; /* image resizes automatically in width, but never exceeding height = 100% */
     overflow: hidden; /* overflow hidden so it doesn't spill */
@@ -1377,7 +1327,7 @@ body.is-map-interacting .circle {
 }
 
 .background-review img {
-    /* Per compatibilità con Chrome/Safari */
+    /* for Safari compatibility */
     -webkit-mask-image: linear-gradient(
             var(--blue-5)
     );
@@ -1396,16 +1346,13 @@ body.is-map-interacting .circle {
     left: 0;
     width: 100%;
     height: 100%;
-
     z-index: 1; /* to make the gradient go over the image, which was z-index: -1 */
-
     background: linear-gradient(
             180deg,
             var(--blue-5, #070713) 0%,
             rgba(21, 20, 57, 0.0) 50%,
             var(--blue-5, #070713) 100%
     );
-
 }
 
 /* style of the image in the accordion */
@@ -1415,21 +1362,19 @@ body.is-map-interacting .circle {
     height: auto;
 }
 
-/* accordion container, large, transparent and without borders {reminder: !important are unfortunately needed, especially for the last accordion element} */
+/* accordion container {reminder: !important are unfortunately needed, especially for the last accordion element} */
 .accordion-glass-item {
     background: transparent !important; /* remove white background (default in Bootstrap accordion) */
     border: none !important; /* Remove borders (default in Boostrap accordion) */
     width: 100% !important;
-
     display: flex;
     flex-direction: column;
     align-items: stretch !important; /* stretch to fit the whole accordion (width: 100% didn't suffice) */
     justify-content: flex-start !important;
-
     border-radius: 50px !important;
     overflow: hidden; /* To contain background effects */
     position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* box-shadow: X-offset-of-shadow, Y-offset-of-shadow, blur-radius, color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* box-shadow: X-offset-of-shadow, Y-offset, blur-radius, color */
 }
 
 /* alignment and size for liquid-glass accordion items */
@@ -1442,15 +1387,12 @@ body.is-map-interacting .circle {
     gap: 0 !important;
 }
 
-/* heavy styling for the button (also making it liquid glass), as it replaces the accordion's containing box (which is transparent) */
+/* heavy styling for the accordion's "button" */
 .accordion-glass-button {
-
     background-color: var(--blue-5-70) !important;
-    box-shadow: none !important; /* the default blue shadow of buttons was causing an issue when opening the accordion (it created a blue bar) - I needed to remove it */
+    box-shadow: none !important; /* the default blue shadow was causing an issue when opening the accordion */
     color: var(--blue-95) !important; /* --blue-95 is actually the white that goes over the blue-5 background */
-
     padding: 1.25rem 2rem;
-
     width: 100%;
 
     /* text style (out of Figma) */
@@ -1459,7 +1401,6 @@ body.is-map-interacting .circle {
     font-style: normal;
     font-weight: 500; /* Figma said 700, but it was too much - it feels more like 500 */
     line-height: 1.5rem;
-
     text-align: left;
 
     display: flex;
@@ -1489,7 +1430,7 @@ body.is-map-interacting .circle {
     padding: 1.5rem 2rem 1.5rem 2rem; /* padding for elements within the accordion */
     text-align: left;
     border-top: 1px solid rgba(192, 190, 244, 0.1);
-    /* line between title (button) and text (accordion content), rgb code is = #EAE9FB = (blue-dark), made semi-transparent */
+    /* line between title (button) and text (accordion content), made semi-transparent */
 }
 
 /* </editor-fold> */
@@ -1497,9 +1438,8 @@ body.is-map-interacting .circle {
 /* === POPUPS (NEWSLETTER & BOOKING FORMS) === */
 /* <editor-fold> */
 
-/* --- Container Animation Logic --- */
-.valid-popup-container,
-.invalid-popup-container {
+/* Container Animation Logic */
+.valid-popup-container, .invalid-popup-container {
 
     /* override Bootstrap utilities to allow collapsing to 0 */
     display: flex !important; /* Override d-none */
@@ -1578,7 +1518,7 @@ body.is-map-interacting .circle {
 .was-validated #validationCustomUsername:invalid,
 #validationCustomUsername.is-valid,
 .was-validated #validationCustomUsername:valid {
-    background-image: none !important; /* Ensures no ghost icon conflict */
+    background-image: none !important; /* Ensures no ghost icon (from bootstrap's defaults) conflict */
     padding-right: 1rem !important; /* Resets padding to match the left side */
 }
 
@@ -1624,7 +1564,6 @@ body.is-map-interacting .circle {
     width: 100%;
 }
 
-
 @media (min-width: 768px) and (max-width: 991.98px) {
     #percorso .bubble-box {
         position: relative;
@@ -1639,7 +1578,7 @@ body.is-map-interacting .circle {
     transform: translate(0%, 0%) !important;
 }
 
-.home .bollaPaginaPiatto1{
+.home .platePageOneBubble{
     transform: none !important;
     height: 100%;
 }
@@ -1660,97 +1599,52 @@ body.is-map-interacting .circle {
     height: 100%;
 }
 
-.bollaPaginaPiatto1, .bollaPaginaPiatto2, .bollaPaginaPiatto3 {
+.platePageOneBubble, .platePageTwoBubble, .platePageThreeBubble {
     transform: translate(0%, 0%) !important;
     overflow: hidden !important;
     position: relative !important;
     top: inherit !important;
 }
 
-.bollaPaginaPiatto1 img, .bollaPaginaPiatto2 img, .bollaPaginaPiatto3 img{
+.platePageOneBubble img, .platePageTwoBubble img, .platePageThreeBubble img{
     scale: 1.2;
 }
 
+/* Responsive adjustments of bubbles for large screens */
 @media (min-width: 992px) {
-    .bollaPaginaPiatto1, .bollaPaginaPiatto2, .bollaPaginaPiatto3{
+
+    .platePageOneBubble, .platePageTwoBubble, .platePageThreeBubble{
         overflow: hidden !important;
         position: absolute !important;
         max-width: unset !important;
         width: 100%;
     }
 
-    .bollaPaginaPiatto2 img, .bollaPaginaPiatto3 img {
+    .platePageTwoBubble img, .platePageThreeBubble img {
         scale: 1.1;
     }
 
-    .bollaPaginaPiatto1 img, .bollaPaginaPiatto2 img, .bollaPaginaPiatto3 img{
+    .platePageOneBubble img, .platePageTwoBubble img, .platePageThreeBubble img{
         transform: translateX(20%);
     }
 
-    .bollaPaginaPiatto1{
+    .platePageOneBubble{
         right: 0;
     }
 
-    .home .bollaPaginaPiatto1{
+    .home .platePageOneBubble{
         transform: none !important;
         position: relative !important;
     }
 
-    .home .bollaPaginaPiatto1 img{
+    .home .platePageOneBubble img{
         transform: none !important;
         scale: 1.8;
     }
 }
 
-/*!* container *!*/
-/*#bollaPaginaPiatto1, #bollaPaginaPiatto2, #bollaPaginaPiatto3 {*/
-/*    transform: none;*/
-/*    left: auto;*/
-/*    width: 100%;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    overflow: visible;*/
-/*}*/
-
-/*#bollaPaginaPiatto1 img {*/
-/*    max-width: unset !important;*/
-/*    width: 100%;*/
-/*    transform: scale(2);*/
-/*    margin-left: 50px;*/
-/*    transition: transform 0.3s ease;*/
-/*}*/
-
-/*#bollaPaginaPiatto2 img, #bollaPaginaPiatto3 img {*/
-/*    max-width: unset !important;*/
-/*    width: 100%;*/
-/*    transform: scale(1.5);*/
-/*    margin-left: 50px;*/
-/*    transition: transform 0.3s ease;*/
-/*}*/
-
-/*@media (min-width: 992px) {*/
-
-/*    !* images within container (that become animated gifs) *!*/
-/*    #bollaPaginaPiatto1 img {*/
-/*        max-width: unset !important;*/
-/*        width: 100%;*/
-/*        transform: scale(2.5);*/
-/*        margin-left: 50px;*/
-/*        transition: transform 0.3s ease;*/
-/*    }*/
-
-/*    #bollaPaginaPiatto2 img, #bollaPaginaPiatto3 img {*/
-/*        max-width: unset !important;*/
-/*        width: 100%;*/
-/*        transform: scale(2);*/
-/*        margin-left: 50px;*/
-/*        transition: transform 0.3s ease;*/
-/*    }*/
-
-/*}*/
-
-#confermata {
+/* Reservation edit page confirmation message's style */
+#confirmed {
     background-image: radial-gradient(ellipse, var(--blue-50), var(--blue-50), transparent, transparent);
     font-size: var(--Typography-body-lead);
 }
@@ -1760,9 +1654,7 @@ body.is-map-interacting .circle {
 /* == BOOKING (prenota.html & gestisci-prenotazione.html) ==  */
 /* <editor-fold> */
 
-.liquidGlass-effect,
-.liquidGlass-tint,
-.liquidGlass-shine {
+.liquidGlass-effect, .liquidGlass-tint, .liquidGlass-shine {
     pointer-events: none !important;
 }
 
@@ -1798,7 +1690,7 @@ body.is-map-interacting .circle {
     padding-bottom: 50px;
 }
 
-.box-prenota {
+.reservation-container {
     border-radius: 16px;
     overflow-y: visible;
     scrollbar-width: none;
@@ -1806,17 +1698,16 @@ body.is-map-interacting .circle {
 
 }
 
-.box-prenota .liquidGlass-shine {
+.reservation-container .liquidGlass-shine {
     background: var(--blue-5-70);
 }
 
-.box-prenota .liquidGlass-effect,
-.box-prenota .liquidGlass-shine,
-.box-prenota .liquidGlass-tint {
+.reservation-container .liquidGlass-effect, .reservation-container .liquidGlass-shine,
+.reservation-container .liquidGlass-tint {
     border-radius: 20px;
 }
 
-.box-prenota .liquidGlass-text {
+.reservation-container .liquidGlass-text {
     position: relative;
     z-index: 2;
 }
@@ -1825,16 +1716,12 @@ body.is-map-interacting .circle {
     position: relative;
 }
 
-
 /* Error message */
-.was-validated input:invalid,
-.was-validated .select-selected.is-invalid,
-input.form-control.is-invalid {
+.was-validated input:invalid, .was-validated .select-selected.is-invalid, input.form-control.is-invalid {
     border: 1px solid var(--orange, #F67055) !important;
 }
 
-/* --- SURGICAL ERROR DISPLAY --- */
-/* We show the feedback ONLY when the form has been validated AND the field is actually invalid */
+/* Error display (feedback is shown ONLY when the form has been validate AND the field is actually invalid) */
 .was-validated .form-control:invalid ~ .invalid-feedback,
 .was-validated .form-select:invalid ~ .invalid-feedback,
 .was-validated .select-selected.is-invalid ~ .invalid-feedback,
@@ -1874,7 +1761,7 @@ input.form-control.is-invalid {
     background-color: var(--blue-5);
 }
 
-/* 2. CUSTOM SELECTS */
+/* Custom selects */
 .select-selected {
     color: var(--blue-95) !important;
 }
@@ -1915,8 +1802,7 @@ input.form-control.is-invalid {
 }
 
 /* Text color in the calendar */
-.datepicker table tr td,
-.datepicker table tr th {
+.datepicker table tr td, .datepicker table tr th {
     color: var(--blue-5) !important;
     font-weight: 500;
 }
@@ -1928,17 +1814,14 @@ input.form-control.is-invalid {
 }
 
 /* Navigation buttons (arrows and month/year) */
-.datepicker table tr th.datepicker-title,
-.datepicker table tr th.prev,
-.datepicker table tr th.next,
+.datepicker table tr th.datepicker-title, .datepicker table tr th.prev, .datepicker table tr th.next,
 .datepicker table tr th.picker-switch {
     color: var(--blue-70);
     transition: background-color 0.2s ease;
 }
 
 /* Hover on navigation buttons */
-.datepicker table tr th.prev:hover,
-.datepicker table tr th.next:hover,
+.datepicker table tr th.prev:hover, .datepicker table tr th.next:hover,
 .datepicker table tr th.picker-switch:hover {
     background-color: var(--blue-50-30);
     border-radius: 4px;
@@ -2053,7 +1936,7 @@ input.form-control.is-invalid {
 /* SELECT */
 /* <editor-fold> */
 
-/* --- SUGGESTED BY THE PROFESSOR: HIDE THE REAL SELECT --- */
+/* Hide real select (as suggested by the professor) */
 .custom-hidden-select {
     position: absolute;
     opacity: 0;
@@ -2096,7 +1979,7 @@ input.form-control.is-invalid {
 
 /* Style of the display field (replaces the unopened input/select) */
 .select-selected {
-    /* 1. Resets the browser default style */
+    /* Resets the browser default style */
     appearance: none;
     -webkit-appearance: none;
     outline: none;
@@ -2108,7 +1991,6 @@ input.form-control.is-invalid {
     color: var(--blue-95) !important;
     font-family: inherit;
     font-size: 1rem;
-    /* linear gradient */
     background: /* dark background */ linear-gradient(var(--blue-5), var(--blue-5)) padding-box,
         /* gradient cut border */ linear-gradient(to right, var(--blue-70-30), var(--blue-5)) border-box !important;
 
@@ -2116,8 +1998,7 @@ input.form-control.is-invalid {
 }
 
 /* Hover/Focus style on the selected field */
-.select-selected:hover,
-.select-selected.select-arrow-active {
+.select-selected:hover, .select-selected.select-arrow-active {
     border-color: var(--blue-70);
 }
 
@@ -2125,7 +2006,6 @@ input.form-control.is-invalid {
 .select-selected.is-placeholder {
     color: var(--blue-95-70) !important;
 }
-
 
 /* --- 3. CONTAINER AND OPEN OPTIONS (THE DROPDOWN) --- */
 /* Options container (the open dropdown) */
@@ -2217,13 +2097,17 @@ input[type="submit"] {
     padding: 0 15px !important;
 }
 
-#wrapperVideoDiPrenota {
+/* = booking page background video adjustments = */
+
+/* wrapper */
+#bookingPageVideoWrapper {
     display: flex;
     justify-content: end;
     overflow: visible;
 }
 
-#videoDiPrenota {
+/* video */
+#bookingPageVideo {
     width: 75%;
     mix-blend-mode: screen;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%);
@@ -2244,19 +2128,15 @@ input[type="submit"] {
 }
 
 .modal-style {
-
     border-radius: 0.5rem;
     background: var(--blue-15-70, rgba(21, 20, 57, 0.70));
     color: var(--blue-95);
-
     display: flex;
-    /*max-width: 29.75rem;*/
-    /*padding: 1.5rem;*/
     gap: 0.5rem;
     flex-shrink: 0;
-
 }
 
+/* modal responsive adjustments for larger screens (>= big-tablet) */
 @media only screen and (min-width: 768px){
     .modal-style {
         min-width: 380px !important;
@@ -2272,7 +2152,9 @@ input[type="submit"] {
 
 /* </editor-fold> */
 
-#pagina-libera-overlay {
+/* == FINAL ADJUSTMENTS */
+
+#special-evenings-overlay {
     position: relative;
     z-index: 10;
 }
