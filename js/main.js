@@ -856,7 +856,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Initial sync: text from native select
         updateTextSafely(selectedDiv, originalSelect.options[originalSelect.selectedIndex].text);
 
-        // check for initial color (default value is blue-95-70, correct value is blue-95
+        // Check for initial color (default value is blue-95-70, correct value is blue-95)
         if (originalSelect.value === "") {
             selectedDiv.classList.add('is-placeholder');
         } else {
@@ -930,8 +930,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.addEventListener('click', () => closeAllSelects());
 
-
-
     /* --- 3. SURGICAL VALIDATION ENGINE --- */
 
     function validateCustomField(elementId) {
@@ -954,12 +952,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (isInvalid) {
             visualTarget.classList.add('is-invalid');
-            // CHIRURGIA: Diciamo al browser che il campo è nativamente invalido
+            // SURGICAL: Tell the browser the field is natively invalid
             element.setCustomValidity("Invalid");
             return false;
         } else {
             visualTarget.classList.remove('is-invalid');
-            // CHIRURGIA: Resettiamo lo stato nativo
+            // SURGICAL: Reset native state
             element.setCustomValidity("");
             return true;
         }
@@ -985,15 +983,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (form.checkValidity() === true && isFormValid) {
                 // SUCCESS LOGIC
-                if (form.id === 'formPrenotazioneTavolo') {
-                    new bootstrap.Modal(document.getElementById('modalSuccesso')).show();
+                if (form.id === 'formTableBooking') { // ID changed to English
+                    new bootstrap.Modal(document.getElementById('modalSuccess')).show(); // ID changed to English
                     resetFormVisuals(form, true); // True = reset values
                 }
-                else if (form.id === 'formPrenotazioneSala') {
-                    new bootstrap.Modal(document.getElementById('modalSuccesso2')).show();
+                else if (form.id === 'formRoomBooking') { // ID changed to English
+                    new bootstrap.Modal(document.getElementById('modalSuccess2')).show(); // ID changed to English
                     resetFormVisuals(form, true); // True = reset values
                 }
-                else if (form.id === 'formGestionePrenotazione') {
+                else if (form.id === 'formBookingManagement') { // ID changed to English
                     new bootstrap.Modal(document.getElementById('modalManageBooking')).show();
                     resetFormVisuals(form, false); // FALSE = Keep values, just clean validation
                 }
@@ -1088,7 +1086,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    //put active the corresponding allergen in the menu
+    // Put active the corresponding allergen in the menu
     const buttons = document.querySelectorAll('.btn-filter');
     const allAllergens = document.querySelectorAll('[class*="allergen-"]');
     const allPreference = document.querySelectorAll('[class*="preference-"]');
@@ -1114,7 +1112,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    //reset all filters in menu and filter section
+    // Reset all filters in menu and filter section
     const resetBtn = document.querySelector('.btn-reset');
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
@@ -1133,10 +1131,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // RESET BUTTON IN FORM
 document.addEventListener('DOMContentLoaded', function () {
-    const btnCancella = document.getElementById('btnCancella');
+    const cancelBtn = document.getElementById('btnCancel'); // ID changed to English
 
-    if (btnCancella) {
-        btnCancella.addEventListener('click', function () {
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', function () {
             const form = this.closest('form');
             if (!form) return;
 
@@ -1167,7 +1165,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         textNode.textContent = placeholderText;
                     }
 
-                    // === NEW LINE: Restore the blue placeholder color ===
+                    // Restore the blue placeholder color
                     selectedDiv.classList.add('is-placeholder');
                 }
             });
@@ -1186,55 +1184,55 @@ document.addEventListener('DOMContentLoaded', function () {
 /* === CHANGE LANGUAGE === */
 document.addEventListener("DOMContentLoaded", function () {
     // Select all language toggle buttons by class
-    const itaBtns = document.querySelectorAll('.btn-lan-ita');
+    const italianBtns = document.querySelectorAll('.btn-lan-ita');
     const medBtns = document.querySelectorAll('.btn-lan-med');
 
     // Select all content elements for both languages
-    const itaContent = document.querySelectorAll('.lan-ita');
+    const italianContent = document.querySelectorAll('.lan-ita');
     const medContent = document.querySelectorAll('.lan-med');
 
     // Select the "prenota" buttons in nav
-    const itaNavPrenota = document.querySelectorAll('.nav-lan-ita');
-    const medNavPrenota = document.querySelectorAll('.nav-lan-med');
+    const italianNavBooking = document.querySelectorAll('.nav-lan-ita');
+    const medNavBooking = document.querySelectorAll('.nav-lan-med');
 
     function switchLanguage(lang) {
         if (lang === 'ita') {
             // Show all Italian elements and hide Medusiano elements
-            itaContent.forEach(item => item.classList.remove('d-none'));
+            italianContent.forEach(item => item.classList.remove('d-none'));
             medContent.forEach(item => item.classList.add('d-none'));
 
-            itaNavPrenota.forEach(el => {
+            italianNavBooking.forEach(el => {
                 el.classList.add('d-none', 'd-md-inline-block');
             });
-            medNavPrenota.forEach(el => {
+            medNavBooking.forEach(el => {
                 el.classList.add('d-none');
                 el.classList.remove('d-md-inline-block');
             });
 
             // Update styles for all buttons (underline the active one)
-            itaBtns.forEach(btn => btn.style.textDecoration = 'underline');
+            italianBtns.forEach(btn => btn.style.textDecoration = 'underline');
             medBtns.forEach(btn => btn.style.textDecoration = 'none');
         } else {
             // Show all Medusiano elements and hide Italian elements
             medContent.forEach(item => item.classList.remove('d-none'));
-            itaContent.forEach(item => item.classList.add('d-none'));
+            italianContent.forEach(item => item.classList.add('d-none'));
 
-            medNavPrenota.forEach(el => {
+            medNavBooking.forEach(el => {
                 el.classList.add('d-none', 'd-md-inline-block');
             });
-            itaNavPrenota.forEach(el => {
+            italianNavBooking.forEach(el => {
                 el.classList.add('d-none');
                 el.classList.remove('d-md-inline-block');
             });
 
             // Update styles for all buttons
             medBtns.forEach(btn => btn.style.textDecoration = 'underline');
-            itaBtns.forEach(btn => btn.style.textDecoration = 'none');
+            italianBtns.forEach(btn => btn.style.textDecoration = 'none');
         }
     }
 
     // Attach click event listeners to every Italian language button found
-    itaBtns.forEach(btn => {
+    italianBtns.forEach(btn => {
         btn.addEventListener("click", function () {
             switchLanguage('ita');
         });
@@ -1340,12 +1338,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* === ALLERGENS HANDLING === */
 document.addEventListener('DOMContentLoaded', () => {
-    let f = document.getElementById('filter');
-    let a = document.getElementById('allergens');
+    let filter = document.getElementById('filter');
+    let allergens = document.getElementById('allergens');
 
-    if(f){
-        f.addEventListener('click', () => {
-            a.classList.toggle('d-none');
+    if(filter){
+        filter.addEventListener('click', () => {
+            allergens.classList.toggle('d-none');
         });
     }
 
@@ -1358,4 +1356,4 @@ document.addEventListener("DOMContentLoaded", function () {
     glassWrappers.forEach(wrapper => {
         wrapper.classList.add('hoverable');
     });
-})
+});
