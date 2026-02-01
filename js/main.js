@@ -388,13 +388,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // === INITIALIZATION ===
-    addMediaControl("music-start1", "../media/audio/thalassa-hans-zimmer-cornfields.aac");
-    addMediaControl("music-start2", "../media/audio/madreperla-mr-kitty-after-dark.aac");
-    addMediaControl("music-start3", "../media/audio/bioluma-the-chainsmokers-breathe.aac");
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    
+    const basePath = isLocal ? '/' : '/progetto-CVeDI/';
 
-    addMediaControl("music-startdesc1", "../media/audio/thalassa-hans-zimmer-cornfields.aac");
-    addMediaControl("music-startdesc2", "../media/audio/madreperla-mr-kitty-after-dark.aac");
-    addMediaControl("music-startdesc3", "../media/audio/bioluma-the-chainsmokers-breathe.aac");
+    // Main Timeline Audio
+        addMediaControl("music-start1", basePath + "media/audio/thalassa-hans-zimmer-cornfields.aac");
+        addMediaControl("music-start2", basePath + "media/audio/madreperla-mr-kitty-after-dark.aac");
+        addMediaControl("music-start3", basePath + "media/audio/bioluma-the-chainsmokers-breathe.aac");
+
+    // Audio for Plate Descriptions
+        addMediaControl("music-startdesc1", basePath + "media/audio/thalassa-hans-zimmer-cornfields.aac");
+        addMediaControl("music-startdesc2", basePath + "media/audio/madreperla-mr-kitty-after-dark.aac");
+        addMediaControl("music-startdesc3", basePath + "media/audio/bioluma-the-chainsmokers-breathe.aac");
 
 });
 
