@@ -80,7 +80,7 @@
                 <button aria-controls="offCanvasFull" class="btn-empty" data-bs-target="#offCanvasFull"
                         data-bs-toggle="offcanvas"
                         type="button">
-                    <img alt="Apri menu di navigazione" src="../media/icon/hamburger-menu.svg"/>
+                    <img alt="Apri menu di navigazione" src="../media/icon/hamburger-menu.svg">
                 </button>
             </div>
         </div>
@@ -88,8 +88,15 @@
 </header>
 
 <!-- Off-canvas full-page (adapted for plate pages) -->
-<div aria-labelledby="offcanvasFullLabel" class="offcanvas offcanvas-top" data-bs-backdrop="true" data-bs-scroll="false"
-     id="offCanvasFull" tabindex="-1">
+<div id="offCanvasFull"
+     class="offcanvas offcanvas-top"
+     role="dialog"
+     aria-labelledby="offcanvasFullLabel"
+     tabindex="-1"
+     data-bs-backdrop="true"
+     data-bs-scroll="false">
+
+    <h2 id="offcanvasFullLabel" class="visually-hidden">Menu di Navigazione Riff</h2>
     <div class="offcanvas-body p-3">
         <div class="container-fluid">
             <div class="row g-0">
@@ -177,7 +184,7 @@
 
                 <div class="col-6 col-md-1 d-flex justify-content-end align-items-start order-2 order-md-last">
                     <button aria-label="Chiudi menu" class="btn-close-custom" data-bs-dismiss="offcanvas">
-                        <img alt="" src="../media/icon/x-icon.svg"/>
+                        <img alt="" src="../media/icon/x-icon.svg">
                     </button>
                 </div>
 
@@ -352,15 +359,15 @@
 </section>
 
 <!-- Footer (adapted for plate pages) -->
-<footer class="p-4section-bg-light">
+<footer class="p-4 section-bg-light">
     <div class="container-fluid p-5">
         <div class="row g-5">
 
             <!-- restaurant's information -->
             <div class="col-7 col-md-4">
-                <h5>Orari di apertura</h5>
+                <h3 class="h5">Orari di apertura</h3>
                 <p>Martedì - Domenica <br> 19:00 - 01:00</p>
-                <h5>Contatti</h5>
+                <h3 class="h5">Contatti</h3>
                 <p>Riff <br> Atlas, P.zza Corolleo 1 <br>24°N - 46°O, -230 m <br><br>
                     Settore abissale Ovest
                 </p>
@@ -368,12 +375,11 @@
 
             <!-- booking -->
             <div class="col-7 col-md-4">
-                <h5>Prenotazioni</h5>
+                <h3 class="h5">Prenotazioni</h3>
                 <p>Per vivere l’esperienza di un percorso di suoni, luci e sapori custoditi nel cuore del fondale di
                     Atlas, è necessaria la prenotazione
                 </p>
-                <a class="btn liquidGlass-wrapper" href="../prenota.html"> <span aria-hidden="true"
-                                                                                 class="liquidGlass-effect"></span>
+                <a class="btn liquidGlass-wrapper" href="../prenota.html"> <span aria-hidden="true" class="liquidGlass-effect"></span>
                     <span aria-hidden="true" class="liquidGlass-tint"></span>
                     <span aria-hidden="true" class="liquidGlass-shine"></span>
                     <span class="liquidGlass-text">Prenota</span>
@@ -386,7 +392,7 @@
                     <div class="d-flex flex-column position-relative">
 
                         <!-- newsletter's heading and information -->
-                        <h5>Linea abissale</h5>
+                        <h3 class="h5">Linea abissale</h3>
                         <p>
                             Resta aggiornato sulle serate: inserisci i tuoi dati per iscriverti alla linea abissale
                         </p>
@@ -397,12 +403,12 @@
                                 <label class="form-label" for="validationCustomUsername">Email</label>
                                 <div class="input-group has-validation">
 
-                                    <input aria-describedby="inputGroupPrepend" class="form-control"
+                                    <input class="form-control"
                                            id="validationCustomUsername"
-                                           placeholder="nome@esempio.com" required
-                                           type="text"
+                                           required type="text"
+                                           placeholder="nome@esempio.com"
                                     >
-                                    <div aria-live="polite" class="invalid-feedback mt-1 ms-1">
+                                    <div class="invalid-feedback mt-1 ms-1" aria-live="polite">
                                         Devi inserire un'e-mail valida!
                                     </div>
                                 </div>
@@ -449,21 +455,21 @@
                 <!-- social icons (right side) -->
                 <div>
                     <!-- social 1 -->
-                    <a class="btn-empty" href="https://open.spotify.com/" rel="noopener noreferrer" target="_blank">
+                    <a class="btn-empty" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
                         <span class="visually-hidden">(Apre in una nuova scheda)</span>
-                        <img alt="Apri la nostra pagina di SpottedRayFi" src="../media/icon/footer-1.svg"/>
+                        <img alt="Apri la nostra pagina di SpottedRayFi" src="../media/icon/footer-1.svg">
                     </a>
 
                     <!-- social 2 -->
-                    <a class="btn-empty" href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
+                    <a class="btn-empty" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                         <span class="visually-hidden">(Apre in una nuova scheda)</span>
-                        <img alt="Apri la nostra pagina di FishBook" src="../media/icon/footer-2.svg"/>
+                        <img alt="Apri la nostra pagina di FishBook" src="../media/icon/footer-2.svg">
                     </a>
 
                     <!-- social 3 -->
-                    <a class="btn-empty" href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">
+                    <a class="btn-empty" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                         <span class="visually-hidden">(Apre in una nuova scheda)</span>
-                        <img alt="Apri la nostra pagina di InfondAlMar" src="../media/icon/footer-3.svg"/>
+                        <img alt="Apri la nostra pagina di InfondAlMar" src="../media/icon/footer-3.svg">
                     </a>
 
                 </div>
