@@ -352,71 +352,64 @@ a {
     box-shadow: none !important;
 }
 
-/* round sound buttons */
-.btn-sound {
-    border-radius: 50%;
-    padding: 1rem;
-    /* Gradient Logic:
-       1. 1%   : Orange (The "hint" in the center)
-       2. 10%  : Pink (The "bridge" to make the glow vibrant, not muddy)
-       3. 75% : Blue-15 (Darker blue at the edges)
-    */
-    background-image: radial-gradient(
-            circle,
-            var(--orange) 1%,
-            var(--pink-70) 10%,
-            var(--blue-15) 75%
-    ) !important;
+/* sound button */
+.btn-plate, .btn-sound {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-out, background 0.3s ease-out; /* Smooth interaction */
 
-    aspect-ratio: 1 / 1 !important;
+    /* Base background state (Default) */
+    background: linear-gradient(0deg, var(--blue-50-30) 0%, var(--blue-50-30) 100%),
+    radial-gradient(50.67% 80.74% at 50% 50%, var(--pink) 0%, rgba(246, 112, 85, 0.00) 85%);
 }
 
-.btn-sound:active {
-    animation: pressSound 1s forwards;
-}
+/* Common pseudo-element for the pulsing animation */
+.btn-plate::before, .btn-sound::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.9s ease-in-out; /* Slow fade for the 'breath' effect */
 
-/* pill-shaped sound buttons */
-.btn-plate {
-    border-radius: 28px;
-    padding: 16px 24px;
+    /* Animation state background (Vibrant pink) */
     background: linear-gradient(0deg, var(--blue-50-30), var(--blue-50-30)),
     radial-gradient(62.44% 72.74% at 50% 50%, var(--pink) 0%, rgba(255, 50, 118, 0) 100%);
 }
 
-/* named it "ourIsActive" to avoid overlap with .active and .isActive */
-.ourIsActive {
-    animation: soundActive 1.8s infinite;
+/* Pill-shaped buttons (Timeline & Save) */
+.btn-plate {
+    border-radius: 28px;
+    padding: 16px 24px;
 }
 
-@keyframes pressSound {
-    0% {
-        transform: scale(1);
-        box-shadow: 1px 2px 0.5px rgba(255, 255, 255, 0.1),
-        0 1px 1px rgba(255, 255, 255, 0.06);
-    }
-    100% {
-        transform: scale(0.9);
-        box-shadow: inset 0 1px 0.2px rgba(255, 255, 255, 0.1),
-        0 0.5px 0.5px rgba(255, 255, 255, 0.06);
-    }
+/* Round buttons (Audio descriptions) */
+.btn-sound {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1 !important;
+    padding: 1rem;
 }
 
-@keyframes soundActive {
-    0% {
-        /* Dim state - subtle shadow, normal brightness */
-        box-shadow: 0 0 5px var(--pink-30);
-        filter: brightness(1);
-    }
-    50% {
-        /* Active state - bright outer glow & increased internal brightness */
-        box-shadow: 0 0 20px var(--pink), 0 0 35px var(--pink-30);
-        filter: brightness(1.2);
-    }
-    100% {
-        /* Return to dim state */
-        box-shadow: 0 0 5px var(--pink-30);
-        filter: brightness(1);
-    }
+/* Hover state: updates the base background instantly for feedback */
+.btn-plate:hover, .btn-sound:hover {
+    background: linear-gradient(0deg, var(--blue-50-30), var(--blue-50-30)),
+    radial-gradient(55.44% 72.74% at 50% 50%, var(--pink) 0%, rgba(255, 50, 118, 0) 100%) !important;
+}
+
+/* Active animation: triggers the pulsing opacity on the pseudo-element */
+.ourIsActive::before {
+    animation: pulseOpacity 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseOpacity {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
 }
 
 /* </editor-fold> */
