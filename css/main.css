@@ -1179,24 +1179,19 @@ video {
 }
 
 .map-action-btn {
-    /* Posizionamento */
     position: absolute !important;
     right: 2rem !important;
-    left: auto !important; /* IL FIX PER SAFARI: impedisce al bottone di essere tirato a sinistra */
-
-    /* Gestione Altezza e Safe Areas */
-    bottom: 3rem; /* Fallback per browser vecchi */
+    left: auto !important;
+    bottom: 3rem;
     bottom: calc(3rem + env(safe-area-inset-bottom, 0px)) !important;
-
-    /* Layout e Dimensioni */
-    display: inline-flex !important; /* Si adatta al contenuto senza forzare larghezze intere */
+    display: inline-flex !important;
     align-items: center;
-    white-space: nowrap !important; /* Impedisce al testo di andare a capo e tagliarsi */
+    white-space: nowrap !important;
     width: auto !important;
     min-width: max-content !important;
     flex-shrink: 0;
-
-    /* Estetica e Visibilità */
+    margin-left: auto !important;
+    margin-right: 0 !important;
     z-index: 50;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
@@ -1205,7 +1200,8 @@ video {
 /* 3. ADJUSTMENT PER SCHERMI GRANDI (Desktop) */
 @media only screen and (min-width: 992px) {
     .map-action-btn {
-        right: 5rem !important; /* Più spazio dal bordo su schermi larghi */
+        right: 5rem !important;
+        left: auto !important;
     }
 }
 
