@@ -936,7 +936,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const element = document.getElementById(elementId);
         if (!element) return true;
 
-        const columnContainer = element.closest('.col-md-6');
+        const columnContainer = element.closest('.col-md-5, .col-md-7');
         let visualTarget = null;
         let isInvalid = false;
 
