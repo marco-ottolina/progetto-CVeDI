@@ -244,14 +244,14 @@
                     </div>
 
                     <div class="col-md-6 px-3">
-                        <div class="custom-select-wrapper m-0" data-target="selectPersone">
+                        <div class="custom-select-wrapper m-0" data-target="selectPeople">
                             <div class="select-selected">Persone*</div>
                             <div class="select-items select-hide"></div>
                         </div>
 
                         <select
                                 class="form-select custom-hidden-select"
-                                id="selectPersone"
+                                id="selectPeople"
                                 name="persone"
                                 required
                                 tabindex="-1"
@@ -294,7 +294,7 @@
                     </div>
 
                     <div class="col-md-6 px-3">
-                        <div class="custom-select-wrapper m-0" data-target="selectOrario">
+                        <div class="custom-select-wrapper m-0" data-target="selectTime">
                             <div class="select-selected">Orario*</div>
                             <img class="img-fluid position-absolute top-50 end-0 translate-middle-y me-3"
                                  alt=""
@@ -305,7 +305,7 @@
 
                         <select
                                 class="form-select custom-hidden-select"
-                                id="selectOrario"
+                                id="selectTime"
                                 name="orario"
                                 required
                                 tabindex="-1"
@@ -353,7 +353,7 @@
          id="modalSuccess"
          tabindex="-1"
          role="dialog"
-         aria-labelledby="modalSuccessoLabel"
+         aria-labelledby="modalSuccessLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-style liquidGlass-wrapper p-3">
@@ -361,7 +361,7 @@
                 <span aria-hidden="true" class="liquidGlass-tint"></span>
                 <span aria-hidden="true" class="liquidGlass-shine"></span>
                 <div class="modal-header border-0 liquidGlass-text col-12 text-start ps-3">
-                    <h3 class="h4"  id="modalSuccessoLabel">Prenotazione confermata</h3>
+                    <h3 class="h4"  id="modalSuccessLabel">Prenotazione confermata</h3>
                 </div>
                 <div class="modal-body">
                     <p class="mb-0">La tua richiesta per il tavolo è stata ricevuta correttamente.
@@ -760,7 +760,7 @@
 </svg>
 
 <script>
-    //SNIPPED DI BOOTSTRAP PER VALIDARE IL FORM
+    // Bootstrap snippet to validate the forms
     (() => {
         'use strict'
 

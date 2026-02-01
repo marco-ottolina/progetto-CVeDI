@@ -247,10 +247,10 @@
                     </div>
 
                     <div class="col-md-6 px-3">
-                        <div class="custom-select-wrapper m-0" data-target="selectPersone">
+                        <div class="custom-select-wrapper m-0" data-target="selectPeople">
                             <div class="select-selected">4 persone</div> <div class="select-items select-hide"></div>
                         </div>
-                        <select aria-label="Seleziona numero di persone" class="form-select custom-hidden-select" id="selectPersone" name="persone" required tabindex="-1">
+                        <select aria-label="Seleziona numero di persone" class="form-select custom-hidden-select" id="selectPeople" name="persone" required tabindex="-1">
                             <option disabled value="">Persone*</option>
                             <option value="1">1 persona</option>
                             <option value="2">2 persone</option>
@@ -274,7 +274,7 @@
                     </div>
 
                     <div class="col-md-6 px-3">
-                        <div class="custom-select-wrapper m-0" data-target="selectOrario">
+                        <div class="custom-select-wrapper m-0" data-target="selectTime">
                             <div class="select-selected">19:30</div>
                             <img class="img-fluid position-absolute top-50 end-0 translate-middle-y me-3"
                                  alt=""
@@ -282,7 +282,7 @@
                             >
                             <div class="select-items select-hide"></div>
                         </div>
-                        <select aria-label="Seleziona orario cena" class="form-select custom-hidden-select" id="selectOrario" name="orario" required tabindex="-1">
+                        <select aria-label="Seleziona orario cena" class="form-select custom-hidden-select" id="selectTime" name="orario" required tabindex="-1">
                             <option disabled value="">Orario*</option>
                             <option value="19:00">19:00</option>
                             <option value="19:30" selected>19:30</option>
@@ -476,10 +476,10 @@
 </footer>
 
 <!-- Empty div to set the mouse effect only when content is shown (doesn't work directly put on body) -->
-<div class="circle"></div>
+<div class="circle" aria-hidden="true"></div>
 
 <!-- Liquid glass pattern (done through SVG) -->
-<svg style="display: none">
+<svg style="display: none" aria-hidden="true">
     <filter height="100%" id="glass-distortion" width="100%" x="0%" y="0%">
 
         <feTurbulence
@@ -506,10 +506,9 @@
 
     </filter>
 </svg>
-
 <script>
 
-    // to validate the form
+    // Snippet to validate the form
     (() => {
         'use strict'
 
