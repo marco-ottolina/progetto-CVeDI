@@ -376,8 +376,10 @@ a {
 .btn-plate {
     border-radius: 28px;
     padding: 16px 24px;
+    /* Swapped orange for pink.
+       Note: The radial start is changed from 30% to 0% to make the glow softer like the image. */
     background: linear-gradient(0deg, var(--blue-50-30), var(--blue-50-30)),
-    radial-gradient(62.44% 72.74% at 50% 50%, var(--orange) 30%, rgba(246, 112, 85, 0) 100%);
+    radial-gradient(62.44% 72.74% at 50% 50%, var(--pink) 0%, rgba(255, 50, 118, 0) 100%);
 }
 
 .attivo {
@@ -399,16 +401,19 @@ a {
 
 @keyframes attivo {
     0% {
-        box-shadow: 0 0 10px #F66755, 0 0 15px #5d251d;
-        opacity: 1;
+        /* Dim state - subtle shadow, normal brightness */
+        box-shadow: 0 0 5px var(--pink-30);
+        filter: brightness(1);
     }
     50% {
-        box-shadow: 0 0 20px #F66755, 0 0 30px #5d251d;
-        opacity: 0.6;
+        /* Active state - bright outer glow & increased internal brightness */
+        box-shadow: 0 0 20px var(--pink), 0 0 35px var(--pink-30);
+        filter: brightness(1.2);
     }
     100% {
-        box-shadow: 0 0 10px #F66755, 0 0 15px #5d251d;;
-        opacity: 1;
+        /* Return to dim state */
+        box-shadow: 0 0 5px var(--pink-30);
+        filter: brightness(1);
     }
 }
 
@@ -1593,14 +1598,18 @@ body.is-map-interacting .circle {
 
 /* Tooltip content */
 .tooltip-inner {
-    background-color: var(--blue-5-70);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: var(--blue-95);
-    border: 1px solid var(--orange);
-    border-radius: 8px;
-    padding: 0.6rem 1rem;
-    box-shadow: 0 0 15px rgba(246, 112, 85, 0.2);
+    display: inline-flex;
+    padding: 0.25rem 0.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 1rem;
+    background: radial-gradient(61.55% 98.93% at 50% 50%, var(--orange, rgba(246, 103, 85, 0.30)) 0%, rgba(246, 112, 85, 0.00) 100%);
+}
+
+/* Hide the default arrow because it breaks the gradient look */
+.tooltip-arrow {
+    display: none !important;
 }
 
 /* </editor-fold> */
@@ -1852,27 +1861,24 @@ input.form-control.is-invalid {
 }
 
 .form-control {
-    color: var(--blue-95) !important; /* Testo che scrivi */
+    color: var(--blue-95) !important;
 }
 
 .form-control::placeholder {
-    color: var(--blue-95-70) !important; /* Colore "grigino" del segnaposto */
+    color: var(--blue-95-70) !important;
     opacity: 1;
 }
 
-/* Assicuriamoci che non diventi scuro quando clicchi (focus) */
 .form-control:focus {
     color: var(--blue-95) !important;
-    background-color: var(--blue-5); /* Mantiene lo sfondo scuro */
+    background-color: var(--blue-5);
 }
 
 /* 2. CUSTOM SELECTS */
-/* Il testo selezionato deve essere chiaro */
 .select-selected {
     color: var(--blue-95) !important;
 }
 
-/* Solo quando è un placeholder deve essere grigino */
 .select-selected.is-placeholder {
     color: var(--blue-95-70) !important;
 }
