@@ -1172,27 +1172,41 @@ video {
 /* = Gmaps button style = */
 
 /* Style of the "open google maps" button, the one bottom-right over the D3 map */
-.map-action-btn {
-    position: absolute;
-    right: 2rem;
-    z-index: 50;
-    white-space: nowrap;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-    justify-self: end;
-    box-sizing: border-box;
-    display: flex;
-    bottom: calc(5rem + env(safe-area-inset-bottom));
-    min-width: max-content;
-    flex-shrink: 0;
+
+#map {
+    position: relative !important; /* Indispensabile per ancorare il bottone alla mappa */
+    overflow: hidden;
 }
 
-/* adjustment for bigger screens */
-@media only screen and (min-width: 992px){
+.map-action-btn {
+    /* Posizionamento */
+    position: absolute !important;
+    right: 2rem !important;
+    left: auto !important; /* IL FIX PER SAFARI: impedisce al bottone di essere tirato a sinistra */
 
+    /* Gestione Altezza e Safe Areas */
+    bottom: 3rem; /* Fallback per browser vecchi */
+    bottom: calc(3rem + env(safe-area-inset-bottom, 0px)) !important;
+
+    /* Layout e Dimensioni */
+    display: inline-flex !important; /* Si adatta al contenuto senza forzare larghezze intere */
+    align-items: center;
+    white-space: nowrap !important; /* Impedisce al testo di andare a capo e tagliarsi */
+    width: auto !important;
+    min-width: max-content !important;
+    flex-shrink: 0;
+
+    /* Estetica e Visibilità */
+    z-index: 50;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+/* 3. ADJUSTMENT PER SCHERMI GRANDI (Desktop) */
+@media only screen and (min-width: 992px) {
     .map-action-btn {
-        right: 5rem;
+        right: 5rem !important; /* Più spazio dal bordo su schermi larghi */
     }
-
 }
 
 /* = Instructions Panel Style = */

@@ -389,7 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // === INITIALIZATION ===
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    
+
     const basePath = isLocal ? '/' : '/progetto-CVeDI/';
 
     // Main Timeline Audio
