@@ -17,6 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const tick = () => {
+        if (window.innerWidth <= 992) {
+            circleElement.style.display = "none";
+            return;
+        }
+
+        circleElement.style.display = "block";
+
         circle.x += (mouse.x - circle.x) * speed;
         circle.y += (mouse.y - circle.y) * speed;
         const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
