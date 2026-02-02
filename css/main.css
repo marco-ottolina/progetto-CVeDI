@@ -232,8 +232,8 @@ a {
     z-index: 900000000000;
 }
 
-/* remove cursor on devices smaller than a PC */
-@media (max-width: 992px) {
+/* remove cursor's circle on device with no mouse */
+@media (hover: none) and (pointer: coarse) {
     .circle {
         display: none;
     }
