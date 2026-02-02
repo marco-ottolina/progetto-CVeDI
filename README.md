@@ -86,3 +86,19 @@ progetto-CVeDI/
 ├── prenota.html                # Booking form
 ├── ristorante.html             # The restaurant story and concept
 └── serate-speciali.html        # Special events and theme nights
+```
+---
+
+## 👥 Authors
+
+**Alessio Meraldi**: Project Manager
+
+**Marco Ottolina**: Developer #1
+
+**Yousra El Alani**: Developer #2
+
+**Alessia Schiattelli**: Designer #1
+
+**Eleonora Ratti**: Designer #2
+
+**Giulia Ferrari**: Content, Communications & Documentation
