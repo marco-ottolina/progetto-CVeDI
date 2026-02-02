@@ -1180,10 +1180,10 @@ video {
 
 .map-action-btn {
     position: absolute !important;
-    right: 2rem !important;
+    right: 1rem !important;
     left: auto !important;
-    bottom: 3rem;
-    bottom: calc(3rem + env(safe-area-inset-bottom, 0px)) !important;
+    bottom: 30px;
+    bottom: calc(30px + env(safe-area-inset-bottom, 0px)) !important;
     display: inline-flex !important;
     align-items: center;
     white-space: nowrap !important;
@@ -1210,6 +1210,7 @@ video {
 /* controls hint-panel main style */
 .controls-hint {
     position: absolute;
+    left: 1rem;
     bottom: 30px;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
