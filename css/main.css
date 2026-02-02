@@ -239,6 +239,10 @@ a {
     }
 }
 
+body.is-touch-device .circle {
+    display: none !important;
+}
+
 /* decrease opacity upon entering an hoverable item */
 .hovered {
     opacity: 0.3;
