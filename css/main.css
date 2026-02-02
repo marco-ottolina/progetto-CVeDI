@@ -1341,10 +1341,10 @@ body.is-map-interacting .circle {
 
     /* Standard */
     mask-image: linear-gradient(var(--blue-5));
-    );
+    ):
     filter: brightness(50%);
 
-    object-fit: cover; /* This prevents the stretching */
+    object-fit: cover; /* This prevents it from stretching (on Safari) */
     width: 100%; /* Ensures it fills width */
     height: 100%; /* Ensures it fills height */
 

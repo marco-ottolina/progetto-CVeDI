@@ -48,7 +48,7 @@
 </head>
 
 <body>
-<div class="circle" aria-hidden="true"></div>
+<div aria-hidden="true" class="circle"></div>
 
 <!-- navbar (adapted for plate pages) -->
 <header class="navbar-wrapper container-fluid">
@@ -92,15 +92,15 @@
 </header>
 
 <!-- Off-canvas full-page (adapted for plate pages) -->
-<div id="offCanvasFull"
+<div aria-labelledby="offcanvasFullLabel"
      class="offcanvas offcanvas-top"
-     role="dialog"
-     aria-labelledby="offcanvasFullLabel"
-     tabindex="-1"
      data-bs-backdrop="true"
-     data-bs-scroll="false">
+     data-bs-scroll="false"
+     id="offCanvasFull"
+     role="dialog"
+     tabindex="-1">
 
-    <h2 id="offcanvasFullLabel" class="visually-hidden">Menu di Navigazione Riff</h2>
+    <h2 class="visually-hidden" id="offcanvasFullLabel">Menu di Navigazione Riff</h2>
     <div class="offcanvas-body p-3">
         <div class="container-fluid">
             <div class="row g-0">
@@ -194,9 +194,9 @@
 
                 <div class="d-flex justify-content-end align-content-end d-md-none position-absolute bottom-0 my-5 px-5"
                      id="btns-lan-mobile">
-                    <button class="btn-secondary btn-lan-ita" aria-label="Passa alla lingua Italiana">ITA</button>
+                    <button aria-label="Passa alla lingua Italiana" class="btn-secondary btn-lan-ita">ITA</button>
                     <span aria-hidden="true">/</span>
-                    <button class="btn-secondary btn-lan-med" aria-label="Passa alla lingua Medusa">MED</button>
+                    <button aria-label="Passa alla lingua Medusa" class="btn-secondary btn-lan-med">MED</button>
                 </div>
 
             </div>
@@ -337,7 +337,12 @@
                         <span aria-hidden="true" class="liquidGlass-tint"></span>
                         <span aria-hidden="true" class="liquidGlass-shine"></span>
                         <span class="liquidGlass-text">Ascolta
-                            <img src="../media/icon/music-play-icon.gif" alt="icona musica" class="img-fluid music-button">
+                            <svg fill="none" height="24" viewBox="0 0 24 24" width="24"
+                                 xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 10V13M6 6V17M10 3V21M14 8V15M18 5V18M22 10V13" stroke="#EAE9FB"
+                                  stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="2.18"/>
+                            </svg>
                         </span>
                     </button>
                 </div>
@@ -348,11 +353,11 @@
                 <!-- bubble for mobile (& tablet) --> <!-- duplicated ID is necessary -->
                 <div class="bubble-box d-lg-none mt-5 platePageOneBubble">
 
-                    <img src="../media/img/Bolla1.png"
-                         data-static="../media/img/Bolla1.png"
-                         data-gif="../media/video/Bolla1.gif"
-                         alt="Visualizzazione sonora"
+                    <img alt="Visualizzazione sonora"
                          class="img-fluid"
+                         data-gif="../media/video/Bolla1.gif"
+                         data-static="../media/img/Bolla1.png"
+                         src="../media/img/Bolla1.png"
                     >
                 </div>
 
@@ -361,10 +366,10 @@
             <!-- bubble for desktop -->
             <div class="bubble-box-descr d-none d-lg-block platePageOneBubble">
 
-                <img src="../media/img/Bolla1.png"
-                     data-static="../media/img/Bolla1.png"
+                <img alt="Visualizzazione sonora"
                      data-gif="../media/video/Bolla1.gif"
-                     alt="Visualizzazione sonora"
+                     data-static="../media/img/Bolla1.png"
+                     src="../media/img/Bolla1.png"
                 >
             </div>
 
@@ -394,7 +399,8 @@
                 <p>Per vivere l’esperienza di un percorso di suoni, luci e sapori custoditi nel cuore del fondale di
                     Atlas, è necessaria la prenotazione
                 </p>
-                <a class="btn liquidGlass-wrapper" href="../prenota.html"> <span aria-hidden="true" class="liquidGlass-effect"></span>
+                <a class="btn liquidGlass-wrapper" href="../prenota.html"> <span aria-hidden="true"
+                                                                                 class="liquidGlass-effect"></span>
                     <span aria-hidden="true" class="liquidGlass-tint"></span>
                     <span aria-hidden="true" class="liquidGlass-shine"></span>
                     <span class="liquidGlass-text">Prenota</span>
@@ -420,10 +426,10 @@
 
                                     <input class="form-control"
                                            id="validationCustomUsername"
-                                           required type="text"
-                                           placeholder="nome@esempio.com"
+                                           placeholder="nome@esempio.com" required
+                                           type="text"
                                     >
-                                    <div class="invalid-feedback mt-1 ms-1" aria-live="polite">
+                                    <div aria-live="polite" class="invalid-feedback mt-1 ms-1">
                                         Devi inserire un'e-mail valida!
                                     </div>
                                 </div>
@@ -470,19 +476,19 @@
                 <!-- social icons (right side) -->
                 <div>
                     <!-- social 1 -->
-                    <a class="btn-empty" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
+                    <a class="btn-empty" href="https://open.spotify.com/" rel="noopener noreferrer" target="_blank">
                         <span class="visually-hidden">(Apre in una nuova scheda)</span>
                         <img alt="Apri la nostra pagina di SpottedRayFi" src="../media/icon/footer-1.svg">
                     </a>
 
                     <!-- social 2 -->
-                    <a class="btn-empty" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                    <a class="btn-empty" href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
                         <span class="visually-hidden">(Apre in una nuova scheda)</span>
                         <img alt="Apri la nostra pagina di FishBook" src="../media/icon/footer-2.svg">
                     </a>
 
                     <!-- social 3 -->
-                    <a class="btn-empty" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                    <a class="btn-empty" href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">
                         <span class="visually-hidden">(Apre in una nuova scheda)</span>
                         <img alt="Apri la nostra pagina di InfondAlMar" src="../media/icon/footer-3.svg">
                     </a>
@@ -495,7 +501,7 @@
 </footer>
 
 <!-- Liquid glass pattern (done through SVG) -->
-<svg style="display: none" aria-hidden="true">
+<svg aria-hidden="true" style="display: none">
     <filter height="100%" id="glass-distortion" width="100%" x="0%" y="0%">
 
         <feTurbulence
