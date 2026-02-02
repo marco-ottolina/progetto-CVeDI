@@ -1370,3 +1370,19 @@ document.addEventListener("DOMContentLoaded", function () {
         wrapper.classList.add('hoverable');
     });
 });
+
+/* === TOUCH DETECTION (iPad & Mobile Fix) === */
+
+// Standard Touch Devices (Phones/Android Tablets)
+// These honestly report that they cannot hover.
+const isTouchPrimary = window.matchMedia('(hover: none)').matches;
+
+// "Lying" iPad (Desktop Mode)
+// iPadOS in Desktop mode sends "Macintosh" in the User Agent, but still has touch points.
+// This simple regex matches a device claiming to be a "Macintosh", but that is touchscreen
+const isLyingIPad = /Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1;
+
+// Apply class if it's a phone OR an iPad masquerading as a desktop
+if (isTouchPrimary || isLyingIPad) {
+    document.body.classList.add('is-touch-device');
+}
